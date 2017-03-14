@@ -1,0 +1,4 @@
+DiSL build from SVN 1010
+
+Use "ant run-svm" to build and run an instrumented test application.
+Use "ant package-inst" to package the instrumentation for use on different applications.

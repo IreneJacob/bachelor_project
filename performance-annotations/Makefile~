@@ -1,0 +1,14 @@
+.PHONY: all
+
+all: aspects.jar
+
+ASPECTS_SRC = TestAspect.java
+
+aspects.jar: $(ASPECTS_SRC)
+	java -cp libs/aspectjtools.jar org/aspectj/tools/ajc/Main -outxml -outjar $@ $(ASPECTS_SRC)
+
+.PHONY: run
+
+run: aspects.jar
+	java -javaagent:libs/aspectjweaver.jar -cp libs/closure-1.0.jar:aspects.jar com.google.javascript.jscomp.CommandLineRunner
+
