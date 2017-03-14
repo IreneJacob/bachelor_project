@@ -1,0 +1,93 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1488811379827
+Build-Jdk: 1.8.0_25
+Built-By: irenesjacob
+Bundle-Description: Closure Compiler is a JavaScript optimizing compiler
+ . It parses your    JavaScript, analyzes it, removes dead code and rewr
+ ites and minimizes    what's left. It also checks syntax, variable refe
+ rences, and types, and    warns about common JavaScript pitfalls. It is
+  used in many of Google's    JavaScript apps, including Gmail, Google W
+ eb Search, Google Maps, and    Google Docs.
+Bundle-DocURL: http://www.google.com
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.html
+Bundle-ManifestVersion: 2
+Bundle-Name: Closure Compiler
+Bundle-SymbolicName: com.google.javascript.closure-compiler
+Bundle-Vendor: Google
+Bundle-Version: 1.0.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: com.google.debugging.sourcemap;version="1.0.0";uses:="co
+ m.google.debugging.sourcemap.proto,javax.annotation,jsinterop.annotatio
+ ns",com.google.debugging.sourcemap.proto;version="1.0.0";uses:="com.goo
+ gle.protobuf",com.google.javascript.jscomp;version="1.0.0";uses:="com.g
+ oogle.common.base,com.google.common.collect,com.google.common.io,com.go
+ ogle.debugging.sourcemap,com.google.debugging.sourcemap.proto,com.googl
+ e.javascript.jscomp.deps,com.google.javascript.jscomp.graph,com.google.
+ javascript.jscomp.newtypes,com.google.javascript.jscomp.parsing,com.goo
+ gle.javascript.jscomp.parsing.parser,com.google.javascript.jscomp.parsi
+ ng.parser.trees,com.google.javascript.jscomp.type,com.google.javascript
+ .rhino,com.google.javascript.rhino.jstype,com.google.protobuf,javax.ann
+ otation,org.kohsuke.args4j,org.kohsuke.args4j.spi",com.google.javascrip
+ t.jscomp.ant;version="1.0.0";uses:="com.google.javascript.jscomp,org.ap
+ ache.tools.ant,org.apache.tools.ant.types",com.google.javascript.jscomp
+ .deps;version="1.0.0";uses:="com.google.common.base,com.google.common.c
+ ollect,com.google.common.escape,com.google.common.io,com.google.javascr
+ ipt.jscomp,com.google.javascript.jscomp.transpile,javax.annotation",com
+ .google.javascript.jscomp.graph;version="1.0.0";uses:="com.google.commo
+ n.base",com.google.javascript.jscomp.lint;version="1.0.0";uses:="com.go
+ ogle.common.base,com.google.javascript.jscomp,com.google.javascript.rhi
+ no",com.google.javascript.jscomp.newtypes;version="1.0.0";uses:="com.go
+ ogle.common.base,com.google.common.collect,com.google.javascript.jscomp
+ ,com.google.javascript.rhino,com.google.javascript.rhino.jstype",com.go
+ ogle.javascript.jscomp.parsing;version="1.0.0";uses:="com.google.javasc
+ ript.jscomp.parsing.parser,com.google.javascript.jscomp.parsing.parser.
+ trees,com.google.javascript.rhino,javax.annotation",com.google.javascri
+ pt.jscomp.parsing.parser;version="1.0.0";uses:="com.google.javascript.j
+ scomp.parsing.parser.trees,com.google.javascript.jscomp.parsing.parser.
+ util,javax.annotation",com.google.javascript.jscomp.parsing.parser.tree
+ s;version="1.0.0";uses:="com.google.common.collect,com.google.javascrip
+ t.jscomp.parsing.parser,com.google.javascript.jscomp.parsing.parser.uti
+ l,javax.annotation",com.google.javascript.jscomp.parsing.parser.util;ve
+ rsion="1.0.0";uses:="com.google.javascript.jscomp.parsing.parser",com.g
+ oogle.javascript.jscomp.parsing.parser.util.format;version="1.0.0",com.
+ google.javascript.jscomp.regex;version="1.0.0",com.google.javascript.js
+ comp.transpile;version="1.0.0";uses:="com.google.common.cache,com.googl
+ e.javascript.jscomp,javax.annotation",com.google.javascript.jscomp.type
+ ;version="1.0.0";uses:="com.google.javascript.jscomp.graph,com.google.j
+ avascript.rhino,com.google.javascript.rhino.jstype",com.google.javascri
+ pt.refactoring;version="1.0.0";uses:="com.google.common.collect,com.goo
+ gle.javascript.jscomp,com.google.javascript.rhino,javax.annotation",com
+ .google.javascript.rhino.dtoa;version="1.0.0",com.google.javascript.rhi
+ no;version="1.0.0";uses:="com.google.common.collect,com.google.javascri
+ pt.rhino.jstype,javax.annotation",com.google.javascript.rhino.jstype;ve
+ rsion="1.0.0";uses:="com.google.common.base,com.google.common.collect,c
+ om.google.javascript.rhino"
+Import-Package: com.google.common.base;version="[20.0,21)",com.google.co
+ mmon.cache;version="[20.0,21)",com.google.common.collect;version="[20.0
+ ,21)",com.google.common.escape;version="[20.0,21)",com.google.common.ha
+ sh;version="[20.0,21)",com.google.common.io;version="[20.0,21)",com.goo
+ gle.common.primitives;version="[20.0,21)",com.google.common.reflect;ver
+ sion="[20.0,21)",com.google.common.util.concurrent;version="[20.0,21)",
+ com.google.debugging.sourcemap;version="[1.0,2)",com.google.debugging.s
+ ourcemap.proto;version="[1.0,2)",com.google.gson;version="[2.7,3)",com.
+ google.gson.stream;version="[2.7,3)",com.google.javascript.jscomp;versi
+ on="[1.0,2)",com.google.javascript.jscomp.deps;version="[1.0,2)",com.go
+ ogle.javascript.jscomp.graph;version="[1.0,2)",com.google.javascript.js
+ comp.lint;version="[1.0,2)",com.google.javascript.jscomp.newtypes;versi
+ on="[1.0,2)",com.google.javascript.jscomp.parsing;version="[1.0,2)",com
+ .google.javascript.jscomp.parsing.parser;version="[1.0,2)",com.google.j
+ avascript.jscomp.parsing.parser.trees;version="[1.0,2)",com.google.java
+ script.jscomp.parsing.parser.util;version="[1.0,2)",com.google.javascri
+ pt.jscomp.parsing.parser.util.format;version="[1.0,2)",com.google.javas
+ cript.jscomp.regex;version="[1.0,2)",com.google.javascript.jscomp.trans
+ pile;version="[1.0,2)",com.google.javascript.jscomp.type;version="[1.0,
+ 2)",com.google.javascript.refactoring;version="[1.0,2)",com.google.java
+ script.rhino;version="[1.0,2)",com.google.javascript.rhino.dtoa;version
+ ="[1.0,2)",com.google.javascript.rhino.jstype;version="[1.0,2)",com.goo
+ gle.protobuf;version="[3.0,4)",javax.annotation;version="[3.0,4)",javax
+ .xml.parsers,jsinterop.annotations,org.apache.tools.ant,org.apache.tool
+ s.ant.types,org.apache.tools.ant.types.resources,org.kohsuke.args4j;ver
+ sion="[2.33,3)",org.kohsuke.args4j.spi;version="[2.33,3)",org.xml.sax
+Originally-Created-By: Apache Maven Bundle Plugin
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+Tool: Bnd-3.2.0.201605172007
