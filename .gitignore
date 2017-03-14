@@ -6,5 +6,5 @@
 *.tex
 *.synctex.gz
 AspectJ-Tutorial-jayway/
-
-
+closure-compiler/
+closure-compiler-master/
