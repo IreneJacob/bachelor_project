@@ -11,3 +11,5 @@ closure-compiler/
 closure-compiler/*
 closure-compiler-master/
 closure-compiler-master/*
+performance-annotations/disl/closureTest/output
+performance-annotations/disl/closureTest/output/*
