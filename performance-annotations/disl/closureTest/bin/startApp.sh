@@ -14,4 +14,4 @@ sleep 1
 
 echo starting program
 
-java -cp $APP_CP -agentpath:lib/libdislagent.jnilib  -Xbootclasspath/a:lib/disl-bypass.jar:$INSTR_JAR -noverify com.google.javascript.jscomp.CommandLineRunner
+java -cp $APP_CP -agentpath:lib/libdislagent.jnilib  -Xbootclasspath/a:lib/disl-bypass.jar:$INSTR_JAR -noverify com.google.javascript.jscomp.CommandLineRunner --js js/03_test.js --js_output_file output/compressed_file.js

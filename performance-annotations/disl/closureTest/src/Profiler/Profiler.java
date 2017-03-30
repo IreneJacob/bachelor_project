@@ -21,27 +21,24 @@ public final class Profiler {
     private static final HashMap<String,ArrayList<Long>> cache = new HashMap<>();
 
     static {
-        Runtime.getRuntime().addShutdownHook(new Thread() {
-            public void run() {
-                try{
-                    final Path completed = FileSystems.getDefault().getPath(".","tasks.txt");
-                    PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
-                    for (String name: cache.keySet()) {
-                        out.println(name);
-                        for (long val: cache.get(name)) {
-                            out.printf(val + "\t");
-                        }
-                        out.println('\n');
-
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            try{
+                final Path completed = FileSystems.getDefault().getPath("./logs","getInput.txt");
+                System.out.println("Shutdown hook called successfully");
+                PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
+                for (String name: cache.keySet()) {
+//                        out.println(name);
+                    for (long val: cache.get(name)) {
+                        out.printf(val + "\n");
                     }
-//                    out.println("Shutdown hook called successfully");
-                    out.close();
-                }catch (IOException e){
-                    System.out.println(" hook called. Failed to write");
+                    out.println('\n');
+
                 }
-
-
-            }});
+                out.close();
+            }catch (IOException e){
+                System.out.println(" hook called. Failed to write");
+            }
+        }));
     }
 
     public static void addvalue(final String name, final Thread thread, final long duration){
@@ -56,5 +53,4 @@ public final class Profiler {
             cache.replace(name,val);
         }
     }
-
 }
