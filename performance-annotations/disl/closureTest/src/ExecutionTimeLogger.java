@@ -1,4 +1,4 @@
-import Profiler.Profiler;
+import Profiler.ProfileData;
 import ch.usi.dag.disl.annotation.After;
 import ch.usi.dag.disl.annotation.Before;
 import ch.usi.dag.disl.annotation.SyntheticLocal;
@@ -21,6 +21,6 @@ public class ExecutionTimeLogger {
     static void popOnMethodExit(MethodStaticContext methodStaticContext) {
         String methodName = methodStaticContext.thisMethodName();
         long duration = System.nanoTime() - entryTime;
-        Profiler.addvalue(methodName,Thread.currentThread(),duration);
+        ProfileData.addvalue(methodName,Thread.currentThread(),duration);
     }
 }
