@@ -11,9 +11,7 @@ closure-compiler/
 closure-compiler/*
 closure-compiler-master/
 closure-compiler-master/*
-performance-annotations/disl/closureTest/output
+performance-annotations/disl/closureTest/output/
 performance-annotations/disl/closureTest/output/*
-.idea/
-.idea/*
-output/
-output/*
+performance-annotations/disl/closureTest/.idea/
+performance-annotations/disl/closureTest/.idea/*
