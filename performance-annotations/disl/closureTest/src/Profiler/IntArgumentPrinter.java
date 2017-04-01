@@ -10,7 +10,7 @@ import ch.usi.dag.disl.staticcontext.MethodStaticContext;
 @ArgumentProcessor
 public class IntArgumentPrinter {
     public static void printIntegerArgument (
-            int val, ArgumentContext ac, MethodStaticContext msc) {
+            int val, ArgumentContext ac, MethodStaticContext msc, long duration) {
         System.out.printf(
                 "Int argument value in method %s at position %d of %d is %d\n",
                 msc.thisMethodFullName(), ac.getPosition(), ac.getTotalCount(), val

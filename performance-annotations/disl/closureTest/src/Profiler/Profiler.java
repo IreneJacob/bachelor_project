@@ -1,45 +1,40 @@
 package Profiler;
 
-import DataStructures.Tuple;
-import org.omg.SendingContext.RunTime;
+import DataStructures.KeyValuePair;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.lang.reflect.Array;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * Created by irenesjacob on 22.03.17.
- * Data from DiSLClass is logged to .dat files
+ * __ from DiSLClass is logged to .dat files
  */
 public final class Profiler {
 
     private Profiler(){/* Prevent instantiation */}
 
-    private static final ArrayList<Tuple> pairs = new ArrayList<>();
+    private static final ArrayList<KeyValuePair> pairs = new ArrayList<>();
     static {
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             try{
-                final Path completed = FileSystems.getDefault().getPath("./logs","nodeSetScope.dat");
-                PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
-                for (Tuple t: pairs){
-                    out.println(t.x + "\t" + t.y);
+                final Path file = FileSystems.getDefault().getPath("./logs","nodeSetScopeLineNo.dat");
+                PrintWriter out = new PrintWriter(Files.newBufferedWriter(file));
+                for (KeyValuePair tuple: pairs){
+                    out.println(tuple.getKey() + "\t" + tuple.getValue());
                 }
                 out.close();
             }catch (IOException e){
-
                 System.out.println(" hook called. Failed to write");
             }
         }));
     }
 
-    public static void addFeatureValuePair(final String name, final Thread thread, final int feature, final long duration){
-        Tuple<Integer,Long> tuple =  new Tuple<>(feature,duration);
-        pairs.add(tuple);
+    public static void addFeatureValuePair(final int feature, final long duration){
+        KeyValuePair<Integer,Long> keyValuePair =  new KeyValuePair<>(feature,duration);
+        pairs.add(keyValuePair);
     }
 }

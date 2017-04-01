@@ -25,9 +25,8 @@ public class AccessFeature {
     public static void onMethodExit(ArgumentProcessorContext argumentProcessorContext,MethodStaticContext msc) {
         try {
             Node n = (Node) argumentProcessorContext.getArgs(ArgumentProcessorMode.METHOD_ARGS)[0];
-            String methodName = msc.thisMethodName();
             long duration = System.nanoTime() - entryTime;
-            Profiler.addFeatureValuePair(methodName,Thread.currentThread(),n.getChildCount(),duration);
+            Profiler.addFeatureValuePair(n.getChildCount(),duration);
         } catch (Exception e) {
             System.out.println("an error ( " + e + ") occurred");
         }

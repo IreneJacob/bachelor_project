@@ -1,7 +1,5 @@
 package Profiler;
 
-import DataStructures.Tuple;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.FileSystems;
@@ -21,7 +19,7 @@ public class ProfileData {
     static {
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             try{
-                final Path completed = FileSystems.getDefault().getPath("./logs","nodeSetScope.dat");
+                final Path completed = FileSystems.getDefault().getPath("./logs","nodeSetScopeLen.dat");
                 System.out.println("Shutdown hook called successfully");
                 PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
                 for (String name: cache.keySet()) {
@@ -57,4 +55,3 @@ public class ProfileData {
     }
 }
 
-}
