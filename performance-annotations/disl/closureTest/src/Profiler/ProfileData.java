@@ -19,8 +19,8 @@ public class ProfileData {
     static {
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             try{
-                final Path completed = FileSystems.getDefault().getPath("./logs","nodeSetScopeLen.dat");
-                System.out.println("Shutdown hook called successfully");
+                final Path completed = FileSystems.getDefault().getPath("./logs/Scanner","peekToken.dat");
+//                System.out.println("Shutdown hook called successfully");
                 PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
                 for (String name: cache.keySet()) {
 //                        out.println(name);

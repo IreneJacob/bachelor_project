@@ -1,16 +1,19 @@
 import ch.usi.dag.disl.annotation.After;
 import ch.usi.dag.disl.marker.BodyMarker;
+import ch.usi.dag.disl.processorcontext.ArgumentProcessorContext;
+import ch.usi.dag.disl.processorcontext.ArgumentProcessorMode;
 import ch.usi.dag.disl.staticcontext.MethodStaticContext;
 
 /**
  * Created by irenesjacob on 19.03.17.
  */
 public class MethodNames {
-	@After(marker = BodyMarker.class, scope = " com.google.javascript.jscomp.*.*")
-	public static void onMethodExit(MethodStaticContext methodStaticContext){
+	@After(marker = BodyMarker.class, scope = " com.google.javascript.jscomp.parsing.parser.LineNumberTable.*")
+	public static void onMethodExit(MethodStaticContext methodStaticContext,  ArgumentProcessorContext apc){
+		Object[] args = apc.getArgs(ArgumentProcessorMode.METHOD_ARGS);
 		// print the methods with the interesting signatures
-		if (methodStaticContext.thisMethodSignature() != null) {
-			System.out.println( methodStaticContext.thisMethodFullName() + "\t\t" +  methodStaticContext.thisMethodSignature() );
+		if (args.length != 0) {
+			System.out.println( methodStaticContext.thisMethodFullName() + "\t" + "has " + args.length + " arguments.");
 		}
 	}
 }
