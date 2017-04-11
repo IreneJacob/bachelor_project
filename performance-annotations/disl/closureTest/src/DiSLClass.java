@@ -27,20 +27,20 @@ public class DiSLClass {
     @SyntheticLocal
     static long entryTime;
 
-    @Before(marker = BodyMarker.class, scope = "com.google.javascript.jscomp.parsing.parser.LineNumberTable.computeLineStartOffset", order = 1000)
+    @Before(marker = BodyMarker.class, scope = "com.google.javascript.jscomp.parsing.JsDocInfoParser.recordTypeNode", order = 1000)
     public static void onMethodEntry(MethodStaticContext msc) {
         entryTime = System.nanoTime();
 //        System.out.println(msc.thisMethodFullName());
     }
 
-    @After(marker = BodyMarker.class, scope = "com.google.javascript.jscomp.parsing.parser.LineNumberTable.computeLineStartOffset", order = 1000)
+    @After(marker = BodyMarker.class, scope = "com.google.javascript.jscomp.parsing.JsDocInfoParser.recordTypeNode", order = 1000)
     static void popOnMethodExit(MethodStaticContext msc, ArgumentProcessorContext apc) {
         try {
             String methodName = msc.thisMethodName();
             long duration = System.nanoTime() - entryTime;
-            int feature = 0;
-            Node node = (Node) apc.getArgs(ArgumentProcessorMode.METHOD_ARGS)[1];
-            feature = node.getChildCount();
+            int feature = (int) apc.getArgs(ArgumentProcessorMode.METHOD_ARGS)[0];
+//            Node node = (Node) apc.getArgs(ArgumentProcessorMode.METHOD_ARGS)[1];
+//            feature = node.getChildCount();
 
             Profiler.addFeatureValuePair(feature, duration);
         } catch (Exception e) {

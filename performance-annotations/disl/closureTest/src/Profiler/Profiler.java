@@ -21,7 +21,7 @@ public final class Profiler {
     static {
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             try{
-                final Path file = FileSystems.getDefault().getPath("./logs/NodeTraversal/","traverseEs6.dat");
+                final Path file = FileSystems.getDefault().getPath("./logs/JsDocInfoParser/","recordTypeNodeLineNo.dat");
                 PrintWriter out = new PrintWriter(Files.newBufferedWriter(file));
 //                System.out.println("reaches here");
                 for (KeyValuePair tuple: pairs){
