@@ -15,9 +15,11 @@ performance-annotations/disl/closureTest/output/
 performance-annotations/disl/closureTest/output/*
 performance-annotations/disl/closureTest/.idea/
 performance-annotations/disl/closureTest/.idea/*
-
+.idea/workspace.xml
 performance-annotations/disl/closureTest/.idea/workspace.xml
-
+output/
+output/*
+scratch/jar/*
 performance-annotations/disl/closureTest/output/closureInst.jar
 
 performance-annotations/disl/closureTest/output/inst/DiSLClass.class
