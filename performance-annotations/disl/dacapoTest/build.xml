@@ -1,0 +1,45 @@
+<project name="dacapoTest" default="info" basedir=".">
+    <description>
+        Instrumentation of Closure Compiler using DiSL.
+    </description>
+    <property name="src.dir" value="src"></property>
+    <property name="lib.dir" value="lib"></property>
+    <property name="out.dir" value="output"></property>
+    <property name="inst.build.dir" value="${out.dir}/inst"></property>
+
+    <!--LIBRARY CLASSPATH-->
+    <path id="lib-classpath" description="Classpath for libraries">
+        <fileset dir="${lib.dir}" includes="**/*.jar"/>
+    </path>
+
+    <!--CLEAN-->
+    <target name="clean" description="Deletes compilation and packaging output">
+        <delete dir="${out.dir}"/>
+    </target>
+
+    <!--Compile and Package Instrumentation-->
+    <target name="build-inst" description="Compiles instrumentation">
+        <mkdir dir="${inst.build.dir}"/>
+        <javac destdir="${inst.build.dir}" includeantruntime="false">
+            <src path="${src.dir}"/>
+            <classpath refid="lib-classpath"/>
+        </javac>
+    </target>
+
+    <target name="package-inst" depends="build-inst" description="Packages instrumentation">
+        <jar destfile="${out.dir}/dacapoInst.jar" basedir="${inst.build.dir}" excludes="MANIFEST.MF" manifest="${src.dir}/MANIFEST.MF"/>
+    </target>
+
+    <!--Run the instrumented application-->
+    <target name="run" depends="package-inst" description="runs the closure compiler, instrumented">
+        <exec executable="bin/startApp.sh"/>
+    </target>
+
+    <!--DEFAULT-->
+    <target name="info">
+        <echo>
+            Instrumentation of Closure Compiler using DiSL.
+        </echo>
+    </target>
+
+</project>
