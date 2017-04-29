@@ -15,14 +15,15 @@ import java.util.Stack;
 public class StackTracer {
     @ThreadLocal
     static Stack<String> callStack;
-    @Before(marker=BodyMarker.class, scope = " com.google.javascript.*.*", order=1000)
+    @Before(marker=BodyMarker.class, scope = "org.*.*", order=1000)
     static void pushOnMethodEntry(MethodStaticContext msc) {
         if (callStack == null) { callStack = new Stack<String>(); }
         callStack.push(msc.thisMethodFullName());
     }
-    @After(marker=BodyMarker.class, scope = " com.google.javascript.*.*", order=1000)
+    @After(marker=BodyMarker.class, scope = "org.*.*", order=1000)
     static void popOnMethodExit(ArgumentProcessorContext apc) {
         apc.apply(IntArgumentPrinter.class, ArgumentProcessorMode.METHOD_ARGS);
+//        System.out.println(callStack.pop());
         callStack.pop();
     }
 }

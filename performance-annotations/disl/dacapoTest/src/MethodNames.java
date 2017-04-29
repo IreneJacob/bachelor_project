@@ -9,7 +9,7 @@ import ch.usi.dag.disl.staticcontext.MethodStaticContext;
  * Created by irenesjacob on 19.03.17.
  */
 public class MethodNames {
-	@After(marker = BodyMarker.class)
+	@After(marker = BodyMarker.class, scope = "org.dacapo.harness.Lusearch.*.*")
 	public static void onMethodExit(MethodStaticContext methodStaticContext,  ArgumentProcessorContext apc){
 		Object[] args = apc.getArgs(ArgumentProcessorMode.METHOD_ARGS);
 		// print the methods with the interesting signatures

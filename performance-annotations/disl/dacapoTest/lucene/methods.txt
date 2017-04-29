@@ -1,0 +1,35 @@
+Buildfile: /Users/irenesjacob/Documents/Semester6/bachelor_project/performance-annotations/disl/dacapoTest/build.xml
+
+build-inst:
+    [mkdir] Created dir: /Users/irenesjacob/Documents/Semester6/bachelor_project/performance-annotations/disl/dacapoTest/output/inst
+    [javac] Compiling 12 source files to /Users/irenesjacob/Documents/Semester6/bachelor_project/performance-annotations/disl/dacapoTest/output/inst
+
+package-inst:
+      [jar] Building jar: /Users/irenesjacob/Documents/Semester6/bachelor_project/performance-annotations/disl/dacapoTest/output/dacapoInst.jar
+
+run:
+     [exec] starting DiSL server
+     [exec] starting program
+     [exec] Using scaled threading model. 8 processors detected, 8 threads used to drive the workload, in a possible range of [1,64]
+     [exec] ===== DaCapo 9.12 lusearch starting =====
+     [exec] 4 query batches completed
+     [exec] 8 query batches completed
+     [exec] 12 query batches completed
+     [exec] 16 query batches completed
+     [exec] 20 query batches completed
+     [exec] 24 query batches completed
+     [exec] 28 query batches completed
+     [exec] 32 query batches completed
+     [exec] 36 query batches completed
+     [exec] 40 query batches completed
+     [exec] 44 query batches completed
+     [exec] 48 query batches completed
+     [exec] 52 query batches completed
+     [exec] 56 query batches completed
+     [exec] 60 query batches completed
+     [exec] 64 query batches completed
+     [exec] ===== DaCapo 9.12 lusearch PASSED in 1901 msec =====
+     [exec] started server
+
+BUILD SUCCESSFUL
+Total time: 4 seconds
