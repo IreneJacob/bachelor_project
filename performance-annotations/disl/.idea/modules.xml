@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/closureTest/closureTest.iml" filepath="$PROJECT_DIR$/closureTest/closureTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dacapoTest/dacapoTest.iml" filepath="$PROJECT_DIR$/dacapoTest/dacapoTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/disl.iml" filepath="$PROJECT_DIR$/.idea/disl.iml" />
+    </modules>
+  </component>
+</project>

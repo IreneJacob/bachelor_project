@@ -38,7 +38,7 @@
     <!--DEFAULT-->
     <target name="info">
         <echo>
-            Instrumentation of Closure Compiler using DiSL.
+            Instrumentation of Dacapo Benchmarks using DiSL.
         </echo>
     </target>
 

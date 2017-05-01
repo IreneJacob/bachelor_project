@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/closureTest.iml" filepath="$PROJECT_DIR$/closureTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$//dacapoTest.iml" filepath="$PROJECT_DIR$//dacapoTest.iml" />
     </modules>
   </component>
 </project>
