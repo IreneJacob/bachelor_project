@@ -20,7 +20,7 @@ public class ProfileExecutionTime {
      static {
          Runtime.getRuntime().addShutdownHook(new Thread(() -> {
              try{
-                 final Path completed = FileSystems.getDefault().getPath("./lucene","Index.dat");
+                 final Path completed = FileSystems.getDefault().getPath("./h2","initDbObjectBase.dat");
                  PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
                  for (Long val: cache) {
                          out.println(val);
