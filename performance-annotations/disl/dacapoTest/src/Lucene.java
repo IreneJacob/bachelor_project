@@ -59,7 +59,7 @@ public class Lucene {
         startTime = System.nanoTime();
     }
 
-    @After(marker = BodyMarker.class, scope = "org.dacapo.parser.ConfigFileTokenManager.jjCheckNAdd" )
+    @After(marker = BodyMarker.class, scope = "org.dacapo.parser.ConfigFileTokenManager.jjCheckNAdd " )
     static void onMethodExit(){
         long duration = System.nanoTime() - startTime;
 //        System.out.println(duration);
