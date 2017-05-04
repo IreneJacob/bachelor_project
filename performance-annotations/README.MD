@@ -9,6 +9,6 @@ All the other directories in this folder were used when deciding between DiSL an
 contains jar files to instrument closure compiler with AspectJ.
 
 ## testAspects
-contains source code for instrumening closure compiler with AspectJ.
+contains source code for instrumenting closure compiler with AspectJ.
 
 The Makefile is to compile the AspectJ class and to run the instrumented classes
