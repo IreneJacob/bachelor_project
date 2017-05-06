@@ -7,9 +7,10 @@ import ch.usi. dag. disl.staticcontext.MethodStaticContext;
 @ArgumentProcessor
 public class IntArgumentProcessor{
     public static void printIntegerArgument(int val, ArgumentContext ac, MethodStaticContext msc){
-        System.out.printf(
-        "method name: %s | arg pos: %d of %d \t| arg val: %d\n",
-        msc.thisMethodFullName(), ac.getPosition(), ac.getTotalCount(), val
-        );
+        BasicProfiler.addMethod(msc.thisMethodFullName());
+//        System.out.printf(
+//        "method name: %s | arg pos: %d of %d \t| arg val: %d\n",
+//        msc.thisMethodFullName(), ac.getPosition(), ac.getTotalCount(), val
+//        );
     }
 }

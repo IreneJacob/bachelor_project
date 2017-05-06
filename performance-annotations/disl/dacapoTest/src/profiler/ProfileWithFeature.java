@@ -19,7 +19,7 @@ public class ProfileWithFeature {
     static {
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             try{
-                final Path file = FileSystems.getDefault().getPath("./sunflow/","WaldTriangleIntersect.dat");
+                final Path file = FileSystems.getDefault().getPath("./h2","getResult.dat");
                 PrintWriter out = new PrintWriter(Files.newBufferedWriter(file));
 //                System.out.println("reaches here");
                 for (KeyValuePair tuple: pairs){
@@ -30,6 +30,12 @@ public class ProfileWithFeature {
                 System.out.println(" hook called. Failed to write");
             }
         }));
+    }
+
+    public static void addStringFeatureAndValue(final String feature, final long duration){
+        int strlen = feature.length();
+        KeyValuePair<Integer,Long> keyValuePair =  new KeyValuePair<>(strlen,duration);
+        pairs.add(keyValuePair);
     }
 
     public static void addFeatureValuePair(final int feature, final long duration){

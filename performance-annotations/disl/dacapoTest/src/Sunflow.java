@@ -5,9 +5,7 @@ import ch.usi.dag.disl.marker.BodyMarker;
 import ch.usi.dag.disl.processorcontext.ArgumentProcessorContext;
 import ch.usi.dag.disl.processorcontext.ArgumentProcessorMode;
 import ch.usi.dag.disl.staticcontext.MethodStaticContext;
-import profiler.IntArgumentProcessor;
-import profiler.ProfileExecutionTime;
-import profiler.ProfileWithFeature;
+import profiler.*;
 
 /**
  * Created by irenesjacob on 02.05.17.
@@ -23,13 +21,22 @@ public class Sunflow {
         System.out.println(msc.thisMethodFullName());
     }
     */
-    /*
+//    /*
     @After(marker = BodyMarker.class, scope = "org.sunflow.*.*")
     static void afterMethodExit(ArgumentProcessorContext proc){
-        proc.apply(IntArgumentProcessor.class, ArgumentProcessorMode.METHOD_ARGS);
+        proc.apply(StringArgumentProcessor.class, ArgumentProcessorMode.METHOD_ARGS);
+//        proc.apply(IntArgumentProcessor.class, ArgumentProcessorMode.METHOD_ARGS);
     }
+//     */
 
-     */
+    /*
+
+    @After(marker = BodyMarker.class, scope = "org.sunflow.*.*")
+    static void afterMethodExit(MethodStaticContext msc){
+        BasicProfiler.addMethod(msc.thisMethodFullName());
+    }
+    */
+
 //    /*
 //    @Before(marker = BodyMarker.class, scope="org.sunflow.util.FastHashMap.alloc")
 //    static void onMethodEntry(){
@@ -44,6 +51,7 @@ public class Sunflow {
 //    }
 ////     */
 
+    /*
     @Before(marker = BodyMarker.class, scope="org.sunflow.core.primitive.TriangleMesh.WaldTriangle.intersect")
     static void onMethodEntry(){
         startTime = System.nanoTime();
@@ -59,4 +67,5 @@ public class Sunflow {
             e.printStackTrace();
         }
     }
+    */
 }

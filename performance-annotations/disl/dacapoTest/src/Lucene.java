@@ -1,4 +1,5 @@
 import ch.usi.dag.disl.processorcontext.ArgumentProcessorMode;
+import profiler.BasicProfiler;
 import profiler.IntArgumentProcessor;
 import profiler.ProfileExecutionTime;
 import ch.usi.dag.disl.annotation.After;
@@ -7,6 +8,7 @@ import ch.usi.dag.disl.annotation.SyntheticLocal;
 import ch.usi.dag.disl.marker.BodyMarker;
 import ch.usi.dag.disl.processorcontext.ArgumentProcessorContext;
 import ch.usi.dag.disl.staticcontext.MethodStaticContext;
+import profiler.StringArgumentProcessor;
 
 
 /**
@@ -44,15 +46,21 @@ public class Lucene {
         System.out.println(msc.thisMethodFullName());
     }
     */
-    /*
-
-    @After(marker = BodyMarker.class, scope = "org.dacapo.*.*")
-    static void afterMethodExit(ArgumentProcessorContext proc){
-        proc.apply(IntArgumentProcessor.class, ArgumentProcessorMode.METHOD_ARGS);
-    }
-
-     */
 //    /*
+///*
+    @After(marker = BodyMarker.class, scope = "org.apache.lucene.index.*.*")
+    static void afterMethodExit(ArgumentProcessorContext proc){
+        proc.apply(StringArgumentProcessor.class, ArgumentProcessorMode.METHOD_ARGS);
+    }
+//*/
+
+//    @After(marker = BodyMarker.class, scope = "org.apache.lucene.index.*.*")
+//    static void afterMethodExit(MethodStaticContext msc){
+//        BasicProfiler.addMethod(msc.thisMethodFullName());
+//    }
+
+//     */
+    /*
 
     @Before(marker = BodyMarker.class, scope="org.dacapo.parser.ConfigFileTokenManager.jjCheckNAdd")
     static void onMethodEntry(){
@@ -65,6 +73,6 @@ public class Lucene {
 //        System.out.println(duration);
         ProfileExecutionTime.addValue(duration);
     }
-//     */
+     */
 }
 

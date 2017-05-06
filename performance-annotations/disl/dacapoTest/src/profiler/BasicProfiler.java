@@ -16,21 +16,22 @@ import java.util.stream.Collectors;
  */
 public class BasicProfiler {
     private static final Map<String,Integer> map = new HashMap<>();
-
+    private static int count = 0;
     static {
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             try{
-                final Path completed = FileSystems.getDefault().getPath("./","topTenMethods.txt");
+                final Path completed = FileSystems.getDefault().getPath("./sunflow","top_ten_methods_string_arg.txt");
                 PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
                 Map<String, Integer> sortedMap = sortByValue(map);
                 Set set = sortedMap.entrySet();
                 Iterator it = set.iterator();
-                int count = 0;
+
 //                http://beginnersbook.com/2013/12/how-to-sort-hashmap-in-java-by-keys-and-values/
-                while(it.hasNext() || count < 10){
+                while(it.hasNext() && count < 10){
                     Map.Entry mapEntry = (Map.Entry)it.next();
-                    out.print(mapEntry.getKey() + "\t");
-                    out.println(mapEntry.getValue());
+                    out.printf("%s %8s\n", mapEntry.getKey().toString(),mapEntry.getValue().toString());
+//                    out.print(mapEntry.getKey() + "\t\t\t");
+//                    out.println(mapEntry.getValue());
                     count++;
                 }
                 out.close();
