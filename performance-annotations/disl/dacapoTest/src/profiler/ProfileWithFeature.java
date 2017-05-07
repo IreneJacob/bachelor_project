@@ -13,9 +13,11 @@ import java.util.ArrayList;
  * Created by irenesjacob on 03.05.17.
  */
 public class ProfileWithFeature {
-    private ProfileWithFeature(){/* Prevent instantiation */}
 
     private static final ArrayList<KeyValuePair> pairs = new ArrayList<>();
+    
+    private ProfileWithFeature(){/* Prevent instantiation */}
+
     static {
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             try{
