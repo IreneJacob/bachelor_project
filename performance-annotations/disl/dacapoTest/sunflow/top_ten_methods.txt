@@ -1,0 +1,10 @@
+org/sunflow/core/Ray.getMax 110973424
+org/sunflow/core/primitive/TriangleMesh$WaldTriangle.intersect 106563410
+org/sunflow/core/primitive/TriangleMesh.intersectPrimitive 105276395
+org/sunflow/core/Ray.isInside 104455074
+org/sunflow/math/BoundingBox.getMaximum 72490281
+org/sunflow/math/BoundingBox.getMinimum 71058392
+org/sunflow/core/Ray.setMax 40489319
+org/sunflow/core/InstanceList.intersectPrimitive 36806949
+org/sunflow/core/Ray.transform 36643570
+org/sunflow/core/Instance.intersect 36544527

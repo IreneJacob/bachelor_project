@@ -1,0 +1,10 @@
+org/h2/result/Row.getValue 293877934
+org/h2/util/MathUtils.compare 126301887
+org/h2/value/Value.compareTypeSave 125334753
+org/h2/table/Table.compareTypeSave 125325747
+org/h2/index/BaseIndex.compareValues 125277494
+org/h2/value/ValueShort.compareSecure 82660517
+org/h2/index/BaseIndex.compareRows 58736413
+org/h2/jdbc/JdbcConnection.checkClosed 49872988
+org/h2/util/ObjectArray.get 44184066
+org/h2/value/ValueInt.compareSecure 43424370

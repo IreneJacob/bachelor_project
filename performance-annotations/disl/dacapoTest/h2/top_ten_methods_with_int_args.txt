@@ -1,0 +1,10 @@
+org/h2/result/Row.getValue 293668025
+org/h2/util/MathUtils.compare 252271280
+org/h2/index/BaseIndex.compareValues 125170687
+org/h2/util/ObjectArray.get 44161525
+org/h2/value/Value.convertTo 23995709
+org/h2/message/Trace.isEnabled 22277057
+org/h2/message/TraceSystem.isEnabled 22272951
+org/h2/result/Row.setValue 14032882
+org/h2/jdbc/JdbcResultSet.get 13529551
+org/h2/jdbc/JdbcResultSet.checkColumnIndex 13529548

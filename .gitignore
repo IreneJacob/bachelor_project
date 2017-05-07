@@ -33,3 +33,4 @@ performance-annotations/disl/dacapoTest/lucene/methods.txt
 /performance-annotations/disl/dacapoTest/lucene/luindexMethods.txt
 /performance-annotations/disl/dacapoTest/lucene/lusearchMethods.txt
 /performance-annotations/disl/dacapoTest/sunflow/methods.txt
+**/.DS_Store

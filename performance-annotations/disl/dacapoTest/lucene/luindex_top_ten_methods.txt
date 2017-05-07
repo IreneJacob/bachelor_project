@@ -1,0 +1,10 @@
+org/apache/lucene/index/ByteSliceReader.readByte  2004047
+org/apache/lucene/index/TermsHashPerField.writeByte  2004047
+org/apache/lucene/index/TermsHashPerField.writeVInt  1395025
+org/apache/lucene/index/TermsHashPerField.postingEquals   986763
+org/apache/lucene/index/SegmentTermPositions.readDeltaPosition   940097
+org/apache/lucene/index/SegmentTermPositions.lazySkip   940097
+org/apache/lucene/index/SegmentTermPositions.nextPosition   940097
+org/apache/lucene/index/TermsHashPerField.add   940097
+org/apache/lucene/index/FreqProxTermsWriterPerField.writeProx   940097
+org/apache/lucene/index/SegmentTermPositions.skipPayload   940097

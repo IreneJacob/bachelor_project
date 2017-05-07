@@ -1,0 +1,10 @@
+org/apache/lucene/index/FieldInfos.fieldInfo   123031
+org/apache/lucene/index/Term.<init>    71258
+org/apache/lucene/index/FieldInfos.fieldNumber    29131
+org/apache/lucene/index/IndexFileDeleter.getRefCount      126
+org/apache/lucene/index/IndexFileDeleter.decRef       60
+org/apache/lucene/index/SegmentInfo.addIfExists       58
+org/apache/lucene/index/IndexFileNames.fileNameFromGeneration       48
+org/apache/lucene/index/IndexWriter.message       28
+org/apache/lucene/index/IndexFileDeleter.deleteFile       25
+org/apache/lucene/index/CompoundFileWriter.addFile       20

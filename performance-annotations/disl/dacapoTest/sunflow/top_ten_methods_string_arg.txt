@@ -1,0 +1,10 @@
+org/sunflow/util/FastHashMap$Entry.<init>      362
+org/sunflow/util/FastHashMap.get      164
+org/sunflow/system/UI.printDetailed      105
+org/sunflow/core/ParameterList.isValidParameter       96
+org/sunflow/util/FastHashMap.put       89
+org/sunflow/SunflowAPI.parameter       67
+org/sunflow/core/ParameterList.add       52
+org/sunflow/system/UI.printInfo       49
+org/sunflow/Benchmark.print       49
+org/sunflow/core/ParameterList$Parameter.<init>       30

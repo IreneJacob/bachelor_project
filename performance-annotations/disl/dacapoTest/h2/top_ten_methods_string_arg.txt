@@ -1,0 +1,10 @@
+org/h2/message/TraceObject.debugCodeCall 15350833
+org/h2/value/CompareMode.compareString  8194442
+org/h2/value/ValueStringBase.<init>  3270002
+org/h2/util/StringCache.get  3269997
+org/h2/value/ValueString.<init>  1983191
+org/h2/value/ValueString.get  1983186
+org/h2/jdbc/JdbcPreparedStatement.setString  1982560
+org/h2/value/ValueStringFixed.<init>  1286815
+org/h2/value/ValueStringFixed.trimRight  1286814
+org/h2/value/ValueStringFixed.get  1286814

@@ -1,0 +1,10 @@
+org/sunflow/core/primitive/TriangleMesh.intersectPrimitive 66281959
+org/sunflow/core/primitive/TriangleMesh$WaldTriangle.intersect 59580525
+org/sunflow/core/InstanceList.intersectPrimitive 31471225
+org/sunflow/core/primitive/Sphere.intersectPrimitive 12977882
+org/sunflow/core/ShadingState.getRandom  8058853
+org/sunflow/math/QMC.halton  3918204
+org/sunflow/core/IntersectionState.setIntersection  3843972
+org/sunflow/core/primitive/TriangleMesh.getPoint   892057
+org/sunflow/math/MathUtils.clamp   604256
+org/sunflow/core/renderer/BucketRenderer.refineSamples   425179

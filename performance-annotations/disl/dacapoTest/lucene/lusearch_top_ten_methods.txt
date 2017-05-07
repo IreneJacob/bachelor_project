@@ -1,0 +1,10 @@
+org/apache/lucene/search/Similarity.tf  7171309
+org/apache/lucene/search/DefaultSimilarity.tf  7139658
+org/apache/lucene/search/Scorer.getSimilarity  7109733
+org/apache/lucene/search/HitQueue.lessThan   814840
+org/apache/lucene/search/TermQuery.access$000   754358
+org/apache/lucene/search/TopDocCollector.<init>   514467
+org/apache/lucene/search/TermScorer.score   513567
+org/apache/lucene/search/Query.getSimilarity   504619
+org/apache/lucene/search/Searcher.getSimilarity   501216
+org/apache/lucene/search/IndexSearcher.search   385064
