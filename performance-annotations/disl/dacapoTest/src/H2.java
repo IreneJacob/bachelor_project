@@ -46,19 +46,20 @@ public class H2 {
      */
 
 //    /*
-    @Before(marker = BodyMarker.class, scope="org.h2.result.Row.getValue")
+    @Before(marker = BodyMarker.class, scope="org.apache.lucene.index.TermsHash.recyclePostings")
     static void onMethodEntry(){
         startTime = System.nanoTime();
     }
 
-    @After(marker = BodyMarker.class, scope = "org.h2.result.Row.getValue" )
+    @After(marker = BodyMarker.class, scope = "org.apache.lucene.index.TermsHash.recyclePostings" )
     static void onMethodExit(ArgumentProcessorContext proc){
         try {
             long duration = System.nanoTime() - startTime;
-            int feature = (int)proc.getArgs(ArgumentProcessorMode.METHOD_ARGS)[0];
+            int feature = (int)proc.getArgs(ArgumentProcessorMode.METHOD_ARGS)[1];
 //        System.out.println(duration);
 //            ProfileExecutionTime.addValue(duration);
-            ProfileWithFeature.addFeatureValuePair(feature, duration);
+//            ProfileWithFeature.addFeatureValuePair(feature, duration);
+            Profiler.writeToFile(feature,duration);
         }catch (Exception e){
             System.out.println(e.getStackTrace());
         }

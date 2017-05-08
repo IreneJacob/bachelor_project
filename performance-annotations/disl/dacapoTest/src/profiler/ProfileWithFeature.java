@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class ProfileWithFeature {
 
     private static final ArrayList<KeyValuePair> pairs = new ArrayList<>();
-    
+
     private ProfileWithFeature(){/* Prevent instantiation */}
 
     static {
