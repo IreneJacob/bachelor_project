@@ -45,7 +45,7 @@ public class H2 {
     }
      */
 
-//    /*
+    /*
     @Before(marker = BodyMarker.class, scope="org.apache.lucene.index.TermsHash.recyclePostings")
     static void onMethodEntry(){
         startTime = System.nanoTime();
@@ -64,7 +64,26 @@ public class H2 {
             System.out.println(e.getStackTrace());
         }
     }
-//    */
+    */
+
+
+    @Before(marker = BodyMarker.class, scope="org.apache.lucene.index.*.*")
+    static void onMethodEntry(){
+        startTime = System.nanoTime();
+    }
+
+    @After(marker = BodyMarker.class, scope = "org.apache.lucene.index.*.*")
+    static void onMethodExit(ArgumentProcessorContext proc, MethodStaticContext msc){
+        try {
+            // an example of value: execution time
+            long duration = System.nanoTime() - startTime;
+            Object[] method_args = proc.getArgs(ArgumentProcessorMode.METHOD_ARGS);
+            FeatureSearch.searchForFeatures(method_args,msc.thisMethodFullName(),duration);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
 
 //    @After(marker = BodyMarker.class, scope = "org.h2.*.*")
 //    static void afterMethodExit(ArgumentProcessorContext proc){

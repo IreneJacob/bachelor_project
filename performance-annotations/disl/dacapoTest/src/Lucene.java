@@ -1,14 +1,14 @@
 import ch.usi.dag.disl.processorcontext.ArgumentProcessorMode;
-import profiler.BasicProfiler;
-import profiler.IntArgumentProcessor;
-import profiler.ProfileExecutionTime;
+import profiler.*;
 import ch.usi.dag.disl.annotation.After;
 import ch.usi.dag.disl.annotation.Before;
 import ch.usi.dag.disl.annotation.SyntheticLocal;
 import ch.usi.dag.disl.marker.BodyMarker;
 import ch.usi.dag.disl.processorcontext.ArgumentProcessorContext;
 import ch.usi.dag.disl.staticcontext.MethodStaticContext;
-import profiler.StringArgumentProcessor;
+
+import java.lang.reflect.Array;
+import java.util.Collection;
 
 
 /**
@@ -16,8 +16,11 @@ import profiler.StringArgumentProcessor;
  */
 public class Lucene {
 //
-//    @SyntheticLocal
-//    static long time;
+    @SyntheticLocal
+    static long time;
+
+    @SyntheticLocal
+    static long startTime;
 //
 //    @Before(marker=BodyMarker.class, scope="org.dacapo.luindex.Index.<init>")
 //    static void pushOnMethodEntry(){
@@ -35,10 +38,6 @@ public class Lucene {
 ////         ProfileExecutionTime.addValue(duration,Thread.currentThread());
 //    }
 
-
-    @SyntheticLocal
-    static long startTime;
-
     /*
 
     @Before(marker=BodyMarker.class , scope = "org.*.*")
@@ -47,12 +46,13 @@ public class Lucene {
     }
     */
 //    /*
-///*
+/*
     @After(marker = BodyMarker.class, scope = "org.apache.lucene.index.*.*")
     static void afterMethodExit(ArgumentProcessorContext proc){
-        proc.apply(StringArgumentProcessor.class, ArgumentProcessorMode.METHOD_ARGS);
+//        proc.apply(StringArgumentProcessor.class, ArgumentProcessorMode.METHOD_ARGS);
+        Object[] o = proc.getArgs(ArgumentProcessorMode.METHOD_ARGS);
     }
-//*/
+*/
 
 //    @After(marker = BodyMarker.class, scope = "org.apache.lucene.index.*.*")
 //    static void afterMethodExit(MethodStaticContext msc){
@@ -60,19 +60,37 @@ public class Lucene {
 //    }
 
 //     */
-    /*
-
-    @Before(marker = BodyMarker.class, scope="org.dacapo.parser.ConfigFileTokenManager.jjCheckNAdd")
+//    /*
+    @Before(marker = BodyMarker.class, scope="org.apache.lucene.index.*.*")
     static void onMethodEntry(){
         startTime = System.nanoTime();
     }
 
-    @After(marker = BodyMarker.class, scope = "org.dacapo.parser.ConfigFileTokenManager.jjCheckNAdd " )
-    static void onMethodExit(){
-        long duration = System.nanoTime() - startTime;
-//        System.out.println(duration);
-        ProfileExecutionTime.addValue(duration);
-    }
-     */
+        @After(marker = BodyMarker.class, scope = "org.apache.lucene.index.*.*")
+        static void onMethodExit(ArgumentProcessorContext proc, MethodStaticContext msc){
+                // an example of value: execution time
+                long duration = System.nanoTime() - startTime;
+//                System.out.println("hello");
+                Object[] method_args = proc.getArgs(ArgumentProcessorMode.METHOD_ARGS);
+                if (method_args != null){
+                    FeatureSearch.searchForFeatures(method_args,msc.thisMethodFullName(),duration);
+                }
+        }
+//             */
+
+        //    /*
+//    @Before(marker = BodyMarker.class, scope="org.dacapo.parser.ConfigFileTokenManager.jjCheckNAdd")
+//    static void onMethodEntry(){
+//        startTime = System.nanoTime();
+//    }
+//
+//    @After(marker = BodyMarker.class, scope = "org.dacapo.parser.ConfigFileTokenManager.jjCheckNAdd " )
+//    static void onMethodExit(){
+//        long duration = System.nanoTime() - startTime;
+////        System.out.println(duration);
+//        ProfileExecutionTime.addValue(duration);
+//    }
+//     */
+
 }
 
