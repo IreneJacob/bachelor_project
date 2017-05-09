@@ -45,13 +45,13 @@ public class H2 {
     }
      */
 
-    /*
-    @Before(marker = BodyMarker.class, scope="org.apache.lucene.index.TermsHash.recyclePostings")
+//    /*
+    @Before(marker = BodyMarker.class, scope="org.apache.lucene.index.LogMergePolicy.isOptimized")
     static void onMethodEntry(){
         startTime = System.nanoTime();
     }
 
-    @After(marker = BodyMarker.class, scope = "org.apache.lucene.index.TermsHash.recyclePostings" )
+    @After(marker = BodyMarker.class, scope = "org.apache.lucene.index.LogMergePolicy.isOptimized" )
     static void onMethodExit(ArgumentProcessorContext proc){
         try {
             long duration = System.nanoTime() - startTime;
@@ -64,9 +64,10 @@ public class H2 {
             System.out.println(e.getStackTrace());
         }
     }
-    */
+//    */
 
 
+    /*
     @Before(marker = BodyMarker.class, scope="org.apache.lucene.index.*.*")
     static void onMethodEntry(){
         startTime = System.nanoTime();
@@ -83,6 +84,7 @@ public class H2 {
             e.printStackTrace();
         }
     }
+    */
 
 
 //    @After(marker = BodyMarker.class, scope = "org.h2.*.*")

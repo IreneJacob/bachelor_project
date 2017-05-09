@@ -54,19 +54,43 @@ public class Lucene {
     }
 */
 
-//    @After(marker = BodyMarker.class, scope = "org.apache.lucene.index.*.*")
-//    static void afterMethodExit(MethodStaticContext msc){
-//        BasicProfiler.addMethod(msc.thisMethodFullName());
-//    }
+/*
 
-//     */
+//    finding most called methods
+    @After(marker = BodyMarker.class, scope = "org.apache.lucene.index.*.*")
+    static void afterMethodExit(MethodStaticContext msc){
+        BasicProfiler.addMethod(msc.thisMethodFullName());
+    }
+
+
+*/
+
+    /*
+
+    // to write feature and value pair to .dat file
+    @Before(marker = BodyMarker.class, scope="org.apache.lucene.index.LogMergePolicy.findMergesForOptimize")
+    static void onMethodEntry(){
+      startTime = System.nanoTime();
+    }
+
+    @After(marker = BodyMarker.class, scope = "org.apache.lucene.index.LogMergePolicy.findMergesForOptimize")
+    static void onMethodExit(ArgumentProcessorContext proc, MethodStaticContext msc){
+          // an example of value: execution time
+          long duration = System.nanoTime() - startTime;
+          int feature = ((Collection)proc.getArgs(ArgumentProcessorMode.METHOD_ARGS)[0]).size();
+//          int feature = (int)proc.getArgs(ArgumentProcessorMode.METHOD_ARGS)[2];
+          Profiler.writeToFile(feature,duration);
+    }
+
+     */
 //    /*
-    @Before(marker = BodyMarker.class, scope="org.apache.lucene.index.*.*")
+//    looks for interesting features using pcc
+    @Before(marker = BodyMarker.class, scope="org.apache.lucene.index.TermBuffer.*")
     static void onMethodEntry(){
         startTime = System.nanoTime();
     }
 
-        @After(marker = BodyMarker.class, scope = "org.apache.lucene.index.*.*")
+        @After(marker = BodyMarker.class, scope = "org.apache.lucene.index.TermBuffer.*")
         static void onMethodExit(ArgumentProcessorContext proc, MethodStaticContext msc){
                 // an example of value: execution time
                 long duration = System.nanoTime() - startTime;

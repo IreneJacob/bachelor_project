@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class Profiler {
 
     private static final ArrayList<KeyValuePair> pairs = new ArrayList<>();
-    private static final Path file = FileSystems.getDefault().getPath("./lucene","recyclePostings.dat");
+    private static final Path file = FileSystems.getDefault().getPath("./lucene","findMergesForOptimize.dat");
     private static PrintWriter out = null;
     static {
         try{

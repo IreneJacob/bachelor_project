@@ -144,7 +144,7 @@ public class ProfileExecutionTime {
      }
     private static void print_feat_value_pair(String pname, Measurement.FeatureType featureType) {
         try{
-            final Path completed = FileSystems.getDefault().getPath("./lucene","isOptimized.dat");
+            final Path completed = FileSystems.getDefault().getPath("./lucene","hasSeparateNorms.dat");
             PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
             for (Measurement m: cache.get(pname)) {
                 if (m.ft.equals(featureType)){
@@ -185,8 +185,8 @@ public class ProfileExecutionTime {
 		 	double cov = compute_best_pearson_coeff(name);
 			out.println(name + ": " + cov);
 		 }
-//		 print_values("org/apache/lucene/index/LogMergePolicy.isOptimized");
-//		 print_feat_value_pair("org/apache/lucene/index/LogMergePolicy.isOptimized", Measurement.FeatureType.FT_COLLECTION);
+//		 print_values("org/apache/lucene/index/LogMergePolicy.findMergesForOptimize");
+//		 print_feat_value_pair("org/apache/lucene/index/SegmentInfo.hasSeparateNorms", Measurement.FeatureType.FT_COLLECTION);
 		 //print_values("org/apache/lucene/index/DocumentsWriter.recycleCharBlocks");
 		 //print_values("org/apache/lucene/index/TermsHash.recyclePostings");
                  out.close();
