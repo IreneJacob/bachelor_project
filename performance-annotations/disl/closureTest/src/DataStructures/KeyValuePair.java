@@ -1,4 +1,4 @@
-package DataStructures;
+package dataStructures;
 
 /**
  * Created by irenesjacob on 30.03.17.

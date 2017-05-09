@@ -1,4 +1,4 @@
-package Profiler;
+package profiler;
 
 import ch.usi.dag.disl.annotation.ArgumentProcessor;
 import ch.usi.dag.disl.processorcontext.ArgumentContext;

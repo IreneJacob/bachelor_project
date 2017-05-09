@@ -1,4 +1,4 @@
-import Profiler.Profiler;
+import profiler.ProfileWithFeature;
 import ch.usi.dag.disl.annotation.After;
 import ch.usi.dag.disl.annotation.Before;
 import ch.usi.dag.disl.annotation.SyntheticLocal;
@@ -26,9 +26,12 @@ public class AccessFeature {
         try {
             Node n = (Node) argumentProcessorContext.getArgs(ArgumentProcessorMode.METHOD_ARGS)[0];
             long duration = System.nanoTime() - entryTime;
-            Profiler.addFeatureValuePair(n.getChildCount(),duration);
+
+            ProfileWithFeature.addFeatureValuePair(n.getChildCount(),duration);
         } catch (Exception e) {
             System.out.println("an error ( " + e + ") occurred");
         }
     }
+
+
 }

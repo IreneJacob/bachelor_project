@@ -1,4 +1,4 @@
-package Profiler;
+package profiler;
 
 import java.io.IOException;
 import java.io.PrintWriter;

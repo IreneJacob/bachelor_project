@@ -1,4 +1,4 @@
-import Profiler.IntArgumentPrinter;
+import profiler.IntArgumentPrinter;
 import ch.usi.dag.disl.annotation.After;
 import ch.usi.dag.disl.annotation.Before;
 import ch.usi.dag.disl.annotation.ThreadLocal;

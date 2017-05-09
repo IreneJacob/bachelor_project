@@ -1,4 +1,5 @@
-import Profiler.Profiler;
+import profiler.ProfileWithFeature;
+import profiler.Profiler;
 import ch.usi.dag.disl.annotation.After;
 import ch.usi.dag.disl.annotation.Before;
 import ch.usi.dag.disl.annotation.SyntheticLocal;
@@ -33,7 +34,7 @@ public class BasicFeature extends AbstractStaticContext {
 //            System.out.println(feature);
 //            Node node = (Node) apc.getArgs(ArgumentProcessorMode.METHOD_ARGS)[1];
 //            feature = node.getChildCount();
-            Profiler.addFeatureValuePair(feature, duration);
+            ProfileWithFeature.addFeatureValuePair(feature, duration);
         } catch (Exception e) {
             System.out.println("An error "+ " ( " + (e) + " ) " + "occurred");
         }

@@ -1,4 +1,4 @@
-import Profiler.*;
+import profiler.*;
 import ch.usi.dag.disl.annotation.*;
 import ch.usi.dag.disl.marker.BodyMarker;
 import ch.usi.dag.disl.marker.Parameter;
@@ -16,6 +16,7 @@ import com.google.javascript.jscomp.parsing.parser.trees.SwitchStatementTree;
 import com.google.javascript.rhino.Node;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -27,29 +28,83 @@ import java.util.List;
 public class DiSLClass {
 
     @SyntheticLocal
-    static long entryTime;
-
-    @Before(marker = BodyMarker.class, scope = "com.google.javascript.jscomp.parsing.parser.Parser.parse", order = 1000)
-    public static void onMethodEntry(MethodStaticContext msc) {
-        entryTime = System.nanoTime();
-//        System.out.println(msc.thisMethodFullName());
+    static long startTime;
+///*
+    //    finding most called methods
+    @After(marker = BodyMarker.class, scope = "com.google.javascript.rhino.*.*")
+    static void afterMethodExit(MethodStaticContext msc){
+        BasicProfiler.addMethod(msc.thisMethodFullName());
     }
 
-    @After(marker = BodyMarker.class, scope = "com.google.javascript.jscomp.parsing.parser.Parser.parse", order = 1000)
-    static void popOnMethodExit(MethodStaticContext msc, ArgumentProcessorContext apc) {
-        try {
-            String methodName = msc.thisMethodName();
-            long duration = System.nanoTime() - entryTime;
-//            String e = (String) apc.getArgs(ArgumentProcessorMode.METHOD_ARGS)[0].toString();
-            //            int feature = (int) apc.getArgs(ArgumentProcessorMode.METHOD_ARGS)[0];
-//            Node node = (Node) apc.getArgs(ArgumentProcessorMode.METHOD_ARGS)[1];
-//            feature = node.getChildCount();
-//            System.out.println(e);
-            ProfileData.addvalue("parse",Thread.currentThread(),duration);
-//            Profiler.addFeatureValuePair(feature, duration);
-        } catch (Exception e) {
-            System.out.println("An error "+ " ( " + (e) + " ) " + "occurred");
+//*/
+
+/*
+    //    looks for interesting features using pcc
+    @Before(marker = BodyMarker.class, scope="com.google.javascript.rhino.*.*")
+    static void enteringMethod(){
+        startTime = System.nanoTime();
+    }
+
+    @After(marker = BodyMarker.class, scope = "com.google.javascript.rhino.*.*")
+    static void exitingMethod(ArgumentProcessorContext proc, MethodStaticContext msc){
+        // an example of value: execution time
+        long duration = System.nanoTime() - startTime;
+//                System.out.println("hello");
+        Object[] method_args = proc.getArgs(ArgumentProcessorMode.METHOD_ARGS);
+        if (method_args != null){
+            FeatureSearch.searchForFeatures(method_args,msc.thisMethodFullName(),duration);
         }
-
     }
+
+    */
+
+
+    /*
+    // to write feature and value pair to .dat file
+    @Before(marker = BodyMarker.class, scope="com.google.javascript.jscomp.CompilerOptions$JsonStreamMode.<init>")
+    static void onMethodEntry(){
+        startTime = System.nanoTime();
+    }
+
+    @After(marker = BodyMarker.class, scope = "com.google.javascript.jscomp.CompilerOptions$JsonStreamMode.<init>")
+    static void onMethodExit(ArgumentProcessorContext proc, MethodStaticContext msc){
+        // an example of value: execution time
+        long duration = System.nanoTime() - startTime;
+//        int feature = ((Collection)proc.getArgs(ArgumentProcessorMode.METHOD_ARGS)[0]).size();
+          int feature = (int)proc.getArgs(ArgumentProcessorMode.METHOD_ARGS)[1];
+        Profiler.writeToFile(feature,duration);
+    }
+ */
+
+
+//
+//
+//
+//      PAST VERSION
+//
+//
+//
+//    @Before(marker = BodyMarker.class, scope = "com.google.javascript.jscomp.parsing.parser.Parser.parse", order = 1000)
+//    public static void onMethodEntry(MethodStaticContext msc) {
+//        entryTime = System.nanoTime();
+////        System.out.println(msc.thisMethodFullName());
+//    }
+//
+//    @After(marker = BodyMarker.class, scope = "com.google.javascript.jscomp.parsing.parser.Parser.parse", order = 1000)
+//    static void popOnMethodExit(MethodStaticContext msc, ArgumentProcessorContext apc) {
+//        try {
+//            String methodName = msc.thisMethodName();
+//            long duration = System.nanoTime() - entryTime;
+////            String e = (String) apc.getArgs(ArgumentProcessorMode.METHOD_ARGS)[0].toString();
+//            //            int feature = (int) apc.getArgs(ArgumentProcessorMode.METHOD_ARGS)[0];
+////            Node node = (Node) apc.getArgs(ArgumentProcessorMode.METHOD_ARGS)[1];
+////            feature = node.getChildCount();
+////            System.out.println(e);
+////            ProfileData.addvalue("parse",Thread.currentThread(),duration);
+////            ProfileWithFeature.addFeatureValuePair(feature, duration);
+//        } catch (Exception e) {
+//            System.out.println("An error "+ " ( " + (e) + " ) " + "occurred");
+//        }
+//
+//    }
 }

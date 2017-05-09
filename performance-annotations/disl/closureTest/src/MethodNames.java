@@ -1,4 +1,4 @@
-import Profiler.ProfileData;
+import profiler.ProfileData;
 import ch.usi.dag.disl.annotation.After;
 import ch.usi.dag.disl.marker.BodyMarker;
 import ch.usi.dag.disl.processorcontext.ArgumentProcessorContext;
