@@ -1,3 +1,4 @@
+import com.google.javascript.rhino.jstype.JSType;
 import profiler.*;
 import ch.usi.dag.disl.annotation.*;
 import ch.usi.dag.disl.marker.BodyMarker;
@@ -29,23 +30,23 @@ public class DiSLClass {
 
     @SyntheticLocal
     static long startTime;
-///*
+/*
     //    finding most called methods
     @After(marker = BodyMarker.class, scope = "com.google.javascript.rhino.*.*")
     static void afterMethodExit(MethodStaticContext msc){
         BasicProfiler.addMethod(msc.thisMethodFullName());
     }
 
-//*/
+*/
 
-/*
+///*
     //    looks for interesting features using pcc
-    @Before(marker = BodyMarker.class, scope="com.google.javascript.rhino.*.*")
+    @Before(marker = BodyMarker.class, scope="com.google.javascript.jscomp.*.*")
     static void enteringMethod(){
         startTime = System.nanoTime();
     }
 
-    @After(marker = BodyMarker.class, scope = "com.google.javascript.rhino.*.*")
+    @After(marker = BodyMarker.class, scope = "com.google.javascript.jscomp.*.*")
     static void exitingMethod(ArgumentProcessorContext proc, MethodStaticContext msc){
         // an example of value: execution time
         long duration = System.nanoTime() - startTime;
@@ -56,22 +57,30 @@ public class DiSLClass {
         }
     }
 
-    */
+//    */
 
 
     /*
     // to write feature and value pair to .dat file
-    @Before(marker = BodyMarker.class, scope="com.google.javascript.jscomp.CompilerOptions$JsonStreamMode.<init>")
+    @Before(marker = BodyMarker.class, scope="com.google.javascript.rhino.jstype.TemplateTypeMap.<init>")
     static void onMethodEntry(){
         startTime = System.nanoTime();
     }
 
-    @After(marker = BodyMarker.class, scope = "com.google.javascript.jscomp.CompilerOptions$JsonStreamMode.<init>")
+    @After(marker = BodyMarker.class, scope = "com.google.javascript.rhino.jstype.TemplateTypeMap.<init>")
     static void onMethodExit(ArgumentProcessorContext proc, MethodStaticContext msc){
         // an example of value: execution time
         long duration = System.nanoTime() - startTime;
-//        int feature = ((Collection)proc.getArgs(ArgumentProcessorMode.METHOD_ARGS)[0]).size();
-          int feature = (int)proc.getArgs(ArgumentProcessorMode.METHOD_ARGS)[1];
+//        ImmutableList<JSType> templateValues = (ImmutableList<JSType>) proc.getArgs(ArgumentProcessorMode.METHOD_ARGS)[1];
+//        int feature = 0;
+//        System.out.println(templateValues.size());
+//        for (JSType j: templateValues) {
+//            feature += j.toString().length();
+////            System.out.println(feature);
+//        }
+//        int feature = templateValues.size();
+        int feature = ((Collection)proc.getArgs(ArgumentProcessorMode.METHOD_ARGS)[1]).size();
+//          int feature = (int)proc.getArgs(ArgumentProcessorMode.METHOD_ARGS)[0];
         Profiler.writeToFile(feature,duration);
     }
  */

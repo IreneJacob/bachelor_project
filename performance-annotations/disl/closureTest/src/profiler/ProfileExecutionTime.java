@@ -144,7 +144,7 @@ public class ProfileExecutionTime {
      }
     private static void print_feat_value_pair(String pname, Measurement.FeatureType featureType) {
         try{
-            final Path completed = FileSystems.getDefault().getPath("./lucene","hasSeparateNorms.dat");
+            final Path completed = FileSystems.getDefault().getPath("./lucene","refactoringIndex.dat");
             PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
             for (Measurement m: cache.get(pname)) {
                 if (m.ft.equals(featureType)){
@@ -179,13 +179,13 @@ public class ProfileExecutionTime {
      	System.out.println("AAA");
          Runtime.getRuntime().addShutdownHook(new Thread(() -> {
              try{
-                 final Path completed = FileSystems.getDefault().getPath("./logs/pcc","Index.dat");
+                 final Path completed = FileSystems.getDefault().getPath("./logs/pcc","jscompIndex.dat");
                  PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
 		 for (String name: cache.keySet()) {
 		 	double cov = compute_best_pearson_coeff(name);
 			out.println(name + ": " + cov);
 		 }
-//		 print_values("com/google/javascript/jscomp/parsing/parser/Scanner.peekChar");
+//		 print_values("com/google/javascript/rhino/jstype/TemplateTypeMap.<init>");
 //		 print_feat_value_pair("org/apache/lucene/index/SegmentInfo.hasSeparateNorms", Measurement.FeatureType.FT_COLLECTION);
 		 //print_values("org/apache/lucene/index/DocumentsWriter.recycleCharBlocks");
 		 //print_values("org/apache/lucene/index/TermsHash.recyclePostings");

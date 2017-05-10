@@ -20,14 +20,14 @@ public class BasicProfiler {
     static {
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             try{
-                final Path completed = FileSystems.getDefault().getPath("./lucene","top_fifty_methods.txt");
+                final Path completed = FileSystems.getDefault().getPath("./h2","top_500_methods.txt");
                 PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
                 Map<String, Integer> sortedMap = sortByValue(map);
                 Set set = sortedMap.entrySet();
                 Iterator it = set.iterator();
 
 //                http://beginnersbook.com/2013/12/how-to-sort-hashmap-in-java-by-keys-and-values/
-                while(it.hasNext() && count < 50){
+                while(it.hasNext() && count < 500){
                     Map.Entry mapEntry = (Map.Entry)it.next();
                     out.printf("%s %8s\n", mapEntry.getKey().toString(),mapEntry.getValue().toString());
 //                    out.print(mapEntry.getKey() + "\t\t\t");

@@ -1,0 +1,10 @@
+com/google/javascript/jscomp/CommandLineRunner$Flags.access$7000: 0.0
+com/google/javascript/jscomp/SourceFile$OnDisk.setCharset: 0.0
+com/google/javascript/jscomp/Compiler.init: 0.0
+com/google/javascript/jscomp/parsing/parser/trees/Comment.<init>: 0.12259096635934484
+com/google/javascript/jscomp/ErrorFormat$1.<init>: 0.0
+com/google/javascript/jscomp/AbstractCommandLineRunner$CommandLineConfig.access$1400: 0.0
+com/google/javascript/jscomp/Compiler.setProgress: 0.0
+com/google/javascript/jscomp/parsing/IRFactory.access$500: 0.0
+com/google/javascript/jscomp/Compiler.newTracer: -1.0
+com/google/javascript/jscomp/AbstractCommandLineRunner.setRunOptions: 0.0
