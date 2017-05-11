@@ -20,7 +20,7 @@ public class BasicProfiler {
     static {
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             try{
-                final Path completed = FileSystems.getDefault().getPath("./h2","top_500_methods.txt");
+                final Path completed = FileSystems.getDefault().getPath("./h2","index.txt");
                 PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
                 Map<String, Integer> sortedMap = sortByValue(map);
                 Set set = sortedMap.entrySet();

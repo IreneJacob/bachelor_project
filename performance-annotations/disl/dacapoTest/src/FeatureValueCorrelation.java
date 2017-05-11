@@ -16,12 +16,12 @@ public class FeatureValueCorrelation {
     static long startTime;
 
     //    looks for interesting features using pcc
-    @Before(marker = BodyMarker.class, scope="com.google.javascript.jscomp.*.*")
+    @Before(marker = BodyMarker.class, scope="org.h2.engine.*.*")
     static void enteringMethod(){
         startTime = System.nanoTime();
     }
 
-    @After(marker = BodyMarker.class, scope = "com.google.javascript.jscomp.*.*")
+    @After(marker = BodyMarker.class, scope = "org.h2.engine.*.*")
     static void exitingMethod(ArgumentProcessorContext proc, MethodStaticContext msc){
         // an example of value: execution time
         long duration = System.nanoTime() - startTime;

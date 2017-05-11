@@ -9,31 +9,25 @@ import ch.usi.dag.disl.marker.BodyMarker;
 import ch.usi.dag.disl.processorcontext.ArgumentProcessorContext;
 import ch.usi.dag.disl.staticcontext.MethodStaticContext;
 
+import com.google.javascript.rhino.Node;
 
-/**
- * Created by irenesjacob on 30.04.17.
- */
 public class RecordExecTime {
 
     @SyntheticLocal
     static long time;
     @SyntheticLocal
     static long memory;
-    //@Before(marker=BodyMarker.class, scope="org.apache.lucene.index.*.*")
-    //@Before(marker=BodyMarker.class, scope="rogora.Foo.*")
-    //@Before(marker=BodyMarker.class, scope="avrora.actions.*.*")
-    //@Before(marker=BodyMarker.class, scope="org.h2.result.Row.getValue")
-    @Before(marker=BodyMarker.class, scope="com.google.javascript.jscomp.*.*")
+
+
+    @Before(marker=BodyMarker.class, scope="com.google.javascript.rhino.Node.*")
     static void pushOnMethodEntry(){
         time = System.nanoTime();
     	//Runtime r = Runtime.getRuntime();
 	//memory = r.freeMemory();
     }
 
-    //@After(marker=BodyMarker.class, scope="org.apache.lucene.index.*.*")
-    //@After(marker=BodyMarker.class, scope="rogora.Foo.*")
-    //@After(marker=BodyMarker.class, scope="avrora.actions.*.*")
-    @After(marker=BodyMarker.class, scope="com.google.javascript.jscomp.*.*")
+
+    @After(marker=BodyMarker.class, scope="com.google.javascript.rhino.Node.*")
     //@After(marker=BodyMarker.class, scope="org.h2.result.Row.getValue")
     static void popOnMethodExit(ArgumentProcessorContext apc, MethodStaticContext msc){
     	//Runtime r = Runtime.getRuntime();
@@ -50,35 +44,49 @@ public class RecordExecTime {
 		if (arguments[a] instanceof Integer) {
 			//System.out.println("Arg " + a + " : int");
 			m.ft = Measurement.FeatureType.FT_INT;
-			m.fv = (int)arguments[a]; 
+			m.fv = (int)arguments[a];
 			//m.value = umem;
 			m.value = duration;
         	}
 		else if (arguments[a] instanceof String) {
 			m.ft = Measurement.FeatureType.FT_STRING;
-			m.fv = ((String)arguments[a]).length(); 
+			m.fv = ((String)arguments[a]).length();
 			//m.value = umem;
 			m.value = duration;
         	}
 		else if (arguments[a] instanceof Collection) {
 			m.ft = Measurement.FeatureType.FT_COLLECTION;
-			m.fv = ((Collection)arguments[a]).size(); 
+			m.fv = ((Collection)arguments[a]).size();
 			//m.value = umem;
 			m.value = duration;
         	}
 		else if (arguments[a] instanceof Arrays) {
 			m.ft = Measurement.FeatureType.FT_ARRAY;
-			m.fv = 1;//((Arrays)arguments[a]).length; 
+			m.fv = 1;//((Arrays)arguments[a]).length;
 			//m.value = umem;
 			m.value = duration;
         	}
 		else {
 			//System.out.println("Arg " + a + " : unk");
 			m.ft = Measurement.FeatureType.FT_UNKNOWN;
-			m.fv = -1; 
+			m.fv = -1;
 			//m.value = umem;
 			m.value = duration;
 		}
+		ProfileExecutionTime.addValue(msc.thisMethodFullName(), m);
+	}
+	Object rec = apc.getReceiver(ch.usi.dag.disl.processorcontext.ArgumentProcessorMode.METHOD_ARGS);
+	if (rec instanceof Node) {
+		Node n = (Node)rec;
+		//
+	 	Measurement m = new Measurement();
+		m.arg_idx = a;
+		m.ft = Measurement.FeatureType.FT_NODEF1;
+		m.fv = n.getChildCount();
+		if (msc.thisMethodFullName().equals("com/google/javascript/rhino/Node.setInputId"))
+			System.out.println("Node! " + m.fv);
+		m.value = duration;
+		m.value = duration;
 		ProfileExecutionTime.addValue(msc.thisMethodFullName(), m);
 	}
     }

@@ -179,7 +179,7 @@ public class ProfileExecutionTime {
      	System.out.println("AAA");
          Runtime.getRuntime().addShutdownHook(new Thread(() -> {
              try{
-                 final Path completed = FileSystems.getDefault().getPath("./lucene","Index.dat");
+                 final Path completed = FileSystems.getDefault().getPath("./h2","Index.dat");
                  PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
 		 for (String name: cache.keySet()) {
 		 	double cov = compute_best_pearson_coeff(name);

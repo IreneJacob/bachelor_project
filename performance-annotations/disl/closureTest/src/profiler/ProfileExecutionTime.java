@@ -11,6 +11,9 @@ import java.util.HashSet;
 import java.util.Set;
 import profiler.Measurement;
 
+/**
+ * Created by irenesjacob on 30.04.17.
+ */
 public class ProfileExecutionTime {
    private ProfileExecutionTime(){/*Prevent instantiation*/}
      private static double compute_best_pearson_coeff(String name) {
@@ -132,79 +135,50 @@ public class ProfileExecutionTime {
 
      private static void print_values(String pname) {
              try{
-                 final Path completed = FileSystems.getDefault().getPath("./logs/pcc","Values.dat");
+                 final Path completed = FileSystems.getDefault().getPath("./logs/pcc/","Values.txt");
                  PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
 			for (Measurement m: cache.get(pname)) {
-				out.println(m.arg_idx + " | " + m.ft + " | " + m.fv + ": " + m.value);
+				out.println(pname + ":" + m.arg_idx + " | " + m.ft + " | " + m.fv + ": " + m.value);
 			}
                  out.close();
              }catch (IOException e){
                  System.out.println(" hook called. Failed to write");
              }
      }
-    private static void print_feat_value_pair(String pname, Measurement.FeatureType featureType) {
-        try{
-            final Path completed = FileSystems.getDefault().getPath("./lucene","refactoringIndex.dat");
-            PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
-            for (Measurement m: cache.get(pname)) {
-                if (m.ft.equals(featureType)){
-                    out.println(m.fv + " \t " + m.value );
-                }
-            }
-            out.close();
-        }catch (IOException e){
-            System.out.println(" hook called. Failed to write");
-        }
-    }
+
      private static final HashMap<String, ArrayList<Measurement>> cache = new HashMap<String, ArrayList<Measurement>>();
-     private static Measurement measurement = new Measurement();
-
-     public static void setMeasurementFeatureType(Measurement.FeatureType f){
-         measurement.ft = f;
-     }
-
-     public static void setMeasurementValue(long v){
-         measurement.value = v;
-     }
-
-     public static void setMeasurementFeatureValue(long f){
-         measurement.fv = f;
-     }
-
-     public static void setMeasurementArgIndex(int i){
-         measurement.arg_idx = i;
-     }
 
      static {
      	System.out.println("AAA");
          Runtime.getRuntime().addShutdownHook(new Thread(() -> {
              try{
-                 final Path completed = FileSystems.getDefault().getPath("./logs/pcc","jscompIndex.dat");
+                 final Path completed = FileSystems.getDefault().getPath("./logs/pcc/","Index.txt");
                  PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
 		 for (String name: cache.keySet()) {
 		 	double cov = compute_best_pearson_coeff(name);
-			out.println(name + ": " + cov);
+			if (Math.abs(cov) > 0.6)
+				out.println(name + ": " + cov);
+				//print_values(name);
 		 }
-//		 print_values("com/google/javascript/rhino/jstype/TemplateTypeMap.<init>");
-//		 print_feat_value_pair("org/apache/lucene/index/SegmentInfo.hasSeparateNorms", Measurement.FeatureType.FT_COLLECTION);
 		 //print_values("org/apache/lucene/index/DocumentsWriter.recycleCharBlocks");
 		 //print_values("org/apache/lucene/index/TermsHash.recyclePostings");
-                 out.close();
+//		 print_values("com/google/javascript/rhino/Node.useSourceInfoIfMissingFromForTree");
+//                 print_values("com/google/javascript/rhino/Node.useSourceInfoIfMissingFromForTree");
+// 		 print_values("com/google/javascript/rhino/Node.setInputId");
+		 out.close();
              }catch (IOException e){
                  System.out.println(" hook called. Failed to write");
              }
          }));
      }
 
-     public static void addMethod(final String name){
-         addValue(name, measurement);
-     }
+
 
      public static void addValue(final String name, final Measurement m){
         if (!cache.containsKey(name))
-		cache.put(name, new ArrayList<Measurement>());	
+		cache.put(name, new ArrayList<Measurement>());
 	cache.get(name).add(m);
-	 
+
          // value can be execution time, bytecode executed etc.
      }
 }

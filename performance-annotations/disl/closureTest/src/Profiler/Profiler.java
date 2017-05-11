@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class Profiler {
 
     private static final ArrayList<KeyValuePair> pairs = new ArrayList<>();
-    private static final Path file = FileSystems.getDefault().getPath("./logs/pcc","TemplateTypeMapInit.dat");
+    private static final Path file = FileSystems.getDefault().getPath("./logs/pcc/","setInputID3.dat");
     private static PrintWriter out = null;
     static {
         try{
@@ -40,6 +40,7 @@ public class Profiler {
             out.println(feature+ "\t" + duration);
         }
     }
+
     public static void writeStrFeat(final String feature, final long duration){
         if (out != null){
             out.println(feature.length()+ "\t" + duration);
