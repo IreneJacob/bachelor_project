@@ -24,3 +24,12 @@ performance-annotations/disl/dacapoTest/h2/getResult.dat.zip
 /performance-annotations/disl/dacapoTest/lucene/lusearchMethods.txt
 /performance-annotations/disl/dacapoTest/sunflow/methods.txt
 **/.DS_Store
+**/src/AccessFeature.java
+**/src/BasicFeature.java
+**/src/HelloWorld.java
+**/src/JSParserExecTime.java
+**/src/MethodNames.java
+**/src/StackTracer.java
+**/src/dataStructures/
+**/src/profiler/BasicProfiler.java
+**/src/profiler/ProfileWithFeature.java
