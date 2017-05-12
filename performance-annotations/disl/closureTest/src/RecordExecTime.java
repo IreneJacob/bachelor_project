@@ -81,7 +81,8 @@ public class RecordExecTime {
 		//
 	 	Measurement m = new Measurement();
 		m.arg_idx = a;
-		m.ft = Measurement.FeatureType.FT_NODEF1;
+//		m.ft = Measurement.FeatureType.FT_NODEF1;
+		m.ft = Measurement.FeatureType.FT_OBJECTRETURNED;
 		m.fv = n.getChildCount();
 		if (msc.thisMethodFullName().equals("com/google/javascript/rhino/Node.setInputId"))
 			System.out.println("Node! " + m.fv);

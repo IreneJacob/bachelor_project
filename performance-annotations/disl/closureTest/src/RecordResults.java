@@ -9,35 +9,29 @@ import com.google.javascript.rhino.Node;
 import profiler.FeatureSearch;
 import profiler.Measurement;
 import profiler.ProfileExecutionTime;
-
-import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-//import profiler.Profiler;
+import profiler.Profiler;
 
 /**
- * Created by irene on 10.05.17.
+ * Created by irenesjacob on 12.05.17.
  */
-public class FeatureValueCorrelation {
-
+public class RecordResults {
     @SyntheticLocal
     static long time;
-    @SyntheticLocal
-    static long memory;
 
-
-    @Before(marker = BodyMarker.class, scope = "com.google.javascript.jscomp.*.*")
-    static void pushOnMethodEntry() {
+    // Before entering the method
+    @Before(marker = BodyMarker.class, scope = "")
+    static void startTimer(){
         time = System.nanoTime();
     }
 
-    @After(marker = BodyMarker.class, scope = "com.google.javascript.jscomp.*.*")
-    static void popOnMethodExit(ArgumentProcessorContext apc, MethodStaticContext msc) {
+    // After exiting the method
+    @After(marker = BodyMarker.class, scope="")
+    static void recordFeatureValuePair(ArgumentProcessorContext apc, MethodStaticContext msc){
         long duration = System.nanoTime() - time;
+        boolean precise = false; // if we have a precise method we are looking for, then we want to record the results and not check the values
         Object[] arguments = apc.getArgs(ArgumentProcessorMode.METHOD_ARGS);
         if (arguments != null) {
-            FeatureSearch.searchForFeatures(arguments, msc.thisMethodFullName(), duration,false);
+            FeatureSearch.searchForFeatures(arguments, msc.thisMethodFullName(), duration,precise);
         }
         Object rec = apc.getReceiver(ArgumentProcessorMode.METHOD_ARGS);
         if (rec != null) {
@@ -49,7 +43,11 @@ public class FeatureValueCorrelation {
                 m.ft = Measurement.FeatureType.FT_OBJECTRETURNED;
                 m.fv = n.getChildCount();
                 m.value = duration;
-                ProfileExecutionTime.addValue(msc.thisMethodFullName(), m);
+                if (precise) {
+                    Profiler.addValue(m);
+                }else{
+                    ProfileExecutionTime.addValue(msc.thisMethodFullName(), m);
+                }
             }
         }
     }
