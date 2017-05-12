@@ -9,11 +9,10 @@ import com.google.javascript.rhino.Node;
 import profiler.FeatureSearch;
 import profiler.Measurement;
 import profiler.ProfileExecutionTime;
+import profiler.Profiler;
 
 import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 //import profiler.Profiler;
 
 /**
@@ -26,20 +25,27 @@ public class FeatureValueCorrelation {
     @SyntheticLocal
     static long memory;
 
+//    com/google/javascript/rhino/Node.useSourceInfoIfMissingFromForTree
+//com/google/javascript/rhino/Node.addChildrenAfter
 
-    @Before(marker = BodyMarker.class, scope = "com.google.javascript.jscomp.*.*")
+    @Before(marker = BodyMarker.class, scope = "com.google.javascript.rhino.Node.*")
     static void pushOnMethodEntry() {
         time = System.nanoTime();
     }
 
-    @After(marker = BodyMarker.class, scope = "com.google.javascript.jscomp.*.*")
+    @After(marker = BodyMarker.class, scope = "com.google.javascript.rhino.Node.*")
     static void popOnMethodExit(ArgumentProcessorContext apc, MethodStaticContext msc) {
         long duration = System.nanoTime() - time;
+        boolean precise = false;
         Object[] arguments = apc.getArgs(ArgumentProcessorMode.METHOD_ARGS);
-        if (arguments != null) {
-            FeatureSearch.searchForFeatures(arguments, msc.thisMethodFullName(), duration,false);
-        }
+//        if ((Set)arguments[0] instanceof Collection){
+//            System.out.println("is a collection");
+//        }
+//        if (arguments != null) {
+//            FeatureSearch.searchForFeatures(arguments, msc.thisMethodFullName(), duration, !precise);
+//        }
         Object rec = apc.getReceiver(ArgumentProcessorMode.METHOD_ARGS);
+
         if (rec != null) {
             if (rec instanceof Node) {
                 Node n = (Node)rec;
@@ -49,7 +55,8 @@ public class FeatureValueCorrelation {
                 m.ft = Measurement.FeatureType.FT_OBJECTRETURNED;
                 m.fv = n.getChildCount();
                 m.value = duration;
-                ProfileExecutionTime.addValue(msc.thisMethodFullName(), m);
+                Profiler.addValue(m);
+//                ProfileExecutionTime.addValue(msc.thisMethodFullName(), m);
             }
         }
     }

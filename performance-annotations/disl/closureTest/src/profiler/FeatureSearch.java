@@ -20,6 +20,7 @@ public class FeatureSearch {
                     if (precise) {
                         Profiler.addValue(m);
                     }else{
+
                         ProfileExecutionTime.addValue(methodName,m);
                     }
 
@@ -27,24 +28,6 @@ public class FeatureSearch {
                 }
             }
     }
-
-//    public static void searchObjectForFeature(Object rec, String methodName, long duration){
-//      if(rec != null){
-//        if (rec instanceof Node) {
-//      		Node n = (Node)rec;
-//      		//
-//      	 	Measurement m = new Measurement();
-//      		m.arg_idx = -1;
-//      		m.ft = Measurement.FeatureType.FT_NODEF1;
-//      		m.fv = n.getChildCount();
-//      		if (methodName.equals("com/google/javascript/rhino/Node.setInputId"))
-//      			System.out.println("Node! " + m.fv);
-//      		m.value = duration;
-//      		ProfileExecutionTime.addValue(methodName, m);
-//      	}
-//      }
-//    }
-
     static Measurement findFeature(Object feature_value, Measurement m){
         if (feature_value instanceof String){
             m.ft = Measurement.FeatureType.FT_STRING;

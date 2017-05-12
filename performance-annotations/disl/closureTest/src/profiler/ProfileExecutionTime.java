@@ -181,8 +181,9 @@ public class ProfileExecutionTime {
 		 //print_values("com/google/javascript/rhino/Node.useSourceInfoIfMissingFromForTree");
 //		 print_values("com/google/javascript/jscomp/CodeGenerator.regexpEscape");
 //		 print_values("com/google/javascript/jscomp/SourceFile.fromCode");
-		 print_values("com/google/javascript/jscomp/Compiler.stopTracer");
+//		 print_values("com/google/javascript/jscomp/Compiler.stopTracer");
 //                 print_values("com/google/javascript/rhino/Node.setInputId");
+                 print_values("com/google/javascript/rhino/Node.addChildrenAfter");
 //		 print_to_dat("com/google/javascript/rhino/Node.setInputId");
 //		 print_to_dat("com/google/javascript/jscomp/CodeGenerator.regexpEscape");
 //		 print_to_dat("com/google/javascript/jscomp/SourceFile.fromCode");
