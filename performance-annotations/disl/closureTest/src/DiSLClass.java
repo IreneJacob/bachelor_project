@@ -6,7 +6,10 @@ import ch.usi.dag.disl.processorcontext.ArgumentProcessorContext;
 import ch.usi.dag.disl.processorcontext.ArgumentProcessorMode;
 import ch.usi.dag.disl.staticcontext.MethodStaticContext;
 import com.google.javascript.rhino.Node;
-import profiler.Profiler;
+import profiler.Measurement;
+import profiler.ProfileExecutionTime;
+import profiler.ProfileWithFeature;
+//import profiler.Profiler;
 
 import java.util.Collection;
 
@@ -28,6 +31,8 @@ public class DiSLClass {
         // an example of value: execution time
         long duration = System.nanoTime() - startTime;
         int feature = ((Node)proc.getReceiver(ArgumentProcessorMode.METHOD_ARGS)).getChildCount();
+//        ProfileExecutionTime.printFeatureValuePair("com.google.javascript.rhino.Node.setInputId", Measurement.FeatureType.FT_NODEF1);
+
 //        ImmutableList<JSType> templateValues = (ImmutableList<JSType>) proc.getArgs(ArgumentProcessorMode.METHOD_ARGS)[1];
 //        int feature = 0;
 //        System.out.println(templateValues.size());
@@ -38,6 +43,6 @@ public class DiSLClass {
 //        int feature = templateValues.size();
 //        int feature = ((Collection)proc.getArgs(ArgumentProcessorMode.METHOD_ARGS)[1]).size();
 //          int feature = (int)proc.getArgs(ArgumentProcessorMode.METHOD_ARG)[0];
-        Profiler.writeToFile(feature,duration);
+//        Profiler.writeToFile(feature,duration);
     }
 }

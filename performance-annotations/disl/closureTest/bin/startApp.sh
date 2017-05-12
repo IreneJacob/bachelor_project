@@ -8,10 +8,15 @@ APP_CP=$APP_JAR
 
 INSTR_JAR=$INSTR_PATH/closureInst.jar
 
-./bin/startProfiler.sh &
+filename=./js/18_test.js
 
-sleep 1
+# for filename in ./js/*.js; do
+    ./bin/startProfiler.sh &
 
-echo starting program
+    sleep 1
 
-java -cp $APP_CP -agentpath:lib/libdislagent.jnilib  -Xbootclasspath/a:lib/disl-bypass.jar:$INSTR_JAR -noverify com.google.javascript.jscomp.CommandLineRunner --js js/facebook2.js --js_output_file output/compressed_file.js
+    echo starting program
+
+    java -cp $APP_CP -agentpath:lib/libdislagent.jnilib  -Xbootclasspath/a:lib/disl-bypass.jar:$INSTR_JAR -noverify com.google.javascript.jscomp.CommandLineRunner --js $filename --js_output_file output/compressed_file.js
+
+# done

@@ -1,5 +1,6 @@
 package profiler;
 
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.nio.file.Path;
 import java.nio.file.FileSystems;
@@ -135,7 +136,7 @@ public class ProfileExecutionTime {
 
      private static void print_values(String pname) {
              try{
-                 final Path completed = FileSystems.getDefault().getPath("./logs/pcc/","Values.txt");
+                 final Path completed = FileSystems.getDefault().getPath("./logs/pcc","Values.dat");
                  PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
 			for (Measurement m: cache.get(pname)) {
 				out.println(pname + ":" + m.arg_idx + " | " + m.ft + " | " + m.fv + ": " + m.value);
@@ -145,26 +146,43 @@ public class ProfileExecutionTime {
                  System.out.println(" hook called. Failed to write");
              }
      }
+     private static void print_to_dat(String name){
+         try{
+//             final Path completed = FileSystems.getDefault().getPath("./logs/pcc","setInputID2.dat");
+//             PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
+             PrintWriter out = new PrintWriter(new FileWriter("./logs/pcc/getType.dat", true));
+             for (Measurement m: cache.get(name)) {
+                 if (m.ft==Measurement.FeatureType.FT_STRING){
+                     out.println(m.fv + "\t" + m.value);
+                 }
+             }
+             out.close();
+         }catch (IOException e){
+             System.out.println(" hook called. Failed to write");
+         }
+     }
 
      private static final HashMap<String, ArrayList<Measurement>> cache = new HashMap<String, ArrayList<Measurement>>();
-
+     
      static {
      	System.out.println("AAA");
          Runtime.getRuntime().addShutdownHook(new Thread(() -> {
              try{
-                 final Path completed = FileSystems.getDefault().getPath("./logs/pcc/","Index.txt");
+                 final Path completed = FileSystems.getDefault().getPath("./logs/pcc","Index.dat");
                  PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
 		 for (String name: cache.keySet()) {
-		 	double cov = compute_best_pearson_coeff(name);
+		 	double cov = compute_best_pearson_coeff(name); 
 			if (Math.abs(cov) > 0.6)
 				out.println(name + ": " + cov);
 				//print_values(name);
 		 }
 		 //print_values("org/apache/lucene/index/DocumentsWriter.recycleCharBlocks");
 		 //print_values("org/apache/lucene/index/TermsHash.recyclePostings");
-//		 print_values("com/google/javascript/rhino/Node.useSourceInfoIfMissingFromForTree");
-//                 print_values("com/google/javascript/rhino/Node.useSourceInfoIfMissingFromForTree");
-// 		 print_values("com/google/javascript/rhino/Node.setInputId");
+		 //print_values("com/google/javascript/rhino/Node.useSourceInfoIfMissingFromForTree");
+//		 print_values("com/google/javascript/rhino/jstype/JSTypeRegistry.getType");
+//                 print_values("com/google/javascript/rhino/Node.setInputId");
+//		 print_to_dat("com/google/javascript/rhino/Node.setInputId");
+//		 print_to_dat("com/google/javascript/rhino/jstype/JSTypeRegistry.getType");
 		 out.close();
              }catch (IOException e){
                  System.out.println(" hook called. Failed to write");
@@ -173,12 +191,11 @@ public class ProfileExecutionTime {
      }
 
 
-
      public static void addValue(final String name, final Measurement m){
         if (!cache.containsKey(name))
-		cache.put(name, new ArrayList<Measurement>());
+		cache.put(name, new ArrayList<Measurement>());	
 	cache.get(name).add(m);
-
+	 
          // value can be execution time, bytecode executed etc.
      }
 }

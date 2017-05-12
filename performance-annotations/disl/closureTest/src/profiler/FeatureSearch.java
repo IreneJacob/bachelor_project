@@ -11,7 +11,6 @@ import java.util.Collection;
 public class FeatureSearch {
 
     public static void searchForFeatures(Object[] method_args, String methodName, long duration){
-        if (method_args != null){
             for (int i = 0; i < method_args.length; i++ ) {
                 if (method_args[i] != null){
                     Measurement m = new Measurement();
@@ -19,10 +18,8 @@ public class FeatureSearch {
                     m.value = duration;
                     findFeature(method_args[i],m);
                     ProfileExecutionTime.addValue(methodName,m);
-//                    Profiler.addValue(methodName,m);
                 }
             }
-        }
     }
 
 //    public static void searchObjectForFeature(Object rec, String methodName, long duration){
@@ -48,7 +45,7 @@ public class FeatureSearch {
             m.fv = ((String) feature_value).length();
         }else if (feature_value instanceof Integer){
             m.ft = Measurement.FeatureType.FT_INT;
-            m.fv = ((Integer) feature_value);
+            m.fv = ((int) feature_value);
         }else if (feature_value instanceof Collection){
             m.ft = Measurement.FeatureType.FT_COLLECTION;
             m.fv = ((Collection) feature_value).size();

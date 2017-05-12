@@ -6,8 +6,6 @@
 *.out
 *.tex
 *.synctex.gz
-AspectJ-Tutorial-jayway/
-AspectJ-Tutorial-jayway/*
 **/output/
 **/output/*
 **/idea/
@@ -24,6 +22,14 @@ performance-annotations/disl/dacapoTest/h2/getResult.dat.zip
 /performance-annotations/disl/dacapoTest/lucene/lusearchMethods.txt
 /performance-annotations/disl/dacapoTest/sunflow/methods.txt
 **/.DS_Store
+samples
+process_journal
+performance-annotations/js
+performance-annotations/libs
+performance-annotations/Makefile~
+performance-annotations/Makefile
+performance-annotations/aspects.jar
+performance-annotations/testAspects
 **/src/AccessFeature.java
 **/src/BasicFeature.java
 **/src/HelloWorld.java
