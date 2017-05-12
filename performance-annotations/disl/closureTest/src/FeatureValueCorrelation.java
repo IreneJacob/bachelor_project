@@ -13,6 +13,7 @@ import profiler.ProfileExecutionTime;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 //import profiler.Profiler;
 
 /**
@@ -26,7 +27,7 @@ public class FeatureValueCorrelation {
     static long memory;
 
 
-    @Before(marker = BodyMarker.class, scope = "com.google.javascript.*.*")
+    @Before(marker = BodyMarker.class, scope = "com.google.javascript.jscomp.*.*")
     static void pushOnMethodEntry() {
         time = System.nanoTime();
     }
@@ -85,7 +86,7 @@ public class FeatureValueCorrelation {
 //        }
 //    }
 
-    @After(marker = BodyMarker.class, scope = "com.google.javascript.*.*")
+    @After(marker = BodyMarker.class, scope = "com.google.javascript.jscomp.*.*")
     static void popOnMethodExit(ArgumentProcessorContext apc, MethodStaticContext msc) {
         long duration = System.nanoTime() - time;
         Object[] arguments = apc.getArgs(ArgumentProcessorMode.METHOD_ARGS);
@@ -99,11 +100,20 @@ public class FeatureValueCorrelation {
                 //
                 Measurement m = new Measurement();
                 m.arg_idx = arguments.length;
-                m.ft = Measurement.FeatureType.FT_NODEF1;
+                m.ft = Measurement.FeatureType.FT_RETOBJ;
                 m.fv = n.getChildCount();
                 m.value = duration;
                 ProfileExecutionTime.addValue(msc.thisMethodFullName(), m);
             }
+//            else if (rec instanceof List){
+//                List<String> listReturned = (List<String>) rec;
+//                Measurement m = new Measurement();
+//                m.arg_idx = arguments.length;
+//                m.ft = Measurement.FeatureType.FT_COLLECTION;
+//                m.fv = listReturned.size();
+//                m.value = duration;
+//                ProfileExecutionTime.addValue(msc.thisMethodFullName(), m);
+//            }
         }
     }
 }

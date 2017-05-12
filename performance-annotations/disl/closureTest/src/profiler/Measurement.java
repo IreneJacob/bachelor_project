@@ -6,7 +6,7 @@ public class Measurement {
 		FT_STRING,
 		FT_COLLECTION,
 		FT_ARRAY,
-		FT_NODEF1,
+		FT_RETOBJ,
 		FT_UNKNOWN
 	};
 

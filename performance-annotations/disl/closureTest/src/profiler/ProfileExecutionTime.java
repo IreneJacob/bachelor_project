@@ -150,9 +150,9 @@ public class ProfileExecutionTime {
          try{
 //             final Path completed = FileSystems.getDefault().getPath("./logs/pcc","setInputID2.dat");
 //             PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
-             PrintWriter out = new PrintWriter(new FileWriter("./logs/pcc/getType.dat", true));
+             PrintWriter out = new PrintWriter(new FileWriter("./logs/pcc/fromCode.dat", true));
              for (Measurement m: cache.get(name)) {
-                 if (m.ft==Measurement.FeatureType.FT_STRING){
+                 if (m.ft==Measurement.FeatureType.FT_COLLECTION){
                      out.println(m.fv + "\t" + m.value);
                  }
              }
@@ -179,10 +179,13 @@ public class ProfileExecutionTime {
 		 //print_values("org/apache/lucene/index/DocumentsWriter.recycleCharBlocks");
 		 //print_values("org/apache/lucene/index/TermsHash.recyclePostings");
 		 //print_values("com/google/javascript/rhino/Node.useSourceInfoIfMissingFromForTree");
-//		 print_values("com/google/javascript/rhino/jstype/JSTypeRegistry.getType");
+//		 print_values("com/google/javascript/jscomp/CodeGenerator.regexpEscape");
+//		 print_values("com/google/javascript/jscomp/SourceFile.fromCode");
+		 print_values("com/google/javascript/jscomp/Compiler.stopTracer");
 //                 print_values("com/google/javascript/rhino/Node.setInputId");
 //		 print_to_dat("com/google/javascript/rhino/Node.setInputId");
-//		 print_to_dat("com/google/javascript/rhino/jstype/JSTypeRegistry.getType");
+//		 print_to_dat("com/google/javascript/jscomp/CodeGenerator.regexpEscape");
+//		 print_to_dat("com/google/javascript/jscomp/SourceFile.fromCode");
 		 out.close();
              }catch (IOException e){
                  System.out.println(" hook called. Failed to write");
