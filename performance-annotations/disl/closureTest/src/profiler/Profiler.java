@@ -21,7 +21,7 @@ public class Profiler {
             try{
 //                final Path completed = FileSystems.getDefault().getPath("./logs/pcc","addChildrenAfter.dat");
 //                PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
-                PrintWriter out = new PrintWriter(new FileWriter("./logs/pcc/addChildrenAfter.dat", true));
+                PrintWriter out = new PrintWriter(new FileWriter("./logs/pcc/removeFirstChildRECEIVER.dat", true));
                 for (Measurement m: cache) {
                     if (m.ft == Measurement.FeatureType.FT_RECEIVER){
                         out.println(m.fv + "\t" + m.value);
@@ -39,4 +39,3 @@ public class Profiler {
 
 
 }
-

@@ -168,7 +168,7 @@ public class ProfileExecutionTime {
      	System.out.println("AAA");
          Runtime.getRuntime().addShutdownHook(new Thread(() -> {
              try{
-                 final Path completed = FileSystems.getDefault().getPath("./logs/pcc","javascriptIndex.dat");
+                 final Path completed = FileSystems.getDefault().getPath("./logs/pcc","Index.dat");
                  PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
 		 for (String name: cache.keySet()) {
 		 	double cov = compute_best_pearson_coeff(name);
@@ -176,6 +176,7 @@ public class ProfileExecutionTime {
 				out.println(name + ": " + cov);
 				//print_values(name);
 		 }
+         print_values("com/google/javascript/rhino/Node.addChildAfter");
 		 //print_values("org/apache/lucene/index/DocumentsWriter.recycleCharBlocks");
 		 //print_values("org/apache/lucene/index/TermsHash.recyclePostings");
 		 //print_values("com/google/javascript/rhino/Node.useSourceInfoIfMissingFromForTree");

@@ -1,7 +1,6 @@
 package profiler;
 
 import com.google.javascript.rhino.Node;
-
 import java.lang.reflect.Array;
 import java.util.Collection;
 
@@ -19,12 +18,9 @@ public class FeatureSearch {
                     findFeature(method_args[i],m);
                     if (broadScope) {
                         ProfileExecutionTime.addValue(methodName,m);
-
                     }else{
                         Profiler.addValue(m);
                     }
-
-
                 }
             }
     }
@@ -43,7 +39,12 @@ public class FeatureSearch {
             m.fv = Array.getLength(feature_value);
         } else{
             m.ft = Measurement.FeatureType.FT_UNKNOWN;
-            m.fv = -1;//FIXME: What is the feature in this case?
+            m.fv = -1; //FIXME: What is the feature in this case?
+            // if (feature_value instanceof Node) {
+            //     m.fv = ((Node)feature_value).getChildCount();
+            // }else{
+            //     m.fv = -1;//FIXME: What is the feature in this case?
+            // }
         }
         return m;
     }
