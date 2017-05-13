@@ -1,5 +1,6 @@
 package profiler;
 
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.nio.file.Path;
 import java.nio.file.FileSystems;
@@ -11,6 +12,9 @@ import java.util.HashSet;
 import java.util.Set;
 import profiler.Measurement;
 
+/**
+ * Created by irenesjacob on 30.04.17.
+ */
 public class ProfileExecutionTime {
    private ProfileExecutionTime(){/*Prevent instantiation*/}
      private static double compute_best_pearson_coeff(String name) {
@@ -132,79 +136,71 @@ public class ProfileExecutionTime {
 
      private static void print_values(String pname) {
              try{
-                 final Path completed = FileSystems.getDefault().getPath("./lucene","Values.dat");
+                 final Path completed = FileSystems.getDefault().getPath("./logs/pcc","Values.dat");
                  PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
 			for (Measurement m: cache.get(pname)) {
-				out.println(m.arg_idx + " | " + m.ft + " | " + m.fv + ": " + m.value);
+				out.println(pname + ":" + m.arg_idx + " | " + m.ft + " | " + m.fv + ": " + m.value);
 			}
                  out.close();
              }catch (IOException e){
                  System.out.println(" hook called. Failed to write");
              }
      }
-    private static void print_feat_value_pair(String pname, Measurement.FeatureType featureType) {
-        try{
-            final Path completed = FileSystems.getDefault().getPath("./lucene","hasSeparateNorms.dat");
-            PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
-            for (Measurement m: cache.get(pname)) {
-                if (m.ft.equals(featureType)){
-                    out.println(m.fv + " \t " + m.value );
-                }
-            }
-            out.close();
-        }catch (IOException e){
-            System.out.println(" hook called. Failed to write");
-        }
-    }
+     private static void print_to_dat(String name){
+         try{
+//             final Path completed = FileSystems.getDefault().getPath("./logs/pcc","setInputID2.dat");
+//             PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
+             PrintWriter out = new PrintWriter(new FileWriter("./logs/pcc/fromCode.dat", true));
+             for (Measurement m: cache.get(name)) {
+                 if (m.ft==Measurement.FeatureType.FT_COLLECTION){
+                     out.println(m.fv + "\t" + m.value);
+                 }
+             }
+             out.close();
+         }catch (IOException e){
+             System.out.println(" hook called. Failed to write");
+         }
+     }
+
      private static final HashMap<String, ArrayList<Measurement>> cache = new HashMap<String, ArrayList<Measurement>>();
-     private static Measurement measurement = new Measurement();
-
-     public static void setMeasurementFeatureType(Measurement.FeatureType f){
-         measurement.ft = f;
-     }
-
-     public static void setMeasurementValue(long v){
-         measurement.value = v;
-     }
-
-     public static void setMeasurementFeatureValue(long f){
-         measurement.fv = f;
-     }
-
-     public static void setMeasurementArgIndex(int i){
-         measurement.arg_idx = i;
-     }
 
      static {
      	System.out.println("AAA");
          Runtime.getRuntime().addShutdownHook(new Thread(() -> {
              try{
-                 final Path completed = FileSystems.getDefault().getPath("./h2","Index.dat");
+                 final Path completed = FileSystems.getDefault().getPath("./logs/pcc","Index.dat");
                  PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
 		 for (String name: cache.keySet()) {
 		 	double cov = compute_best_pearson_coeff(name);
-			out.println(name + ": " + cov);
+			if (Math.abs(cov) > 0.6)
+				out.println(name + ": " + cov);
+				//print_values(name);
 		 }
-//		 print_values("org/apache/lucene/index/LogMergePolicy.findMergesForOptimize");
-//		 print_feat_value_pair("org/apache/lucene/index/SegmentInfo.hasSeparateNorms", Measurement.FeatureType.FT_COLLECTION);
+         print_values("com/google/javascript/jscomp/CommandLineRunner$Flags.splitPipeParts");
 		 //print_values("org/apache/lucene/index/DocumentsWriter.recycleCharBlocks");
 		 //print_values("org/apache/lucene/index/TermsHash.recyclePostings");
-                 out.close();
+		 //print_values("com/google/javascript/rhino/Node.useSourceInfoIfMissingFromForTree");
+//		 print_values("com/google/javascript/jscomp/CodeGenerator.regexpEscape");
+//		 print_values("com/google/javascript/jscomp/SourceFile.fromCode");
+//		 print_values("com/google/javascript/jscomp/Compiler.stopTracer");
+//                 print_values("com/google/javascript/rhino/Node.setInputId");
+//                 print_values("com/google/javascript/rhino/Node.addChildrenAfter");
+//		 print_to_dat("com/google/javascript/rhino/Node.setInputId");
+//		 print_to_dat("com/google/javascript/jscomp/CodeGenerator.regexpEscape");
+//		 print_to_dat("com/google/javascript/jscomp/SourceFile.fromCode");
+		 out.close();
              }catch (IOException e){
                  System.out.println(" hook called. Failed to write");
              }
          }));
      }
 
-     public static void addMethod(final String name){
-         addValue(name, measurement);
-     }
 
      public static void addValue(final String name, final Measurement m){
         if (!cache.containsKey(name))
-		cache.put(name, new ArrayList<Measurement>());	
+		cache.put(name, new ArrayList<Measurement>());
 	cache.get(name).add(m);
-	 
+
          // value can be execution time, bytecode executed etc.
      }
 }

@@ -1,48 +1,41 @@
 package profiler;
 
-import dataStructures.KeyValuePair;
-
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
- * Created by irene on 07.05.17.
+ * Created by irene on 12.05.17.
  */
 public class Profiler {
-
-    private static final ArrayList<KeyValuePair> pairs = new ArrayList<>();
-    private static final Path file = FileSystems.getDefault().getPath("./lucene","findMergesForOptimize.dat");
-    private static PrintWriter out = null;
-    static {
-        try{
-            out = new PrintWriter(Files.newBufferedWriter(file));
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-    }
-
-    private Profiler(){/* Prevent instantiation */}
+    private static final ArrayList<Measurement> cache = new ArrayList<>();
 
     static {
+        System.out.println("AAA");
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            if (out != null){
+            try{
+//                final Path completed = FileSystems.getDefault().getPath("./logs/pcc","addChildrenAfter.dat");
+//                PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
+                PrintWriter out = new PrintWriter(new FileWriter("./logs/pcc/splitPipeParts.dat", true));
+                for (Measurement m: cache) {
+                    if (m.ft == Measurement.FeatureType.FT_STRING){
+                        out.println(m.fv + "\t" + m.value);
+                    }
+                }
                 out.close();
+            }catch (IOException e){
+                System.out.println(" hook called. Failed to write");
             }
         }));
     }
+    public static void addValue(final Measurement m){
+        cache.add(m);
+    }
 
-    public static void writeToFile(final int feature, final long duration){
-        if (out != null){
-            out.println(feature+ "\t" + duration);
-        }
-    }
-    public static void writeStrFeat(final String feature, final long duration){
-        if (out != null){
-            out.println(feature.length()+ "\t" + duration);
-        }
-    }
+
 }

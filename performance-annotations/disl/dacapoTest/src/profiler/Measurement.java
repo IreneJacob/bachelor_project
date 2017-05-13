@@ -6,6 +6,7 @@ public class Measurement {
 		FT_STRING,
 		FT_COLLECTION,
 		FT_ARRAY,
+		FT_RECEIVER,
 		FT_UNKNOWN
 	};
 
@@ -13,5 +14,4 @@ public class Measurement {
 	public FeatureType ft;
 	public long fv;
 	public int arg_idx;
-
 }
