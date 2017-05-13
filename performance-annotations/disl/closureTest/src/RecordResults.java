@@ -19,13 +19,13 @@ public class RecordResults {
     static long time;
 
     // Before entering the method
-    @Before(marker = BodyMarker.class, scope = "com.google.javascript.rhino.Node.addChildAfter")
+    @Before(marker = BodyMarker.class, scope = "com.google.javascript.jscomp.CommandLineRunner$Flags.splitPipeParts")
     static void startTimer(){
         time = System.nanoTime();
     }
 
     // After exiting the method
-    @After(marker = BodyMarker.class, scope= "com.google.javascript.rhino.Node.addChildAfter")
+    @After(marker = BodyMarker.class, scope= "com.google.javascript.jscomp.CommandLineRunner$Flags.splitPipeParts")
     static void recordFeatureValuePair(ArgumentProcessorContext apc, MethodStaticContext msc){
         long duration = System.nanoTime() - time;
         Object[] arguments = apc.getArgs(ArgumentProcessorMode.METHOD_ARGS);
@@ -41,7 +41,7 @@ public class RecordResults {
             //          Profiler.addValue(m);
             //      }
             //  }
-            //  FeatureSearch.searchForFeatures(arguments, msc.thisMethodFullName(), duration, false);
+             FeatureSearch.searchForFeatures(arguments, msc.thisMethodFullName(), duration, false);
             for (int i = 0; i < arguments.length ; i++ ) {
                 if (arguments[i] instanceof Node) {
                     Node n = (Node)arguments[i];
