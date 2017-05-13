@@ -10,18 +10,18 @@ import java.util.Collection;
  */
 public class FeatureSearch {
 
-    public static void searchForFeatures(Object[] method_args, String methodName, long duration, boolean precise){
+    public static void searchForFeatures(Object[] method_args, String methodName, long duration, boolean broadScope){
             for (int i = 0; i < method_args.length; i++ ) {
                 if (method_args[i] != null){
                     Measurement m = new Measurement();
                     m.arg_idx = i;
                     m.value = duration;
                     findFeature(method_args[i],m);
-                    if (precise) {
-                        Profiler.addValue(m);
-                    }else{
-
+                    if (broadScope) {
                         ProfileExecutionTime.addValue(methodName,m);
+
+                    }else{
+                        Profiler.addValue(m);
                     }
 
 

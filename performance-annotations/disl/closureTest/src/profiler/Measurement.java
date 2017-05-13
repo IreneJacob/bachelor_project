@@ -6,7 +6,7 @@ public class Measurement {
 		FT_STRING,
 		FT_COLLECTION,
 		FT_ARRAY,
-		FT_OBJECTRETURNED,
+		FT_RECEIVER,
 		FT_UNKNOWN
 	};
 

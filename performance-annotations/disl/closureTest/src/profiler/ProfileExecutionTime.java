@@ -163,15 +163,15 @@ public class ProfileExecutionTime {
      }
 
      private static final HashMap<String, ArrayList<Measurement>> cache = new HashMap<String, ArrayList<Measurement>>();
-     
+
      static {
      	System.out.println("AAA");
          Runtime.getRuntime().addShutdownHook(new Thread(() -> {
              try{
-                 final Path completed = FileSystems.getDefault().getPath("./logs/pcc","Index.dat");
+                 final Path completed = FileSystems.getDefault().getPath("./logs/pcc","javascriptIndex.dat");
                  PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
 		 for (String name: cache.keySet()) {
-		 	double cov = compute_best_pearson_coeff(name); 
+		 	double cov = compute_best_pearson_coeff(name);
 			if (Math.abs(cov) > 0.6)
 				out.println(name + ": " + cov);
 				//print_values(name);
@@ -183,7 +183,7 @@ public class ProfileExecutionTime {
 //		 print_values("com/google/javascript/jscomp/SourceFile.fromCode");
 //		 print_values("com/google/javascript/jscomp/Compiler.stopTracer");
 //                 print_values("com/google/javascript/rhino/Node.setInputId");
-                 print_values("com/google/javascript/rhino/Node.addChildrenAfter");
+//                 print_values("com/google/javascript/rhino/Node.addChildrenAfter");
 //		 print_to_dat("com/google/javascript/rhino/Node.setInputId");
 //		 print_to_dat("com/google/javascript/jscomp/CodeGenerator.regexpEscape");
 //		 print_to_dat("com/google/javascript/jscomp/SourceFile.fromCode");
@@ -197,9 +197,9 @@ public class ProfileExecutionTime {
 
      public static void addValue(final String name, final Measurement m){
         if (!cache.containsKey(name))
-		cache.put(name, new ArrayList<Measurement>());	
+		cache.put(name, new ArrayList<Measurement>());
 	cache.get(name).add(m);
-	 
+
          // value can be execution time, bytecode executed etc.
      }
 }

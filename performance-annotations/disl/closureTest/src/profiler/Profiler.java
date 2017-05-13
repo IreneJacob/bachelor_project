@@ -23,7 +23,7 @@ public class Profiler {
 //                PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
                 PrintWriter out = new PrintWriter(new FileWriter("./logs/pcc/addChildrenAfter.dat", true));
                 for (Measurement m: cache) {
-                    if (m.ft == Measurement.FeatureType.FT_OBJECTRETURNED){
+                    if (m.ft == Measurement.FeatureType.FT_RECEIVER){
                         out.println(m.fv + "\t" + m.value);
                     }
                 }
