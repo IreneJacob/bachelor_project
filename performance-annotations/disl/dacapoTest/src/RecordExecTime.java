@@ -9,7 +9,7 @@ import ch.usi.dag.disl.marker.BodyMarker;
 import ch.usi.dag.disl.processorcontext.ArgumentProcessorContext;
 import ch.usi.dag.disl.staticcontext.MethodStaticContext;
 
-import com.google.javascript.rhino.Node;
+// import com.google.javascript.rhino.Node;
 
 public class RecordExecTime {
 
@@ -76,19 +76,19 @@ public class RecordExecTime {
 		ProfileExecutionTime.addValue(msc.thisMethodFullName(), m);
 	}
 	Object rec = apc.getReceiver(ch.usi.dag.disl.processorcontext.ArgumentProcessorMode.METHOD_ARGS);
-	if (rec instanceof Node) {
-		Node n = (Node)rec;
-		//
-	 	Measurement m = new Measurement();
-		m.arg_idx = a;
-//		m.ft = Measurement.FeatureType.FT_NODEF1;
-		m.ft = Measurement.FeatureType.FT_RECEIVER;
-		m.fv = n.getChildCount();
-		if (msc.thisMethodFullName().equals("com/google/javascript/rhino/Node.setInputId"))
-			System.out.println("Node! " + m.fv);
-		m.value = duration;
-		m.value = duration;
-		ProfileExecutionTime.addValue(msc.thisMethodFullName(), m);
-	}
+// 	if (rec instanceof Node) {
+// 		Node n = (Node)rec;
+// 		//
+// 	 	Measurement m = new Measurement();
+// 		m.arg_idx = a;
+// //		m.ft = Measurement.FeatureType.FT_NODEF1;
+// 		m.ft = Measurement.FeatureType.FT_RECEIVER;
+// 		m.fv = n.getChildCount();
+// 		if (msc.thisMethodFullName().equals("com/google/javascript/rhino/Node.setInputId"))
+// 			System.out.println("Node! " + m.fv);
+// 		m.value = duration;
+// 		m.value = duration;
+// 		ProfileExecutionTime.addValue(msc.thisMethodFullName(), m);
+// 	}
     }
 }

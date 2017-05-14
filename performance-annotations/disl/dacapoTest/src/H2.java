@@ -59,7 +59,7 @@ public class H2 {
 //        System.out.println(duration);
 //            ProfileExecutionTime.addValue(duration);
 //            ProfileWithFeature.addFeatureValuePair(feature, duration);
-            Profiler.writeToFile(feature,duration);
+            // Profiler.writeToFile(feature,duration);
         }catch (Exception e){
             System.out.println(e.getStackTrace());
         }

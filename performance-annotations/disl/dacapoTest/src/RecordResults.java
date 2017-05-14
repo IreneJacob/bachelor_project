@@ -5,7 +5,6 @@ import ch.usi.dag.disl.marker.BodyMarker;
 import ch.usi.dag.disl.processorcontext.ArgumentProcessorContext;
 import ch.usi.dag.disl.processorcontext.ArgumentProcessorMode;
 import ch.usi.dag.disl.staticcontext.MethodStaticContext;
-import com.google.javascript.rhino.Node;
 import profiler.FeatureSearch;
 import profiler.Measurement;
 import profiler.ProfileExecutionTime;
@@ -43,32 +42,34 @@ public class RecordResults {
             //  }
              FeatureSearch.searchForFeatures(arguments, msc.thisMethodFullName(), duration, false);
             for (int i = 0; i < arguments.length ; i++ ) {
-                if (arguments[i] instanceof Node) {
-                    Node n = (Node)arguments[i];
-                    if (n != null) {
+                // if (arguments[i] instanceof Node) {
+                    // Node n = (Node)arguments[i];
+                    // if (n != null) {
                         Measurement m = new Measurement();
                         m.arg_idx = arguments.length;
                         m.ft = Measurement.FeatureType.FT_UNKNOWN;
-                        m.fv = n.getChildCount();
+                        // m.fv = n.getChildCount();
+                        m.fv = -1;
                         m.value = duration;
                         Profiler.addValue(m);
-                    }
-                }
+                    // }
+                // }
             }
          }
         Object rec = apc.getReceiver(ArgumentProcessorMode.METHOD_ARGS);
         if (rec != null) {
-            if (rec instanceof Node) {
-                Node n = (Node)rec;
-                if (n != null) {
+            // if (rec instanceof Node) {
+                // Node n = (Node)rec;
+                // if (n != null) {
                     Measurement m = new Measurement();
                     m.arg_idx = arguments.length;
                     m.ft = Measurement.FeatureType.FT_RECEIVER;
-                    m.fv = n.getChildCount();
+                    // m.fv = n.getChildCount();
+                    m.fv = -1;
                     m.value = duration;
                     Profiler.addValue(m);
-                }
-            }
+                // }
+            // }
         }
     }
 }

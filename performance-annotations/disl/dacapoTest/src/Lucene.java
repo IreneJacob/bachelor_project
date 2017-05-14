@@ -95,10 +95,10 @@ public class Lucene {
                 // an example of value: execution time
                 long duration = System.nanoTime() - startTime;
 //                System.out.println("hello");
-                Object[] method_args = proc.getArgs(ArgumentProcessorMode.METHOD_ARGS);
-                if (method_args != null){
-                    FeatureSearch.searchForFeatures(method_args,msc.thisMethodFullName(),duration);
-                }
+                // Object[] method_args = proc.getArgs(ArgumentProcessorMode.METHOD_ARGS);
+                // if (method_args != null){
+                //     FeatureSearch.searchForFeatures(method_args,msc.thisMethodFullName(),duration);
+                // }
         }
 //             */
 
@@ -117,4 +117,3 @@ public class Lucene {
 //     */
 
 }
-

@@ -36,6 +36,6 @@ public class DiSLClass {
 //        int feature = templateValues.size();
         int feature = ((Collection)proc.getArgs(ArgumentProcessorMode.METHOD_ARGS)[1]).size();
 //          int feature = (int)proc.getArgs(ArgumentProcessorMode.METHOD_ARGS)[0];
-        Profiler.writeToFile(feature,duration);
+        // Profiler.writeToFile(feature,duration);
     }
 }
