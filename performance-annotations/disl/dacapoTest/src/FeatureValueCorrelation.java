@@ -27,33 +27,34 @@ public class FeatureValueCorrelation {
 //    com/google/javascript/rhino/Node.useSourceInfoIfMissingFromForTree
 //com/google/javascript/rhino/Node.addChildrenAfter
 
-    @Before(marker = BodyMarker.class, scope = "org.sunflow.math.*.*")
+    @Before(marker = BodyMarker.class, scope = "org.sunflow.core.shader.*.*")
     static void pushOnMethodEntry() {
         time = System.nanoTime();
     }
 
-    @After(marker = BodyMarker.class, scope = "org.sunflow.math.*.*")
+    @After(marker = BodyMarker.class, scope = "org.sunflow.core.shader.*.*")
     static void popOnMethodExit(ArgumentProcessorContext apc, MethodStaticContext msc) {
         long duration = System.nanoTime() - time;
         Object[] arguments = apc.getArgs(ArgumentProcessorMode.METHOD_ARGS);
         if (arguments != null) {
             FeatureSearch.searchForFeatures(arguments, msc.thisMethodFullName(), duration, true);
         }
-        Object rec = apc.getReceiver(ArgumentProcessorMode.METHOD_ARGS);
-
-        if (rec != null) {
-            // if (rec instanceof Node) {
-                // Node n = (Node)rec;
-                //
-                Measurement m = new Measurement();
-                m.arg_idx = arguments.length;
-                m.ft = Measurement.FeatureType.FT_RECEIVER;
-                // m.fv = n.getChildCount();
-                m.fv = 0;
-                m.value = duration;
-//                Profiler.addValue(m);
-                ProfileExecutionTime.addValue(msc.thisMethodFullName(), m);
-            // }
-        }
+//         Object rec = apc.getReceiver(ArgumentProcessorMode.METHOD_ARGS);
+//
+//         if (rec != null) {
+//             // if (rec instanceof Node) {
+//                 // Node n = (Node)rec;
+//                 //
+//                 Measurement m = new Measurement();
+//                 // m.arg_idx = arguments.length;
+//                 m.arg_idx = 100;
+//                 m.ft = Measurement.FeatureType.FT_RECEIVER;
+//                 // m.fv = n.getChildCount();
+//                 m.fv = 0;
+//                 m.value = duration;
+// //                Profiler.addValue(m);
+//                 ProfileExecutionTime.addValue(msc.thisMethodFullName(), m);
+//             // }
+//         }
     }
 }

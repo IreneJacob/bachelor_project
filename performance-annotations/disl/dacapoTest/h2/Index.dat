@@ -1,3 +1,2 @@
-org/h2/jdbc/JdbcConnection.prepareCommand: Infinity
-org/h2/jdbc/JdbcStatement.<init>: Infinity
-org/h2/jdbc/JdbcSQLException.<init>: -1.0
+org/h2/table/MetaTable.createColumns: 0.6475358682613491
+org/h2/table/TableData.addIndex: -0.9970486225346259
