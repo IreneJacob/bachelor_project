@@ -12,6 +12,7 @@
 **/idea/*
 **/scratch/
 **/scratch/*
+report
 performance-annotations/disl/dacapoTest/lib/dacapo-9.12-bach.jar
 performance-annotations/disl/dacapoTest/lucene/methods.txt
 /performance-annotations/disl/dacapoTest/h2/methods.txt
