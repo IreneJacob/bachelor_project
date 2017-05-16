@@ -21,9 +21,9 @@ public class Profiler {
             try{
 //                final Path completed = FileSystems.getDefault().getPath("./logs/pcc","addChildrenAfter.dat");
 //                PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
-                PrintWriter out = new PrintWriter(new FileWriter("./logs/pcc/splitPipeParts.dat", true));
+                PrintWriter out = new PrintWriter(new FileWriter("./h2/SmallLRUCacheNewInstanceMEMORY.dat", true));
                 for (Measurement m: cache) {
-                    if (m.ft == Measurement.FeatureType.FT_STRING){
+                    if (m.ft == Measurement.FeatureType.FT_INT){
                         out.println(m.fv + "\t" + m.value);
                     }
                 }

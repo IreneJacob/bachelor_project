@@ -5,9 +5,11 @@ import ch.usi.dag.disl.marker.BodyMarker;
 import ch.usi.dag.disl.processorcontext.ArgumentProcessorContext;
 import ch.usi.dag.disl.processorcontext.ArgumentProcessorMode;
 import ch.usi.dag.disl.staticcontext.MethodStaticContext;
+import org.h2.engine.Session;
 import profiler.FeatureSearch;
 import profiler.Measurement;
 import profiler.ProfileExecutionTime;
+import org.h2.table.Table;
 import profiler.Profiler;
 
 import java.lang.reflect.Array;
@@ -27,34 +29,56 @@ public class FeatureValueCorrelation {
 //    com/google/javascript/rhino/Node.useSourceInfoIfMissingFromForTree
 //com/google/javascript/rhino/Node.addChildrenAfter
 
-    @Before(marker = BodyMarker.class, scope = "org.sunflow.core.shader.*.*")
+    @Before(marker = BodyMarker.class, scope = "org.h2.expression.Function.*")
     static void pushOnMethodEntry() {
         time = System.nanoTime();
     }
 
-    @After(marker = BodyMarker.class, scope = "org.sunflow.core.shader.*.*")
+    @After(marker = BodyMarker.class, scope = "org.h2.expression.Function.*")
     static void popOnMethodExit(ArgumentProcessorContext apc, MethodStaticContext msc) {
         long duration = System.nanoTime() - time;
+        memory = Runtime.getRuntime().totalMemory();
+        // duration = memory - Runtime.getRuntime().freeMemory();
         Object[] arguments = apc.getArgs(ArgumentProcessorMode.METHOD_ARGS);
         if (arguments != null) {
             FeatureSearch.searchForFeatures(arguments, msc.thisMethodFullName(), duration, true);
+            // for (int i = 0; i < arguments.length ; i++ ) {
+            //     if (arguments[i] instanceof Session) {
+            //        Session t = (Session) arguments[i];
+            //        Measurement m = new Measurement();
+            //        if (arguments != null){
+            //            m.arg_idx = arguments.length;
+            //        }else{
+            //            m.arg_idx = 0;
+            //        }
+            //        m.ft = Measurement.FeatureType.FT_ARRAY;
+            //        m.fv = t.getCurrentSchemaName().length();
+            //        m.value = duration;
+            //        ProfileExecutionTime.addValue(msc.thisMethodFullName(), m);
+            //     }
+            // }
         }
-//         Object rec = apc.getReceiver(ArgumentProcessorMode.METHOD_ARGS);
+        //  Object rec = apc.getReceiver(ArgumentProcessorMode.METHOD_ARGS);
 //
-//         if (rec != null) {
-//             // if (rec instanceof Node) {
-//                 // Node n = (Node)rec;
-//                 //
-//                 Measurement m = new Measurement();
-//                 // m.arg_idx = arguments.length;
-//                 m.arg_idx = 100;
-//                 m.ft = Measurement.FeatureType.FT_RECEIVER;
-//                 // m.fv = n.getChildCount();
-//                 m.fv = 0;
-//                 m.value = duration;
-// //                Profiler.addValue(m);
-//                 ProfileExecutionTime.addValue(msc.thisMethodFullName(), m);
-//             // }
-//         }
+//          if (rec != null) {
+//               if (rec instanceof Table) {
+//                  // Node n = (Node)rec;
+//                  Table t = (Table) rec;
+//                  Measurement m = new Measurement();
+//                  if (arguments != null){
+//                      m.arg_idx = arguments.length;
+//                  }else{
+//                      m.arg_idx = 0;
+//                  }
+// //                 m.arg_idx = (Integer) arguments.length;
+//                  // m.ft = Measurement.FeatureType.FT_RECEIVER;
+//                  m.ft = Measurement.FeatureType.FT_RECEIVER;
+//                  // m.fv = n.getChildCount();
+//                  m.fv = t.getSQL().length();
+//                  m.value = duration;
+//  //                Profiler.addValue(m);
+//                  ProfileExecutionTime.addValue(msc.thisMethodFullName(), m);
+//               }
+//          }
     }
 }

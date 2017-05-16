@@ -1,2 +1,2 @@
-org/h2/table/MetaTable.createColumns: 0.6475358682613491
-org/h2/table/TableData.addIndex: -0.9970486225346259
+org/h2/util/SmallLRUCache.<init>: 0.7480645698231433
+org/h2/util/SmallLRUCache.newInstance: 0.8678166598771508

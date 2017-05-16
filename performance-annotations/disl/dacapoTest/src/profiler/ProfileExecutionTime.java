@@ -136,7 +136,7 @@ public class ProfileExecutionTime {
 
      private static void print_values(String pname) {
              try{
-                 final Path completed = FileSystems.getDefault().getPath("./sunflow","Values.dat");
+                 final Path completed = FileSystems.getDefault().getPath("./h2","Values.dat");
                  PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
 			for (Measurement m: cache.get(pname)) {
 				out.println(pname + ":" + m.arg_idx + " | " + m.ft + " | " + m.fv + ": " + m.value);
@@ -168,7 +168,7 @@ public class ProfileExecutionTime {
      	System.out.println("AAA");
          Runtime.getRuntime().addShutdownHook(new Thread(() -> {
              try{
-                 final Path completed = FileSystems.getDefault().getPath("./sunflow","Index.dat");
+                 final Path completed = FileSystems.getDefault().getPath("./h2","Index.dat");
                  PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
 		 for (String name: cache.keySet()) {
 		 	double cov = compute_best_pearson_coeff(name);
@@ -177,7 +177,7 @@ public class ProfileExecutionTime {
 				//print_values(name);
 		 }
         //  print_values("");
-		 //print_values("org/apache/lucene/index/DocumentsWriter.recycleCharBlocks");
+		//  print_values("org/h2/util/SmallLRUCache.newInstance");
 		 //print_values("org/apache/lucene/index/TermsHash.recyclePostings");
 		 //print_values("com/google/javascript/rhino/Node.useSourceInfoIfMissingFromForTree");
 //		 print_values("com/google/javascript/jscomp/CodeGenerator.regexpEscape");
@@ -197,9 +197,10 @@ public class ProfileExecutionTime {
 
 
      public static void addValue(final String name, final Measurement m){
-        if (!cache.containsKey(name))
-		cache.put(name, new ArrayList<Measurement>());
-	cache.get(name).add(m);
+         if (!cache.containsKey(name)) {
+             cache.put(name, new ArrayList<Measurement>());
+         }
+         cache.get(name).add(m);
 
          // value can be execution time, bytecode executed etc.
      }
