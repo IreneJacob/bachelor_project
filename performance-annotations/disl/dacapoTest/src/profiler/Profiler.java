@@ -19,11 +19,12 @@ public class Profiler {
         System.out.println("AAA");
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             try{
-//                final Path completed = FileSystems.getDefault().getPath("./logs/pcc","addChildrenAfter.dat");
-//                PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
-                PrintWriter out = new PrintWriter(new FileWriter("./h2/SmallLRUCacheNewInstanceMEMORY.dat", true));
+               final Path completed = FileSystems.getDefault().getPath("./lucene","addInternal.dat");
+               PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
+//               System.out.println(cache.size());
+                // PrintWriter out = new PrintWriter(new FileWriter("./lucene/growTermBuffer.dat", true));
                 for (Measurement m: cache) {
-                    if (m.ft == Measurement.FeatureType.FT_INT){
+                    if (m.ft == Measurement.FeatureType.FT_STRING){
                         out.println(m.fv + "\t" + m.value);
                     }
                 }
@@ -33,7 +34,7 @@ public class Profiler {
             }
         }));
     }
-    public static void addValue(final Measurement m){
+    public static synchronized void addValue(final Measurement m){
         cache.add(m);
     }
 

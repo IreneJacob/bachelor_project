@@ -94,6 +94,7 @@ public class Lucene {
         static void onMethodExit(ArgumentProcessorContext proc, MethodStaticContext msc){
                 // an example of value: execution time
                 long duration = System.nanoTime() - startTime;
+                System.out.println("helo");
 //                System.out.println("hello");
                 // Object[] method_args = proc.getArgs(ArgumentProcessorMode.METHOD_ARGS);
                 // if (method_args != null){

@@ -1,6 +1,6 @@
 <project name="dacapoTest" default="info" basedir=".">
     <description>
-        Instrumentation of Closure Compiler using DiSL.
+        Instrumentation of Dacapo Benchmarks using DiSL.
     </description>
     <property name="src.dir" value="src"></property>
     <property name="lib.dir" value="lib"></property>

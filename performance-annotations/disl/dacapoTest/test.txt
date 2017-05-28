@@ -1,0 +1,13 @@
+Buildfile: /Users/irenesjacob/Documents/Semester6/bachelor_project/performance-annotations/disl/dacapoTest/build.xml
+
+build-inst:
+    [mkdir] Created dir: /Users/irenesjacob/Documents/Semester6/bachelor_project/performance-annotations/disl/dacapoTest/output/inst
+    [javac] Compiling 19 source files to /Users/irenesjacob/Documents/Semester6/bachelor_project/performance-annotations/disl/dacapoTest/output/inst
+
+package-inst:
+      [jar] Building jar: /Users/irenesjacob/Documents/Semester6/bachelor_project/performance-annotations/disl/dacapoTest/output/dacapoInst.jar
+
+run:
+     [exec] starting DiSL server
+     [exec] starting program
+     [exec] ===== DaCapo 9.12 luindex starting =====

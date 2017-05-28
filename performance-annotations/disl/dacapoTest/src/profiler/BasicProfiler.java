@@ -20,7 +20,7 @@ public class BasicProfiler {
     static {
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             try{
-                final Path completed = FileSystems.getDefault().getPath("./h2","index.txt");
+                final Path completed = FileSystems.getDefault().getPath("./sunflow","index.txt");
                 PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
                 Map<String, Integer> sortedMap = sortByValue(map);
                 Set set = sortedMap.entrySet();
@@ -57,7 +57,7 @@ public class BasicProfiler {
 
 //    add method name and update count
     public static void addMethod(final String name){
-        if (!map.containsKey(name)){
+        if (!map.containsKey(name) && name != null){
             map.put(name,1);
         }else{
             map.replace(name,map.get(name)+1);

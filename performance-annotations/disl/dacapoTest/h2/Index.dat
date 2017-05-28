@@ -1,2 +1,5 @@
-org/h2/util/SmallLRUCache.<init>: 0.7480645698231433
-org/h2/util/SmallLRUCache.newInstance: 0.8678166598771508
+org/h2/util/ObjectArray.ensureCapacity: 0.7618538035518447
+org/h2/util/StringUtils.arraySplit: 1.0
+org/h2/util/SmallLRUCache.newInstance: 0.9305026399718785
+org/h2/util/ByteUtils.convertBytesToString: -1.0
+org/h2/util/ObjectArray.createArray: 0.6521061070005824
