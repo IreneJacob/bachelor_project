@@ -21,7 +21,7 @@ public class ProfileWithFeature {
     static {
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             try{
-                final Path file = FileSystems.getDefault().getPath("./lucene","setTermBufferInt1.dat");
+                final Path file = FileSystems.getDefault().getPath("./sunflpw","setTermBufferInt1.dat");
                 PrintWriter out = new PrintWriter(Files.newBufferedWriter(file));
 //                System.out.println("reaches here");
                 for (KeyValuePair tuple: pairs){

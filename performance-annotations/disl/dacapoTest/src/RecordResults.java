@@ -24,13 +24,13 @@ public class RecordResults {
     static long memory;
 
     // Before entering the method
-    @Before(marker = BodyMarker.class, scope = "org.apache.lucene.index.FieldInfos.addInternal")
+    @Before(marker = BodyMarker.class, scope = "org.sunflow.core.ParameterList.addIntegerArray")
     static void startTimer() {
         time = System.nanoTime();
     }
 
     // After exiting the method
-    @After(marker = BodyMarker.class, scope = "org.apache.lucene.index.FieldInfos.addInternal")
+    @After(marker = BodyMarker.class, scope = "org.sunflow.core.ParameterList.addIntegerArray")
     static void recordFeatureValuePair(ArgumentProcessorContext apc, MethodStaticContext msc) {
         long duration = System.nanoTime() - time;
         // memory = Runtime.getRuntime().totalMemory();
