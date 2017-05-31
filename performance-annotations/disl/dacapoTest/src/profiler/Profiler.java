@@ -19,12 +19,12 @@ public class Profiler {
         System.out.println("AAA");
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             try{
-               final Path completed = FileSystems.getDefault().getPath("./sunflow","addIntegerArray.dat");
+               final Path completed = FileSystems.getDefault().getPath("./sunflow","BuildTask.dat");
                PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
 //               System.out.println(cache.size());
                 // PrintWriter out = new PrintWriter(new FileWriter("./lucene/growTermBuffer.dat", true));
                 for (Measurement m: cache) {
-                    if (m.ft == Measurement.FeatureType.FT_ARRAY){
+                    if (m.ft == Measurement.FeatureType.FT_INT){
                         out.println(m.fv + "\t" + m.value);
                     }
                 }

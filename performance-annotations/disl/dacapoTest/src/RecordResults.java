@@ -24,31 +24,36 @@ public class RecordResults {
     static long memory;
 
     // Before entering the method
-    @Before(marker = BodyMarker.class, scope = "org.sunflow.core.ParameterList.addIntegerArray")
+    @Before(marker = BodyMarker.class, scope = "org.sunflow.core.accel.KDTree$BuildTask.<init>")
     static void startTimer() {
         time = System.nanoTime();
     }
 
     // After exiting the method
-    @After(marker = BodyMarker.class, scope = "org.sunflow.core.ParameterList.addIntegerArray")
+    @After(marker = BodyMarker.class, scope = "org.sunflow.core.accel.KDTree$BuildTask.<init>")
     static void recordFeatureValuePair(ArgumentProcessorContext apc, MethodStaticContext msc) {
         long duration = System.nanoTime() - time;
         // memory = Runtime.getRuntime().totalMemory();
         // long duration = memory - Runtime.getRuntime().freeMemory();
         Object[] arguments = apc.getArgs(ArgumentProcessorMode.METHOD_ARGS);
         if (arguments != null) {
-            //  Measurement m = new Measurement();
-            //  m.arg_idx = 1;
-            //  m.ft = Measurement.FeatureType.FT_INT;
-            // //  m.fv = ((String) arguments[1]).length();
-            //  m.fv = (int)arguments[1];
-            //  m.value = duration;
-            //  Profiler.addValue(m);
-//            Directory d = (Directory) arguments[0];
-//            int feature = d.
+             Measurement m = new Measurement();
+             m.arg_idx = 0;
+             m.ft = Measurement.FeatureType.FT_INT;
+            //  m.fv = ((String) arguments[1]).length();
+            if (arguments[0] instanceof Integer) {
+                m.fv = (int)(arguments[0]);
+            }else{
+                m.fv = (int)((float)arguments[0]);
+            }
+            //  m.fv = (int)(arguments[0]);
+             m.value = duration;
+             Profiler.addValue(m);
+        //    Directory d = (Directory) arguments[0];
+        //    int feature = d.
 
 //            ProfileWithFeature.addFeatureValuePair((int)arguments[2],duration);
-             FeatureSearch.searchForFeatures(arguments, msc.thisMethodFullName(), duration, false);
+            //  FeatureSearch.searchForFeatures(arguments, msc.thisMethodFullName(), duration, false);
 //             for (int i = 0; i < arguments.length ; i./++ ) {
 //                 if (arguments[i] instanceof IndexWriter) {
 //                    IndexWriter t = (IndexWriter) arguments[i];
