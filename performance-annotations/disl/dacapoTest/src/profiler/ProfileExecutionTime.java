@@ -164,8 +164,8 @@ public class ProfileExecutionTime {
 			}
 
 		 }
-         print_values("org/sunflow/core/accel/KDTree$BuildTask.<init>");
-        //  print_values("org/h2/command/dml/Optimizer.canStop");
+        //  print_values("org/sunflow/core/accel/KDTree$BuildTask.<init>");
+        //  print_values("org/apache/lucene/index/FieldInfo.<init>");
 		 //print_values("org/apache/lucene/index/DocumentsWriter.recycleCharBlocks");
 		 //print_values("org/apache/lucene/index/TermsHash.recyclePostings");
 		 //print_values("com/google/javascript/rhino/Node.useSourceInfoIfMissingFromForTree");

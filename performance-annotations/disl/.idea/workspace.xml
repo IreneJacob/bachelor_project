@@ -18,10 +18,12 @@
       <file leaf-file-name="FeatureValueCorrelation.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dacapoTest/src/FeatureValueCorrelation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
+            <state relative-caret-position="435">
               <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <marker date="1496475182000" expanded="true" signature="1271:1668" ph="{...}" />
+                <marker date="1496475182000" expanded="true" signature="1542:1662" ph="//..." />
               </folding>
             </state>
           </provider>
@@ -41,7 +43,7 @@
         <entry file="file://$PROJECT_DIR$/dacapoTest/src/profiler/FeatureSearch.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="347">
-              <caret line="40" column="55" lean-forward="false" selection-start-line="40" selection-start-column="55" selection-end-line="40" selection-end-column="55" />
+              <caret line="36" column="50" lean-forward="false" selection-start-line="36" selection-start-column="50" selection-end-line="36" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -70,9 +72,11 @@
       <file leaf-file-name="RecordResults.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dacapoTest/src/RecordResults.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="82">
+            <state relative-caret-position="210">
               <caret line="26" column="82" lean-forward="false" selection-start-line="26" selection-start-column="82" selection-end-line="26" selection-end-column="82" />
-              <folding />
+              <folding>
+                <marker date="1496477752000" expanded="true" signature="3987:3995" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -83,10 +87,10 @@
             <state relative-caret-position="165">
               <caret line="18" column="34" lean-forward="false" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
               <folding>
-                <marker date="1496246362000" expanded="true" signature="398:1240" ph="{...}" />
-                <marker date="1496246362000" expanded="true" signature="497:1231" ph="{...}" />
-                <marker date="1496246362000" expanded="false" signature="1306:1316" ph=" { " />
-                <marker date="1496246362000" expanded="false" signature="1329:1335" ph=" }" />
+                <marker date="1496477947000" expanded="true" signature="398:1239" ph="{...}" />
+                <marker date="1496477947000" expanded="true" signature="497:1230" ph="{...}" />
+                <marker date="1496477947000" expanded="false" signature="1305:1315" ph=" { " />
+                <marker date="1496477947000" expanded="false" signature="1328:1334" ph=" }" />
               </folding>
             </state>
           </provider>
@@ -107,7 +111,13 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2265">
               <caret line="160" column="40" lean-forward="false" selection-start-line="160" selection-start-column="40" selection-end-line="160" selection-end-column="40" />
-              <folding />
+              <folding>
+                <marker date="1496477303000" expanded="true" signature="4625:4950" ph="//..." />
+                <marker date="1496477303000" expanded="true" signature="4625:5099" ph="{...}" />
+                <marker date="1496477303000" expanded="true" signature="4625:5109" ph="{...}" />
+                <marker date="1496477303000" expanded="true" signature="5197:5647" ph="{...}" />
+                <marker date="1496477303000" expanded="true" signature="5207:5383" ph="//..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -329,9 +339,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -874,15 +884,17 @@
       <workItem from="1496188939743" duration="2652000" />
       <workItem from="1496234850985" duration="109000" />
       <workItem from="1496239841083" duration="1005000" />
-      <workItem from="1496244352654" duration="1960000" />
+      <workItem from="1496244352654" duration="1999000" />
+      <workItem from="1496478932150" duration="12000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="171347000" />
+    <option name="totallyTimeSpent" value="171398000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="22" width="1916" height="1178" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -896,10 +908,10 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41436464" sideWeight="0.49563318" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41436464" sideWeight="0.49563318" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19477054" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19690502" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="ANTLR Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1181,7 +1193,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="37" lean-forward="false" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1238,7 +1249,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1246,7 +1256,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1286,16 +1295,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2265">
           <caret line="160" column="40" lean-forward="false" selection-start-line="160" selection-start-column="40" selection-end-line="160" selection-end-column="40" />
-          <folding />
+          <folding>
+            <marker date="1496477303000" expanded="true" signature="4625:4950" ph="//..." />
+            <marker date="1496477303000" expanded="true" signature="4625:5099" ph="{...}" />
+            <marker date="1496477303000" expanded="true" signature="4625:5109" ph="{...}" />
+            <marker date="1496477303000" expanded="true" signature="5197:5647" ph="{...}" />
+            <marker date="1496477303000" expanded="true" signature="5207:5383" ph="//..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dacapoTest/src/FeatureValueCorrelation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
+        <state relative-caret-position="435">
           <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1496475182000" expanded="true" signature="1271:1668" ph="{...}" />
+            <marker date="1496475182000" expanded="true" signature="1542:1662" ph="//..." />
           </folding>
         </state>
       </provider>
@@ -1321,26 +1338,28 @@
         <state relative-caret-position="165">
           <caret line="18" column="34" lean-forward="false" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
           <folding>
-            <marker date="1496246362000" expanded="true" signature="398:1240" ph="{...}" />
-            <marker date="1496246362000" expanded="true" signature="497:1231" ph="{...}" />
-            <marker date="1496246362000" expanded="false" signature="1306:1316" ph=" { " />
-            <marker date="1496246362000" expanded="false" signature="1329:1335" ph=" }" />
+            <marker date="1496477947000" expanded="true" signature="398:1239" ph="{...}" />
+            <marker date="1496477947000" expanded="true" signature="497:1230" ph="{...}" />
+            <marker date="1496477947000" expanded="false" signature="1305:1315" ph=" { " />
+            <marker date="1496477947000" expanded="false" signature="1328:1334" ph=" }" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dacapoTest/src/RecordResults.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
+        <state relative-caret-position="210">
           <caret line="26" column="82" lean-forward="false" selection-start-line="26" selection-start-column="82" selection-end-line="26" selection-end-column="82" />
-          <folding />
+          <folding>
+            <marker date="1496477752000" expanded="true" signature="3987:3995" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dacapoTest/src/profiler/FeatureSearch.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="347">
-          <caret line="40" column="55" lean-forward="false" selection-start-line="40" selection-start-column="55" selection-end-line="40" selection-end-column="55" />
+          <caret line="36" column="50" lean-forward="false" selection-start-line="36" selection-start-column="50" selection-end-line="36" selection-end-column="50" />
           <folding />
         </state>
       </provider>

@@ -29,7 +29,7 @@ public class FeatureValueCorrelation {
     @SyntheticLocal
     static long memory;
 
-    @Before(marker = BodyMarker.class, scope = "org.sunflow.core.accel.KDTree$BuildTask.<init>")
+    @Before(marker = BodyMarker.class, scope = "org.sunflow.core.*.*")
     static void pushOnMethodEntry() {
 //        System.setOut(stdout);
         time = System.nanoTime();
@@ -37,7 +37,7 @@ public class FeatureValueCorrelation {
     }
 
 
-    @After(marker = BodyMarker.class, scope = "org.sunflow.core.accel.KDTree$BuildTask.<init>")
+    @After(marker = BodyMarker.class, scope = "org.sunflow.core.*.*")
     static void popOnMethodExit(ArgumentProcessorContext apc, MethodStaticContext msc) {
         long duration = System.nanoTime() - time;
         Object[] arguments = apc.getArgs(ArgumentProcessorMode.METHOD_ARGS);
@@ -45,7 +45,7 @@ public class FeatureValueCorrelation {
             FeatureSearch.searchForFeatures(arguments, msc.thisMethodFullName(), duration, true);
         }
 
-//        Object rec = apc.getReceiver(ArgumentProcessorMode.METHOD_ARGS);
-//        System.out.println(rec.getClass());
+    //    Object rec = apc.getReceiver(ArgumentProcessorMode.METHOD_ARGS);
+    //    System.out.println(rec.getClass());
     }
 }

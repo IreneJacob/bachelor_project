@@ -1,0 +1,12 @@
+org/apache/lucene/search/TermScorer.score: -Infinity
+org/apache/lucene/index/SegmentReader.class$: 1.0
+org/apache/lucene/document/Field$Index.<init>: -0.8563843156558886
+org/apache/lucene/document/Field$Store.<init>: 0.7138844621388555
+org/apache/lucene/document/Field$TermVector.<init>: -0.7435174593259853
+org/apache/lucene/queryParser/QueryParser$Operator.<init>: -1.0
+org/apache/lucene/search/BooleanClause$Occur.<init>: -0.8885820369210875
+org/apache/lucene/document/FieldSelectorResult.<init>: -0.6371686634796141
+org/apache/lucene/index/IndexFileNames.fileNameFromGeneration: 0.7057647273597796
+org/apache/lucene/store/FSDirectory.openInput: 0.6612094385921005
+org/apache/lucene/index/FieldInfos.addInternal: -0.9986592655784365
+org/apache/lucene/index/FieldInfo.<init>: -0.6772449086839872

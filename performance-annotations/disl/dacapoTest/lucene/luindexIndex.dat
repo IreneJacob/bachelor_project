@@ -1,0 +1,9 @@
+org/apache/lucene/analysis/Token.class$: 0.0
+org/apache/lucene/analysis/Token.setEndOffset: -0.007195126852575053
+org/apache/lucene/analysis/Token.setTermLength: -0.0044103176313241114
+org/apache/lucene/analysis/Token.reinit: -0.17796321065767187
+org/apache/lucene/analysis/Token.setTermBuffer: -0.005546296464117803
+org/apache/lucene/analysis/Token.setType: -0.0013907834015398784
+org/apache/lucene/analysis/Token.setStartOffset: -0.005177540284207936
+org/apache/lucene/analysis/Token.setPositionIncrement: 0.0
+org/apache/lucene/analysis/Token.growTermBuffer: 0.0028720228569128576
