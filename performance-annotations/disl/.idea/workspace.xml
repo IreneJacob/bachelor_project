@@ -15,109 +15,12 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="FeatureValueCorrelation.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FeatureValueCorrelation.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dacapoTest/src/FeatureValueCorrelation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <marker date="1496475182000" expanded="true" signature="1271:1668" ph="{...}" />
-                <marker date="1496475182000" expanded="true" signature="1542:1662" ph="//..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MethodCallStackTracer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dacapoTest/src/MethodCallStackTracer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="23" column="67" lean-forward="false" selection-start-line="23" selection-start-column="67" selection-end-line="23" selection-end-column="67" />
+            <state relative-caret-position="315">
+              <caret line="40" column="28" lean-forward="false" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="28" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FeatureSearch.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/dacapoTest/src/profiler/FeatureSearch.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="36" column="50" lean-forward="false" selection-start-line="36" selection-start-column="50" selection-end-line="36" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Measurement.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dacapoTest/src/profiler/Measurement.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PopularMethods.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dacapoTest/src/PopularMethods.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="5" column="32" lean-forward="false" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RecordResults.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dacapoTest/src/RecordResults.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="26" column="82" lean-forward="false" selection-start-line="26" selection-start-column="82" selection-end-line="26" selection-end-column="82" />
-              <folding>
-                <marker date="1496477752000" expanded="true" signature="3987:3995" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Profiler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dacapoTest/src/profiler/Profiler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="18" column="34" lean-forward="false" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
-              <folding>
-                <marker date="1496477947000" expanded="true" signature="398:1239" ph="{...}" />
-                <marker date="1496477947000" expanded="true" signature="497:1230" ph="{...}" />
-                <marker date="1496477947000" expanded="false" signature="1305:1315" ph=" { " />
-                <marker date="1496477947000" expanded="false" signature="1328:1334" ph=" }" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProfileWithFeature.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dacapoTest/src/profiler/ProfileWithFeature.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="23" column="77" lean-forward="false" selection-start-line="23" selection-start-column="77" selection-end-line="23" selection-end-column="77" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProfileExecutionTime.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dacapoTest/src/profiler/ProfileExecutionTime.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2265">
-              <caret line="160" column="40" lean-forward="false" selection-start-line="160" selection-start-column="40" selection-end-line="160" selection-end-column="40" />
-              <folding>
-                <marker date="1496477303000" expanded="true" signature="4625:4950" ph="//..." />
-                <marker date="1496477303000" expanded="true" signature="4625:5099" ph="{...}" />
-                <marker date="1496477303000" expanded="true" signature="4625:5109" ph="{...}" />
-                <marker date="1496477303000" expanded="true" signature="5197:5647" ph="{...}" />
-                <marker date="1496477303000" expanded="true" signature="5207:5383" ph="//..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -128,6 +31,18 @@
             <state relative-caret-position="0">
               <caret line="0" column="11" lean-forward="false" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProfileExecutionTime.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dacapoTest/src/profiler/ProfileExecutionTime.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="166" column="58" lean-forward="false" selection-start-line="166" selection-start-column="58" selection-end-line="166" selection-end-column="58" />
+              <folding>
+                <marker date="1496588601000" expanded="true" signature="4590:4915" ph="//..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -220,9 +135,9 @@
         <option value="$PROJECT_DIR$/dacapoTest/bin/startApp.sh" />
         <option value="$PROJECT_DIR$/dacapoTest/src/profiler/Profiler.java" />
         <option value="$PROJECT_DIR$/dacapoTest/src/RecordResults.java" />
-        <option value="$PROJECT_DIR$/dacapoTest/src/profiler/ProfileExecutionTime.java" />
-        <option value="$PROJECT_DIR$/dacapoTest/src/FeatureValueCorrelation.java" />
         <option value="$PROJECT_DIR$/dacapoTest/src/profiler/FeatureSearch.java" />
+        <option value="$PROJECT_DIR$/dacapoTest/src/FeatureValueCorrelation.java" />
+        <option value="$PROJECT_DIR$/dacapoTest/src/profiler/ProfileExecutionTime.java" />
       </list>
     </option>
   </component>
@@ -253,6 +168,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -315,33 +231,10 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="disl" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="disl" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dacapoTest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="profiler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -886,15 +779,15 @@
       <workItem from="1496239841083" duration="1005000" />
       <workItem from="1496244352654" duration="1999000" />
       <workItem from="1496478932150" duration="12000" />
+      <workItem from="1496587809066" duration="574000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="171398000" />
+    <option name="totallyTimeSpent" value="171972000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="22" width="1916" height="1178" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -908,10 +801,10 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41436464" sideWeight="0.49563318" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2688766" sideWeight="0.49563318" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19690502" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19903949" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="ANTLR Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1283,40 +1176,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dacapoTest/src/profiler/ProfileWithFeature.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="23" column="77" lean-forward="false" selection-start-line="23" selection-start-column="77" selection-end-line="23" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dacapoTest/src/profiler/ProfileExecutionTime.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2265">
-          <caret line="160" column="40" lean-forward="false" selection-start-line="160" selection-start-column="40" selection-end-line="160" selection-end-column="40" />
-          <folding>
-            <marker date="1496477303000" expanded="true" signature="4625:4950" ph="//..." />
-            <marker date="1496477303000" expanded="true" signature="4625:5099" ph="{...}" />
-            <marker date="1496477303000" expanded="true" signature="4625:5109" ph="{...}" />
-            <marker date="1496477303000" expanded="true" signature="5197:5647" ph="{...}" />
-            <marker date="1496477303000" expanded="true" signature="5207:5383" ph="//..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dacapoTest/src/FeatureValueCorrelation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1496475182000" expanded="true" signature="1271:1668" ph="{...}" />
-            <marker date="1496475182000" expanded="true" signature="1542:1662" ph="//..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dacapoTest/src/MethodCallStackTracer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1333,33 +1192,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dacapoTest/src/profiler/Profiler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="18" column="34" lean-forward="false" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
-          <folding>
-            <marker date="1496477947000" expanded="true" signature="398:1239" ph="{...}" />
-            <marker date="1496477947000" expanded="true" signature="497:1230" ph="{...}" />
-            <marker date="1496477947000" expanded="false" signature="1305:1315" ph=" { " />
-            <marker date="1496477947000" expanded="false" signature="1328:1334" ph=" }" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dacapoTest/src/RecordResults.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="26" column="82" lean-forward="false" selection-start-line="26" selection-start-column="82" selection-end-line="26" selection-end-column="82" />
           <folding>
-            <marker date="1496477752000" expanded="true" signature="3987:3995" ph="{...}" />
+            <marker date="1496588746000" expanded="true" signature="1139:3985" ph="{...}" />
+            <marker date="1496588746000" expanded="true" signature="1199:1317" ph="//..." />
+            <marker date="1496588746000" expanded="true" signature="1403:2110" ph="//..." />
+            <marker date="1496588746000" expanded="true" signature="2211:3979" ph="//..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dacapoTest/src/profiler/FeatureSearch.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
+        <state relative-caret-position="510">
           <caret line="36" column="50" lean-forward="false" selection-start-line="36" selection-start-column="50" selection-end-line="36" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dacapoTest/src/profiler/ProfileWithFeature.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="23" column="77" lean-forward="false" selection-start-line="23" selection-start-column="77" selection-end-line="23" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dacapoTest/src/profiler/Profiler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="18" column="34" lean-forward="false" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dacapoTest/src/profiler/ProfileExecutionTime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="166" column="58" lean-forward="false" selection-start-line="166" selection-start-column="58" selection-end-line="166" selection-end-column="58" />
+          <folding>
+            <marker date="1496588601000" expanded="true" signature="4590:4915" ph="//..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dacapoTest/src/FeatureValueCorrelation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="40" column="28" lean-forward="false" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="28" />
           <folding />
         </state>
       </provider>

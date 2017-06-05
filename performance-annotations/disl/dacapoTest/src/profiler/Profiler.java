@@ -19,12 +19,12 @@ public class Profiler {
         System.out.println("AAA");
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             try{
-               final Path completed = FileSystems.getDefault().getPath("./lucene","FieldInfo.dat");
+               final Path completed = FileSystems.getDefault().getPath("./h2","newInstance.dat");
                PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
 //               System.out.println(cache.size());
                 // PrintWriter out = new PrintWriter(new FileWriter("./lucene/growTermBuffer.dat", true));
                 for (Measurement m: cache) {
-                    if (m.ft == Measurement.FeatureType.FT_STRING){
+                    if (m.ft == Measurement.FeatureType.FT_INT){
                         out.println(m.fv + "\t" + m.value);
                     }
                 }

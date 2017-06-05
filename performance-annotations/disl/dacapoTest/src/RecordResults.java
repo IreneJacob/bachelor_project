@@ -24,13 +24,13 @@ public class RecordResults {
     static long memory;
 
     // Before entering the method
-    @Before(marker = BodyMarker.class, scope = "org.apache.lucene.index.FieldInfo.<init>")
+    @Before(marker = BodyMarker.class, scope = "org.h2.util.SmallLRUCache.newInstance")
     static void startTimer() {
         time = System.nanoTime();
     }
 
     // After exiting the method
-    @After(marker = BodyMarker.class, scope = "org.apache.lucene.index.FieldInfo.<init>")
+    @After(marker = BodyMarker.class, scope = "org.h2.util.SmallLRUCache.newInstance")
     static void recordFeatureValuePair(ArgumentProcessorContext apc, MethodStaticContext msc) {
         long duration = System.nanoTime() - time;
         // memory = Runtime.getRuntime().totalMemory();

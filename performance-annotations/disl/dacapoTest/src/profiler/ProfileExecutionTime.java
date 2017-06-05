@@ -136,7 +136,7 @@ public class ProfileExecutionTime {
 
      private static void print_values(String pname) {
              try{
-                 final Path completed = FileSystems.getDefault().getPath("./sunflow","Values.dat");
+                 final Path completed = FileSystems.getDefault().getPath("./h2","Values.dat");
                  PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
 			for (Measurement m: cache.get(pname)) {
 				out.println(pname + ":" + m.arg_idx + " | " + m.ft + " | " + m.fv + ": " + m.value);
@@ -153,7 +153,7 @@ public class ProfileExecutionTime {
      	System.out.println("AAA");
          Runtime.getRuntime().addShutdownHook(new Thread(() -> {
              try{
-                 final Path completed = FileSystems.getDefault().getPath("./sunflow","Index.dat");
+                 final Path completed = FileSystems.getDefault().getPath("./h2","Index.dat");
                  PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
 		 for (String name: cache.keySet()) {
 		 	if (name != ""){
@@ -164,7 +164,7 @@ public class ProfileExecutionTime {
 			}
 
 		 }
-        //  print_values("org/sunflow/core/accel/KDTree$BuildTask.<init>");
+         print_values("org/h2/jdbc/JdbcResultSet.findColumn");
         //  print_values("org/apache/lucene/index/FieldInfo.<init>");
 		 //print_values("org/apache/lucene/index/DocumentsWriter.recycleCharBlocks");
 		 //print_values("org/apache/lucene/index/TermsHash.recyclePostings");

@@ -10,6 +10,7 @@ import profiler.FeatureSearch;
 import profiler.Measurement;
 import profiler.ProfileExecutionTime;
 import org.h2.table.Table;
+import org.h2.message.TraceSystem;
 import profiler.Profiler;
 
 import java.io.ByteArrayOutputStream;
@@ -29,7 +30,7 @@ public class FeatureValueCorrelation {
     @SyntheticLocal
     static long memory;
 
-    @Before(marker = BodyMarker.class, scope = "org.sunflow.core.*.*")
+    @Before(marker = BodyMarker.class, scope = "org.h2.table.*.*")
     static void pushOnMethodEntry() {
 //        System.setOut(stdout);
         time = System.nanoTime();
@@ -37,7 +38,7 @@ public class FeatureValueCorrelation {
     }
 
 
-    @After(marker = BodyMarker.class, scope = "org.sunflow.core.*.*")
+    @After(marker = BodyMarker.class, scope = "org.h2.table.*.*")
     static void popOnMethodExit(ArgumentProcessorContext apc, MethodStaticContext msc) {
         long duration = System.nanoTime() - time;
         Object[] arguments = apc.getArgs(ArgumentProcessorMode.METHOD_ARGS);
@@ -45,7 +46,11 @@ public class FeatureValueCorrelation {
             FeatureSearch.searchForFeatures(arguments, msc.thisMethodFullName(), duration, true);
         }
 
-    //    Object rec = apc.getReceiver(ArgumentProcessorMode.METHOD_ARGS);
-    //    System.out.println(rec.getClass());
+       Object rec = apc.getReceiver(ArgumentProcessorMode.METHOD_ARGS);
+       if (rec instanceof TraceSystem) {
+          TraceSystem tSystem = (TraceSystem) rec;
+        //    System.out.println("instance of TraceSystem");
+
+       }
     }
 }
