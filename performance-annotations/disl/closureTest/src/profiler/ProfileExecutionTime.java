@@ -176,7 +176,7 @@ public class ProfileExecutionTime {
 				out.println(name + ": " + cov);
 				//print_values(name);
 		 }
-         print_values("com/google/javascript/rhino/Node.setInputId");
+         print_values("com/google/javascript/jscomp/parsing/parser/LineNumberTable.computeLineStartOffsets");
 		 //print_values("org/apache/lucene/index/DocumentsWriter.recycleCharBlocks");
 		 //print_values("org/apache/lucene/index/TermsHash.recyclePostings");
 		 //print_values("com/google/javascript/rhino/Node.useSourceInfoIfMissingFromForTree");

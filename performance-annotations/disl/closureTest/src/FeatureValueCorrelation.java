@@ -28,12 +28,12 @@ public class FeatureValueCorrelation {
 //    com/google/javascript/rhino/Node.useSourceInfoIfMissingFromForTree
 //com/google/javascript/rhino/Node.addChildrenAfter
 
-    @Before(marker = BodyMarker.class, scope = "com.google.javascript.rhino.Node.*")
+    @Before(marker = BodyMarker.class, scope = "com.google.javascript.jscomp.parsing.*.*")
     static void pushOnMethodEntry() {
         time = System.nanoTime();
     }
 
-    @After(marker = BodyMarker.class, scope = "com.google.javascript.rhino.Node.*")
+    @After(marker = BodyMarker.class, scope = "com.google.javascript.jscomp.parsing.*.*")
     static void popOnMethodExit(ArgumentProcessorContext apc, MethodStaticContext msc) {
         long duration = System.nanoTime() - time;
         Object[] arguments = apc.getArgs(ArgumentProcessorMode.METHOD_ARGS);
@@ -41,19 +41,17 @@ public class FeatureValueCorrelation {
             FeatureSearch.searchForFeatures(arguments, msc.thisMethodFullName(), duration, true);
         }
         Object rec = apc.getReceiver(ArgumentProcessorMode.METHOD_ARGS);
-
-        if (rec != null) {
-            if (rec instanceof Node) {
-                Node n = (Node)rec;
-                //
-                Measurement m = new Measurement();
-                m.arg_idx = arguments.length;
-                m.ft = Measurement.FeatureType.FT_RECEIVER;
-                m.fv = n.getChildCount();
-                m.value = duration;
-//                Profiler.addValue(m);
-                ProfileExecutionTime.addValue(msc.thisMethodFullName(), m);
-            }
-        }
+        // // if (rec != null) {
+        //     if (rec instanceof Node) {
+        //         Node n = (Node)rec;
+        //         //
+        //         Measurement m = new Measurement();
+        //         m.arg_idx = arguments.length;
+        //         m.ft = Measurement.FeatureType.FT_RECEIVER;
+        //         m.fv = n.getChildCount();
+        //         m.value = duration;
+        //         ProfileExecutionTime.addValue(msc.thisMethodFullName(), m);
+        //     }
+        // // }
     }
 }

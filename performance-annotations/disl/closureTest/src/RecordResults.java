@@ -19,13 +19,13 @@ public class RecordResults {
     static long time;
 
     // Before entering the method
-    @Before(marker = BodyMarker.class, scope = "com.google.javascript.jscomp.CommandLineRunner$Flags.splitPipeParts")
+    @Before(marker = BodyMarker.class, scope = "com.google.javascript.jscomp.parsing.Config.buildAnnotationNames")
     static void startTimer(){
         time = System.nanoTime();
     }
 
     // After exiting the method
-    @After(marker = BodyMarker.class, scope= "com.google.javascript.jscomp.CommandLineRunner$Flags.splitPipeParts")
+    @After(marker = BodyMarker.class, scope= "com.google.javascript.jscomp.parsing.Config.buildAnnotationNames")
     static void recordFeatureValuePair(ArgumentProcessorContext apc, MethodStaticContext msc){
         long duration = System.nanoTime() - time;
         Object[] arguments = apc.getArgs(ArgumentProcessorMode.METHOD_ARGS);
@@ -42,33 +42,33 @@ public class RecordResults {
             //      }
             //  }
              FeatureSearch.searchForFeatures(arguments, msc.thisMethodFullName(), duration, false);
-            for (int i = 0; i < arguments.length ; i++ ) {
-                if (arguments[i] instanceof Node) {
-                    Node n = (Node)arguments[i];
-                    if (n != null) {
-                        Measurement m = new Measurement();
-                        m.arg_idx = arguments.length;
-                        m.ft = Measurement.FeatureType.FT_UNKNOWN;
-                        m.fv = n.getChildCount();
-                        m.value = duration;
-                        Profiler.addValue(m);
-                    }
-                }
-            }
+            // for (int i = 0; i < arguments.length ; i++ ) {
+            //     if (arguments[i] instanceof Node) {
+            //         Node n = (Node)arguments[i];
+            //         if (n != null) {
+            //             Measurement m = new Measurement();
+            //             m.arg_idx = arguments.length;
+            //             m.ft = Measurement.FeatureType.FT_UNKNOWN;
+            //             m.fv = n.getChildCount();
+            //             m.value = duration;
+            //             Profiler.addValue(m);
+            //         }
+            //     }
+            // }
          }
         Object rec = apc.getReceiver(ArgumentProcessorMode.METHOD_ARGS);
-        if (rec != null) {
-            if (rec instanceof Node) {
-                Node n = (Node)rec;
-                if (n != null) {
-                    Measurement m = new Measurement();
-                    m.arg_idx = arguments.length;
-                    m.ft = Measurement.FeatureType.FT_RECEIVER;
-                    m.fv = n.getChildCount();
-                    m.value = duration;
-                    Profiler.addValue(m);
-                }
-            }
-        }
+        // if (rec != null) {
+        //     if (rec instanceof Node) {
+        //         Node n = (Node)rec;
+        //         if (n != null) {
+        //             Measurement m = new Measurement();
+        //             m.arg_idx = arguments.length;
+        //             m.ft = Measurement.FeatureType.FT_RECEIVER;
+        //             m.fv = n.getChildCount();
+        //             m.value = duration;
+        //             Profiler.addValue(m);
+        //         }
+        //     }
+        // }
     }
 }
