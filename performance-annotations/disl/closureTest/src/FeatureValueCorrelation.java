@@ -28,12 +28,12 @@ public class FeatureValueCorrelation {
 //    com/google/javascript/rhino/Node.useSourceInfoIfMissingFromForTree
 //com/google/javascript/rhino/Node.addChildrenAfter
 
-    @Before(marker = BodyMarker.class, scope = "com.google.javascript.jscomp.parsing.*.*")
+    @Before(marker = BodyMarker.class, scope = "com.google.javascript.jscomp.NodeTraversal.*")
     static void pushOnMethodEntry() {
         time = System.nanoTime();
     }
 
-    @After(marker = BodyMarker.class, scope = "com.google.javascript.jscomp.parsing.*.*")
+    @After(marker = BodyMarker.class, scope = "com.google.javascript.jscomp.NodeTraversal.*")
     static void popOnMethodExit(ArgumentProcessorContext apc, MethodStaticContext msc) {
         long duration = System.nanoTime() - time;
         Object[] arguments = apc.getArgs(ArgumentProcessorMode.METHOD_ARGS);

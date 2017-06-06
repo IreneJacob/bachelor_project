@@ -19,29 +19,33 @@ public class RecordResults {
     static long time;
 
     // Before entering the method
-    @Before(marker = BodyMarker.class, scope = "com.google.javascript.jscomp.parsing.Config.buildAnnotationNames")
+    @Before(marker = BodyMarker.class, scope = "com.google.javascript.jscomp.SourceFile.fromCode")
     static void startTimer(){
         time = System.nanoTime();
     }
 
     // After exiting the method
-    @After(marker = BodyMarker.class, scope= "com.google.javascript.jscomp.parsing.Config.buildAnnotationNames")
+    @After(marker = BodyMarker.class, scope= "com.google.javascript.jscomp.SourceFile.fromCode")
     static void recordFeatureValuePair(ArgumentProcessorContext apc, MethodStaticContext msc){
         long duration = System.nanoTime() - time;
         Object[] arguments = apc.getArgs(ArgumentProcessorMode.METHOD_ARGS);
          if (arguments != null) {
             //  if (arguments[1] instanceof Node) {
-            //      Node n = (Node)arguments[1];
-            //      if (n != null) {
-            //          Measurement m = new Measurement();
-            //          m.arg_idx = arguments.length;
-            //          m.ft = Measurement.FeatureType.FT_UNKNOWN;
-            //          m.fv = n.getChildCount();
-            //          m.value = duration;
-            //          Profiler.addValue(m);
-            //      }
+                //  Node n = (Node)arguments[1];
+                 String s = (String)arguments[1];
+                //  if (n != null) {
+                     Measurement m = new Measurement();
+                     m.arg_idx = arguments.length;
+                    //  m.ft = Measurement.FeatureType.FT_UNKNOWN;
+                     m.ft = Measurement.FeatureType.FT_STRING;
+                    //  m.fv = n.getChildCount();
+                     m.fv = s.length();
+                     m.value = duration;
+                     Profiler.addValue(m);
+                //  }
             //  }
-             FeatureSearch.searchForFeatures(arguments, msc.thisMethodFullName(), duration, false);
+
+            //  FeatureSearch.searchForFeatures(arguments, msc.thisMethodFullName(), duration, false);
             // for (int i = 0; i < arguments.length ; i++ ) {
             //     if (arguments[i] instanceof Node) {
             //         Node n = (Node)arguments[i];
@@ -56,7 +60,7 @@ public class RecordResults {
             //     }
             // }
          }
-        Object rec = apc.getReceiver(ArgumentProcessorMode.METHOD_ARGS);
+        // Object rec = apc.getReceiver(ArgumentProcessorMode.METHOD_ARGS);
         // if (rec != null) {
         //     if (rec instanceof Node) {
         //         Node n = (Node)rec;
