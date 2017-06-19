@@ -164,7 +164,8 @@ public class ProfileExecutionTime {
 			}
 
 		 }
-         print_values("org/h2/jdbc/JdbcResultSet.findColumn");
+         print_values("org/h2/index/BaseIndex.getCreateSQLForCopy");
+        //  print_values("org/h2/command/dml/Optimizer.canStop");
         //  print_values("org/apache/lucene/index/FieldInfo.<init>");
 		 //print_values("org/apache/lucene/index/DocumentsWriter.recycleCharBlocks");
 		 //print_values("org/apache/lucene/index/TermsHash.recyclePostings");

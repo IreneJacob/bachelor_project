@@ -26,11 +26,11 @@ import java.util.logging.Logger;
 public class FeatureValueCorrelation {
     @SyntheticLocal
     static long time;
+    // 
+    // @SyntheticLocal
+    // static long memory;
 
-    @SyntheticLocal
-    static long memory;
-
-    @Before(marker = BodyMarker.class, scope = "org.h2.table.*.*")
+    @Before(marker = BodyMarker.class, scope = "org.h2.index.*.*")
     static void pushOnMethodEntry() {
 //        System.setOut(stdout);
         time = System.nanoTime();
@@ -38,7 +38,7 @@ public class FeatureValueCorrelation {
     }
 
 
-    @After(marker = BodyMarker.class, scope = "org.h2.table.*.*")
+    @After(marker = BodyMarker.class, scope = "org.h2.index.*.*")
     static void popOnMethodExit(ArgumentProcessorContext apc, MethodStaticContext msc) {
         long duration = System.nanoTime() - time;
         Object[] arguments = apc.getArgs(ArgumentProcessorMode.METHOD_ARGS);
@@ -46,11 +46,11 @@ public class FeatureValueCorrelation {
             FeatureSearch.searchForFeatures(arguments, msc.thisMethodFullName(), duration, true);
         }
 
-       Object rec = apc.getReceiver(ArgumentProcessorMode.METHOD_ARGS);
-       if (rec instanceof TraceSystem) {
-          TraceSystem tSystem = (TraceSystem) rec;
+    //    Object rec = apc.getReceiver(ArgumentProcessorMode.METHOD_ARGS);
+    //    if (rec instanceof TraceSystem) {
+    //       TraceSystem tSystem = (TraceSystem) rec;
         //    System.out.println("instance of TraceSystem");
 
-       }
+    //    }
     }
 }

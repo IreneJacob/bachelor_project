@@ -14,4 +14,4 @@ sleep 1
 
 echo starting program
 
-java -agentpath:lib/libdislagent.jnilib -Xbootclasspath/a:lib/disl-bypass.jar:${INSTR_JAR} -noverify -jar ${APP_JAR} h2 -s small --no-validation
+java -agentpath:lib/libdislagent.jnilib -Xbootclasspath/a:lib/disl-bypass.jar:${INSTR_JAR} -noverify -jar ${APP_JAR} h2 -s default --no-validation

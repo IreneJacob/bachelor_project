@@ -24,18 +24,40 @@ public class RecordResults {
     static long memory;
 
     // Before entering the method
-    @Before(marker = BodyMarker.class, scope = "org.h2.util.SmallLRUCache.newInstance")
+    @Before(marker = BodyMarker.class, scope = "org.apache.lucene.analysis.Token.setTermBuffer")
     static void startTimer() {
         time = System.nanoTime();
     }
 
     // After exiting the method
-    @After(marker = BodyMarker.class, scope = "org.h2.util.SmallLRUCache.newInstance")
+    @After(marker = BodyMarker.class, scope = "org.apache.lucene.analysis.Token.setTermBuffer")
     static void recordFeatureValuePair(ArgumentProcessorContext apc, MethodStaticContext msc) {
         long duration = System.nanoTime() - time;
         // memory = Runtime.getRuntime().totalMemory();
         // long duration = memory - Runtime.getRuntime().freeMemory();
-        Object[] arguments = apc.getArgs(ArgumentProcessorMode.METHOD_ARGS);
+            Object[] arguments = apc.getArgs(ArgumentProcessorMode.METHOD_ARGS);
+
+            // Measurement m = new Measurement();
+            // m.arg_idx = 2;
+            // m.value = duration;
+            // m.ft = Measurement.FeatureType.FT_INT;
+            // m.fv = (int) (arguments[2]);
+            // Profiler.addValue(m);
+            //
+            // System.out.println(arguments.length);
+            //  Measurement m = new Measurement();
+            //  m.arg_idx = 0;
+            //  m.ft = Measurement.FeatureType.FT_INT;
+            // if (arguments[2] instanceof Integer) {
+            //     m.fv = (int)(arguments[2]);
+            // }
+            // // }else{
+            //     // m.fv = (int)((float)arguments[0]);
+            // // }
+            // //  m.fv = (int)(arguments[0]);
+            //  m.value = duration;
+            //  Profiler.addValue(m);
+
         // if (arguments != null) {
         //      Measurement m = new Measurement();
         //      m.arg_idx = 0;

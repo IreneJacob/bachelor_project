@@ -19,7 +19,7 @@ public class Profiler {
         System.out.println("AAA");
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             try{
-               final Path completed = FileSystems.getDefault().getPath("./h2","newInstance.dat");
+               final Path completed = FileSystems.getDefault().getPath("./lucene","setTermBuffer2.dat");
                PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
 //               System.out.println(cache.size());
                 // PrintWriter out = new PrintWriter(new FileWriter("./lucene/growTermBuffer.dat", true));

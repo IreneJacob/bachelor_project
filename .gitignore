@@ -23,6 +23,7 @@ performance-annotations/disl/dacapoTest/h2/getResult.dat.zip
 /performance-annotations/disl/dacapoTest/lucene/luindexMethods.txt
 /performance-annotations/disl/dacapoTest/lucene/lusearchMethods.txt
 /performance-annotations/disl/dacapoTest/sunflow/methods.txt
+performance-annotations/disl/dacapoTest/lucene/luindexValues.dat
 **/.DS_Store
 samples
 process_journal
