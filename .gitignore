@@ -16,6 +16,7 @@
 **/project_planning/*
 **/.idea/*
 **/output/*
+**/js/*
 
 case_studies/disl/dacapoTest/lib/dacapo-9.12-bach.jar
 case_studies/disl/dacapoTest/lucene/methods.txt
