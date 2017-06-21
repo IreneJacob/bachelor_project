@@ -8,16 +8,14 @@
 *.synctex.gz
 **/output/
 **/output/*
-**/idea/
-**/idea/*
 **/scratch/
 **/scratch/*
 
 **/archive/*
 **/jacob_irene_bachelor_project_report/*
 **/project_planning/*
+**/.idea/*
 
-case_studies/disl/scalaBenchTest/lib/scala-benchmark-suite-0.1.0-20110410.175024-1.jar
 case_studies/disl/dacapoTest/lib/dacapo-9.12-bach.jar
 case_studies/disl/dacapoTest/lucene/methods.txt
 /case_studies/disl/dacapoTest/h2/methods.txt
