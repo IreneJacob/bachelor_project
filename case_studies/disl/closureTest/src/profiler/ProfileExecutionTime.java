@@ -148,8 +148,6 @@ public class ProfileExecutionTime {
      }
      private static void print_to_dat(String name){
          try{
-//             final Path completed = FileSystems.getDefault().getPath("./logs/pcc","setInputID2.dat");
-//             PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
              PrintWriter out = new PrintWriter(new FileWriter("./logs/pcc/fromCode.dat", true));
              for (Measurement m: cache.get(name)) {
                  if (m.ft==Measurement.FeatureType.FT_COLLECTION){
@@ -172,22 +170,11 @@ public class ProfileExecutionTime {
                  PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
 		 for (String name: cache.keySet()) {
 		 	double cov = compute_best_pearson_coeff(name);
+            // prints method names with a PCC value that suggests that the data is not random, along with their PCC value
 			if (Math.abs(cov) > 0.6)
 				out.println(name + ": " + cov);
-				//print_values(name);
 		 }
-         print_values("com/google/javascript/jscomp/CodeGenerator.unrollBinaryOperator");
-		 //print_values("org/apache/lucene/index/DocumentsWriter.recycleCharBlocks");
-		 //print_values("org/apache/lucene/index/TermsHash.recyclePostings");
-		 //print_values("com/google/javascript/rhino/Node.useSourceInfoIfMissingFromForTree");
-//		 print_values("com/google/javascript/jscomp/CodeGenerator.regexpEscape");
-//		 print_values("com/google/javascript/jscomp/SourceFile.fromCode");
-//		 print_values("com/google/javascript/jscomp/Compiler.stopTracer");
-//                 print_values("com/google/javascript/rhino/Node.setInputId");
-//                 print_values("com/google/javascript/rhino/Node.addChildrenAfter");
-//		 print_to_dat("com/google/javascript/rhino/Node.setInputId");
-//		 print_to_dat("com/google/javascript/jscomp/CodeGenerator.regexpEscape");
-//		 print_to_dat("com/google/javascript/jscomp/SourceFile.fromCode");
+         // to print the details of a method and its features in Values.dat: print_values("com/google/javascript/jscomp/CodeGenerator.unrollBinaryOperator");
 		 out.close();
              }catch (IOException e){
                  System.out.println(" hook called. Failed to write");
@@ -200,7 +187,6 @@ public class ProfileExecutionTime {
         if (!cache.containsKey(name))
 		cache.put(name, new ArrayList<Measurement>());
 	cache.get(name).add(m);
-
          // value can be execution time, bytecode executed etc.
      }
 }

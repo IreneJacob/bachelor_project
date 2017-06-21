@@ -30,36 +30,20 @@ public class RecordResults {
         long duration = System.nanoTime() - time;
         Object[] arguments = apc.getArgs(ArgumentProcessorMode.METHOD_ARGS);
          if (arguments != null) {
-            //  if (arguments[1] instanceof Node) {
-                //  Node n = (Node)arguments[1];
-                 String s = (String)arguments[1];
-                //  if (n != null) {
-                     Measurement m = new Measurement();
-                     m.arg_idx = arguments.length;
-                    //  m.ft = Measurement.FeatureType.FT_UNKNOWN;
-                     m.ft = Measurement.FeatureType.FT_STRING;
-                    //  m.fv = n.getChildCount();
-                     m.fv = s.length();
-                     m.value = duration;
-                     Profiler.addValue(m);
-                //  }
-            //  }
-
-            //  FeatureSearch.searchForFeatures(arguments, msc.thisMethodFullName(), duration, false);
-            // for (int i = 0; i < arguments.length ; i++ ) {
-            //     if (arguments[i] instanceof Node) {
-            //         Node n = (Node)arguments[i];
-            //         if (n != null) {
-            //             Measurement m = new Measurement();
-            //             m.arg_idx = arguments.length;
-            //             m.ft = Measurement.FeatureType.FT_UNKNOWN;
-            //             m.fv = n.getChildCount();
-            //             m.value = duration;
-            //             Profiler.addValue(m);
-            //         }
-            //     }
-            // }
+            /*  The commented code below was used to pick one of the * string features in a method where there were multiple
+            * parameters with the same feature type, and we wanted
+            * to observe the parameters as seperate featurs */
+            //  String s = (String)arguments[1];
+            //      Measurement m = new Measurement();
+            //      m.arg_idx = arguments.length;
+            //      m.ft = Measurement.FeatureType.FT_STRING;
+            //      m.fv = s.length();
+            //      m.value = duration;
+            //      Profiler.addValue(m);
+             FeatureSearch.searchForFeatures(arguments, msc.thisMethodFullName(), duration, false);
          }
+        /*  The commented code below was used to collect data for
+        * the setInputId method with its unique feature */
         // Object rec = apc.getReceiver(ArgumentProcessorMode.METHOD_ARGS);
         // if (rec != null) {
         //     if (rec instanceof Node) {

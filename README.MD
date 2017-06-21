@@ -1,4 +1,19 @@
 # Data Analysis for Performance Annotations ![logo align="top"](https://github.com/IreneJacob/performance_annotations/blob/master/logo/logo_small.png)
+Performance problems in large software systems can be difficult to resolve. In particular, identifying a performance issue in the source code of a large system can be an arduous process, with little guarantee of success.
+
+The idea of performance annotations is to provide valuable information regarding the performance characteristics of a piece of code. For example, a performance annotation might relate the running time or space complexity of a function to, say, the size of an input data structure. This information can then be used to optimise a system.
+
+With proper analysis, the data received from these annotations could reveal the parts of the system causing performance problems.
+
+The goal of this project is to derive performance annotations from the execution of a system. In essence, this amounts to recording and analysing relevant data logged by instrumenting a subject system.
+
+Specifically, we look at two case studies in this project:
+
+Closure compiler and these systems from the DaCapo benchmark suite:
+- Lucene - Luindex, Lusearch
+- H2
+- Sunflow
+
 ## Finding popular methods
 In the **src** directory, there is a file *PopularMethods.java*. Change the scope in the @After annotation of the afterMethodExit method, to the scope that you are investigating.
 
@@ -6,9 +21,37 @@ Please note:  for dacapoTest, you can change the benchmark you are testing in th
 
 Details of the output file (such as output filename and where to create the output file) can be set in the shutdown hook of the *BasicProfiler.java* file in the **src/profiler** directory.
 
-## Finding interesting methods and their features
-The scope of the search should be defined in the @Before and @After annotations of the methods pushOnMethodEntry and popOnMethodExit  in the file *FeatureValueCorrelation.java* in the **src** folder. The output location and output filename can be defined in the file *ProfileExecutionTime.java* in the **src/profiler** directory.
+To run the profiler, write the following line in the terminal:
+``` ant clean; ant run ```
 
+Please make sure that the DiSL-Class in the *Manifest.MF* file has the name **PopularMethods**
+
+## Finding interesting methods and their features
+The scope of the search should be defined in the @Before and @After annotations of the methods pushOnMethodEntry and popOnMethodExit  in the file *FeatureValueCorrelation.java* in the **src** folder. The output location and output filename can be defined in the file *ProfileExecutionTime.java* in the **src/profiler** directory. By default the file name is *Index.dat* The output should be the full name of the method and the PCC value calculated for it and its features.
+
+If a particular method looks interesting, then uncomment the line
+```
+print_values("<full-name-of-method>");
+```
+and copy the full name of the method to run find details about the method and its features. Again, the name of the output file for this information and its output location can be changed in the print_values method in the *ProfileExecutionTime.java*  file.
+
+To run the profiler, write the following line in the terminal:
+``` ant clean; ant run ```
+
+Please make sure that the DiSL-Class in the *Manifest.MF* file has the name **FeatureValueCorrelation**
+
+## Recording Results
+Once a promising method has been found from the previous stages, write the scope of the method you are instrumenting as the scope in the file *RecordResults.java* in the **src** directory. The location and name of the output file can be set in the file *Profiler.java* in the directory **src/profiler**. Change the following line of code in *Profiler.java* to select which feature type of the method, you would like the results to observe.
+
+After this, we plot the results and add a fitted curve to the data points to better understand the relation between the value of the feature and the performance metric being measured (execution time in nanoseconds). An example graph is given below
+
+To run the profiler, write the following line in the terminal:
+``` ant clean; ant run ```
+
+Please make sure that the DiSL-Class in the *Manifest.MF* file has the name **RecordResults**
+
+<!-- ![graph]() -->
+<!--
 contains source code for instrumenting closure compiler
 
 bin:
@@ -77,22 +120,4 @@ src:
 
 - The manifest contains the names of the disl classes that will be called by the disl server.
 
-Please note: the ProfileWithFeature and ProfileExecutionTime files do not have to be specified in the manifest as they are not Disl classes (don't have disl annotations).
-
-### The benchmarks:
-
-1. lucene
-
-  - lusearch
-  - luindex
-
-2. h2
-3. sunflow
-
-## disl-2.1
-
-examples on how to instrument a system with DiSL.
-
-## taskprof
-
-more examples on how to instrument a system with DiSL.
+Please note: the ProfileWithFeature and ProfileExecutionTime files do not have to be specified in the manifest as they are not Disl classes (don't have disl annotations). -->
