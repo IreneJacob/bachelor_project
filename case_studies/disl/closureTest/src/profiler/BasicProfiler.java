@@ -22,16 +22,12 @@ public class BasicProfiler {
             try{
                 final Path completed = FileSystems.getDefault().getPath("./logs/pcc","index.txt");
                 PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
-                Map<String, Integer> sortedMap = sortByValue(map);
+                Map<String, Integer> sortedMap = popularitySort(map);
                 Set set = sortedMap.entrySet();
                 Iterator it = set.iterator();
-
-//                http://beginnersbook.com/2013/12/how-to-sort-hashmap-in-java-by-keys-and-values/
                 while(it.hasNext() && count < 500){
-                    Map.Entry mapEntry = (Map.Entry)it.next();
-                    out.printf("%s %8s\n", mapEntry.getKey().toString(),mapEntry.getValue().toString());
-//                    out.print(mapEntry.getKey() + "\t\t\t");
-//                    out.println(mapEntry.getValue());
+                    Map.Entry methodName = (Map.Entry)it.next();
+                    out.printf("%s %8s\n", methodName.getKey().toString(),methodName.getValue().toString());
                     count++;
                 }
                 out.close();
@@ -41,8 +37,7 @@ public class BasicProfiler {
         }));
     }
 
-//    sort map by value (http://stackoverflow.com/questions/109383/sort-a-mapkey-value-by-values-java)
-    private static Map<String,Integer> sortByValue(Map<String,Integer> m){
+    private static Map<String,Integer> popularitySort(Map<String,Integer> m){
         return m.entrySet()
                 .stream()
                 .sorted(Map.Entry.comparingByValue(Collections.reverseOrder()))

@@ -160,17 +160,10 @@ public class ProfileExecutionTime {
 				double cov = compute_best_pearson_coeff(name);
 				if (Math.abs(cov) > 0.6)
 					out.println(name + ": " + cov);
-				//print_values(name);
 			}
 
 		 }
-         print_values("org/h2/index/BaseIndex.getCreateSQLForCopy");
-        //  print_values("org/h2/command/dml/Optimizer.canStop");
-        //  print_values("org/apache/lucene/index/FieldInfo.<init>");
-		 //print_values("org/apache/lucene/index/DocumentsWriter.recycleCharBlocks");
-		 //print_values("org/apache/lucene/index/TermsHash.recyclePostings");
-		 //print_values("com/google/javascript/rhino/Node.useSourceInfoIfMissingFromForTree");
-                //  print_values("com/google/javascript/rhino/Node.setInputId");
+        //  print_values("org/h2/index/BaseIndex.getCreateSQLForCopy");
 		 out.close();
              }catch (IOException e){
                  System.out.println(" hook called. Failed to write");
@@ -180,11 +173,6 @@ public class ProfileExecutionTime {
 
 
      public static synchronized void addValue(final String name, final Measurement m){
-        //  System.out.println(name);
-//        if (cache.containsKey(name)) {
-//            cache.put(name,new ArrayList<Measurement>());
-//        }
-//        cache.get(name).add(m);
           if (name != "") {
               if (!cache.containsKey(name)){
                   cache.put(name, new ArrayList<>());

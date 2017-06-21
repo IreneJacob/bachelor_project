@@ -39,7 +39,7 @@ public class FeatureSearch {
            m.fv = Array.getLength(feature_value);
         } else{
             m.ft = Measurement.FeatureType.FT_UNKNOWN;
-            m.fv = -1; //FIXME: What is the feature in this case?
+            m.fv = -1;
         }
         return m;
     }

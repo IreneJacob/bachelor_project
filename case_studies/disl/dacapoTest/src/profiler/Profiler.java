@@ -21,8 +21,6 @@ public class Profiler {
             try{
                final Path completed = FileSystems.getDefault().getPath("./lucene","setTermBuffer2.dat");
                PrintWriter out = new PrintWriter(Files.newBufferedWriter(completed));
-//               System.out.println(cache.size());
-                // PrintWriter out = new PrintWriter(new FileWriter("./lucene/growTermBuffer.dat", true));
                 for (Measurement m: cache) {
                     if (m.ft == Measurement.FeatureType.FT_INT){
                         out.println(m.fv + "\t" + m.value);

@@ -13,9 +13,5 @@ public class StringArgumentProcessor {
         if (val instanceof String){
             BasicProfiler.addMethod(msc.thisMethodFullName());
         }
-//        System.out.printf(
-//                "method name: %s | arg pos: %d of %d \t| arg val: %s\n",
-//                msc.thisMethodFullName(), ac.getPosition(), ac.getTotalCount(), val
-//        );
     }
 }
