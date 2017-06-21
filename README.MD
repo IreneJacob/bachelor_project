@@ -1,4 +1,4 @@
-# Bachelor Project ![alt logo](https://github.com/IreneJacob/performance_annotations/blob/master/logo.png)
+# ![alt logo](https://github.com/IreneJacob/performance_annotations/blob/master/logo/logo_small.png) Data Analysis for Performance Annotations
 
 ## performance-annotations:
 contains source code written for instrumenting systems using both DiSL and AspectJ
