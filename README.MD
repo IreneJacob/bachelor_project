@@ -52,7 +52,7 @@ Please make sure that the DiSL-Class in the *Manifest.MF* file has the name **Re
 
 An example of a graph from the data collected in this project is given below:
 
-![graph](https://github.com/IreneJacob/performance_annotations/blob/master/poster/sample_graph.png)
+![graph align="center"](https://github.com/IreneJacob/performance_annotations/blob/master/poster/sample_graph.png)
 <!--
 contains source code for instrumenting closure compiler
 
