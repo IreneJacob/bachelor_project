@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="closureInst">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/output/closureInst.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

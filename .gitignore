@@ -15,6 +15,7 @@
 **/jacob_irene_bachelor_project_report/*
 **/project_planning/*
 **/.idea/*
+**/output/*
 
 case_studies/disl/dacapoTest/lib/dacapo-9.12-bach.jar
 case_studies/disl/dacapoTest/lucene/methods.txt
