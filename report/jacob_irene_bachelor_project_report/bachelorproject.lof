@@ -1,0 +1,16 @@
+\contentsline {figure}{\numberline {1}{\ignorespaces DiSL code snippet for logging method names to find popular methods.\relax }}{4}{figure.caption.4}
+\contentsline {figure}{\numberline {2}{\ignorespaces Graphs of method setTermBuffer for the feature types discovered in the initial inspection\relax }}{6}{figure.caption.7}
+\contentsline {figure}{\numberline {3}{\ignorespaces Source code of the method setTermBuffer\relax }}{7}{figure.caption.8}
+\contentsline {figure}{\numberline {4}{\ignorespaces Graphs of setTermBuffer with the two integer parameters as seperate features.\relax }}{7}{figure.caption.9}
+\contentsline {figure}{\numberline {5}{\ignorespaces Graph of the method FieldInfo with the length of a string parameter as its feature type.\relax }}{8}{figure.caption.10}
+\contentsline {figure}{\numberline {6}{\ignorespaces Source code of the constructor of the class FieldInfo\relax }}{8}{figure.caption.11}
+\contentsline {figure}{\numberline {7}{\ignorespaces Graph of method getCreateSQLForCopy \relax }}{9}{figure.caption.13}
+\contentsline {figure}{\numberline {8}{\ignorespaces Graph of the method parseReferences with the length of a string parameter as its feature-type\relax }}{10}{figure.caption.14}
+\contentsline {figure}{\numberline {9}{\ignorespaces Graph of the constructor method from the BuildTask class\relax }}{11}{figure.caption.16}
+\contentsline {figure}{\numberline {10}{\ignorespaces Graph of the execution time of the method buildAnnotationNames with the size of a Collection parameter as its feature type (independant variable)\relax }}{13}{figure.caption.19}
+\contentsline {figure}{\numberline {11}{\ignorespaces Graph of method computeLineStartOffsets with the feature type being the length of a string parameter\relax }}{13}{figure.caption.20}
+\contentsline {figure}{\numberline {13}{\ignorespaces Graph of the setInputId method with the number of child nodes in the receiver object as a feature type for this method, and execution time as the performance metric measured\relax }}{14}{figure.caption.23}
+\contentsline {figure}{\numberline {12}{\ignorespaces Code snippet from the DiSL class where we identify and record relevant information about the object receiver of the method.\relax }}{14}{figure.caption.21}
+\contentsline {figure}{\numberline {14}{\ignorespaces Source code of the setInputId method\relax }}{15}{figure.caption.24}
+\contentsline {figure}{\numberline {15}{\ignorespaces Source code of the traverse method in the NodeTraversal class\relax }}{15}{figure.caption.25}
+\contentsline {figure}{\numberline {16}{\ignorespaces Graph of the traverse method in Closure compiler with child node count (from a parameter) as its feature type\relax }}{16}{figure.caption.26}

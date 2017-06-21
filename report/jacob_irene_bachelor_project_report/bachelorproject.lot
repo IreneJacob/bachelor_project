@@ -1,0 +1,7 @@
+\contentsline {table}{\numberline {1}{\ignorespaces Popular methods in Lucene called during an execution of the Luindex benchmark\relax }}{5}{table.caption.5}
+\contentsline {table}{\numberline {2}{\ignorespaces methods in the scope ``org/apache/Lucene/analysis/Token'' and their PCC values\relax }}{6}{table.caption.6}
+\contentsline {table}{\numberline {3}{\ignorespaces Popular methods in H2 called during an execution of the H2 benchmark\relax }}{9}{table.caption.12}
+\contentsline {table}{\numberline {4}{\ignorespaces methods with a good PCC value in the scope "org.sunflow.core.$\textasteriskcentered $.$\textasteriskcentered $"\relax }}{11}{table.caption.15}
+\contentsline {table}{\numberline {5}{\ignorespaces Popular methods in the scope ``com/google/javascript/'' in the Closure compiler system\relax }}{12}{table.caption.17}
+\contentsline {table}{\numberline {6}{\ignorespaces methods in the scope ``com/google/javascript/jscomp/parsing'' that have a PCC value (absolute value) greater than 0.6 and their PCC values \relax }}{12}{table.caption.18}
+\contentsline {table}{\numberline {7}{\ignorespaces methods in the scope ``com/google/javascript/rhino/Node'' and their PCC values\relax }}{14}{table.caption.22}
