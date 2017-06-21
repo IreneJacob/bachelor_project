@@ -7,7 +7,7 @@ import profiler.BasicProfiler;
  */
 public class PopularMethods {
 
-    @After(marker = BodyMarker.class, scope = "org.sunflow.core.renderer.*.*")
+    @After(marker = BodyMarker.class, scope = "org.h2.index.*.*")
     static void afterMethodExit(MethodStaticContext msc){
        BasicProfiler.addMethod(msc.thisMethodFullName());
     }

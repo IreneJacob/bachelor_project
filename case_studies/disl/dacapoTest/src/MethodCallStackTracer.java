@@ -12,7 +12,7 @@ public class MethodCallStackTracer {
     @ThreadLocal
     static Stack<String> callStack;
 
-    @Before(marker=BodyMarker.class, scope="org.dacapo.luindex.*.*")
+    @Before(marker=BodyMarker.class, scope="org.h2.index.*.*")
     static void pushOnMethodEntry(MethodStaticContext msc){
         System.out.println(msc.thisMethodFullName());
         if (callStack==null) {
@@ -21,7 +21,7 @@ public class MethodCallStackTracer {
         callStack.push(msc.thisMethodFullName());
     }
 
-    @After(marker=BodyMarker.class, scope="org.dacapo.luindex.*.*")
+    @After(marker=BodyMarker.class, scope="org.h2.index.*.*")
     static void popOnMethodExit(ArgumentProcessorContext apc){
         callStack.pop();
     }
