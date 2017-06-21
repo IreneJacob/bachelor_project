@@ -1,4 +1,4 @@
-# Bachelor Project ![alt logo](https://github.com/IreneJacob/performance_annotations/blob/master/logo.pn =100x)
+# Bachelor Project  | ![alt logo](https://github.com/IreneJacob/performance_annotations/blob/master/logo.pn =100x)
 
 ## performance-annotations:
 contains source code written for instrumenting systems using both DiSL and AspectJ
