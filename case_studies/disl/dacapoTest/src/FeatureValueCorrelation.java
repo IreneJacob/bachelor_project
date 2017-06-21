@@ -26,15 +26,10 @@ import java.util.logging.Logger;
 public class FeatureValueCorrelation {
     @SyntheticLocal
     static long time;
-    // 
-    // @SyntheticLocal
-    // static long memory;
 
     @Before(marker = BodyMarker.class, scope = "org.h2.index.*.*")
     static void pushOnMethodEntry() {
-//        System.setOut(stdout);
         time = System.nanoTime();
-//        System.out.println(time);
     }
 
 
@@ -45,12 +40,5 @@ public class FeatureValueCorrelation {
         if (arguments != null) {
             FeatureSearch.searchForFeatures(arguments, msc.thisMethodFullName(), duration, true);
         }
-
-    //    Object rec = apc.getReceiver(ArgumentProcessorMode.METHOD_ARGS);
-    //    if (rec instanceof TraceSystem) {
-    //       TraceSystem tSystem = (TraceSystem) rec;
-        //    System.out.println("instance of TraceSystem");
-
-    //    }
     }
 }

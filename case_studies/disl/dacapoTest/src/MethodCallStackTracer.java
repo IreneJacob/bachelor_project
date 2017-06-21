@@ -23,7 +23,6 @@ public class MethodCallStackTracer {
 
     @After(marker=BodyMarker.class, scope="org.dacapo.luindex.*.*")
     static void popOnMethodExit(ArgumentProcessorContext apc){
-//         apc.apply(IntArgumentProcessor.class, ArgumentProcessorMode.METHOD_ARGS);
         callStack.pop();
     }
 }

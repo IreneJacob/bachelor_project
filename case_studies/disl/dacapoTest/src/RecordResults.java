@@ -33,85 +33,8 @@ public class RecordResults {
     @After(marker = BodyMarker.class, scope = "org.apache.lucene.analysis.Token.setTermBuffer")
     static void recordFeatureValuePair(ArgumentProcessorContext apc, MethodStaticContext msc) {
         long duration = System.nanoTime() - time;
-        // memory = Runtime.getRuntime().totalMemory();
-        // long duration = memory - Runtime.getRuntime().freeMemory();
-            Object[] arguments = apc.getArgs(ArgumentProcessorMode.METHOD_ARGS);
 
-            // Measurement m = new Measurement();
-            // m.arg_idx = 2;
-            // m.value = duration;
-            // m.ft = Measurement.FeatureType.FT_INT;
-            // m.fv = (int) (arguments[2]);
-            // Profiler.addValue(m);
-            //
-            // System.out.println(arguments.length);
-            //  Measurement m = new Measurement();
-            //  m.arg_idx = 0;
-            //  m.ft = Measurement.FeatureType.FT_INT;
-            // if (arguments[2] instanceof Integer) {
-            //     m.fv = (int)(arguments[2]);
-            // }
-            // // }else{
-            //     // m.fv = (int)((float)arguments[0]);
-            // // }
-            // //  m.fv = (int)(arguments[0]);
-            //  m.value = duration;
-            //  Profiler.addValue(m);
-
-        // if (arguments != null) {
-        //      Measurement m = new Measurement();
-        //      m.arg_idx = 0;
-        //      m.ft = Measurement.FeatureType.FT_INT;
-        //     //  m.fv = ((String) arguments[1]).length();
-        //     if (arguments[0] instanceof Integer) {
-        //         m.fv = (int)(arguments[0]);
-        //     }else{
-        //         m.fv = (int)((float)arguments[0]);
-        //     }
-        //     //  m.fv = (int)(arguments[0]);
-        //      m.value = duration;
-        //      Profiler.addValue(m);
-        //    Directory d = (Directory) arguments[0];
-        //    int feature = d.
-
-//            ProfileWithFeature.addFeatureValuePair((int)arguments[2],duration);
-             FeatureSearch.searchForFeatures(arguments, msc.thisMethodFullName(), duration, false);
-//             for (int i = 0; i < arguments.length ; i./++ ) {
-//                 if (arguments[i] instanceof IndexWriter) {
-//                    IndexWriter t = (IndexWriter) arguments[i];
-//                    Measurement m = new Measurement();
-//                    if (arguments != null){
-//                        m.arg_idx = arguments.length;
-//                    }else{
-//                        m.arg_idx = 0;
-//                    }
-//                    m.ft = Measurement.FeatureType.FT_ARRAY;
-//                    m.fv = t.getMaxFieldLength();
-//                    m.value = duration;
-//                    Profiler.addValue(m);
-//                 //    ProfileExecutionTime.addValue(msc.thisMethodFullName(), m);
-//                 }
-//             }
-//         }
-//            Object rec = apc.getReceiver(ArgumentProcessorMode.METHOD_ARGS);
-//            System.out.println(rec.getClass());
-//            if (rec != null) {
-//                if (rec instanceof CheckIndex.Status.SegmentInfoStatus) {
-//                    CheckIndex.Status.SegmentInfoStatus t = (CheckIndex.Status.SegmentInfoStatus) rec;
-//                    if (t != null) {
-//                        // if (rec instanceof Node) {
-//                        // Node n = (Node)rec;
-//                        // if (n != null) {
-//                        Measurement m = new Measurement();
-//                        m.arg_idx = arguments.length;
-//                        m.ft = Measurement.FeatureType.FT_RECEIVER;
-//                        // m.fv = n.getChildCount();
-//                        m.fv = t.numFiles;
-//                        m.value = duration;
-//                        Profiler.addValue(m);
-//                    }
-//                }
-//            }
-        // }
+        Object[] arguments = apc.getArgs(ArgumentProcessorMode.METHOD_ARGS);
+        FeatureSearch.searchForFeatures(arguments, msc.thisMethodFullName(), duration, false);
     }
 }
