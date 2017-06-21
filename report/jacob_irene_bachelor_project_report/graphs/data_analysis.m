@@ -1,3 +1,7 @@
+% Irene Jacob - Performance Annotations
+%   This file is used to draw the graphs for the report and add fitted
+%   curves to the data points as well as looking at their PCC values.
+
 clear all;
 clc;
 
