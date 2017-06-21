@@ -1,5 +1,13 @@
 # Data Analysis for Performance Annotations ![logo align="top"](https://github.com/IreneJacob/performance_annotations/blob/master/logo/logo_small.png)
-## closureTest
+## Finding popular methods
+In the **src** directory, there is a file *PopularMethods.java*. Change the scope in the @After annotation of the afterMethodExit method, to the scope that you are investigating.
+
+Please note:  for dacapoTest, you can change the benchmark you are testing in the file *startApp.sh* in the **bin** directory. Similarly, to test a different javascript file for closureTest, change the filename in *startApp.sh*
+
+Details of the output file (such as output filename and where to create the output file) can be set in the shutdown hook of the *BasicProfiler.java* file in the **src/profiler** directory.
+
+## Finding interesting methods and their features
+The scope of the search should be defined in the @Before and @After annotations of the methods pushOnMethodEntry and popOnMethodExit  in the file *FeatureValueCorrelation.java* in the **src** folder. The output location and output filename can be defined in the file *ProfileExecutionTime.java* in the **src/profiler** directory.
 
 contains source code for instrumenting closure compiler
 
